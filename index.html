@@ -3,237 +3,320 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sundhar Ganesh | System & DevOps Engineer</title>
+    <title>Sundhar Ganesh - Systems Engineer | DevOps Enthusiast</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;600&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
+    <!-- Navigation -->
     <nav class="navbar">
-        <div class="logo">&lt;SG /&gt;</div>
+        <div class="logo">&lt;SG/&gt;</div>
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
-        <div class="hamburger">
-            <i class="fas fa-bars"></i>
-        </div>
+        <div class="hamburger">☰</div>
     </nav>
 
+    <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="container hero-grid">
-            
-            <div class="hero-text">
-                <p class="greeting">Hi, my name is</p>
-                <h1 class="name">Sundhar Ganesh.</h1> <h2 class="role">System Engineer <span class="highlight">&gt;</span> DevOps.</h2> <p class="bio">
-                    I have 6+ years of experience maintaining mission-critical hospital IT systems. 
-                    Now, I'm deploying scalable solutions with <span class="highlight">Docker, Jenkins, & Prometheus</span>. </p>
-                <div class="hero-btns">
-                    <a href="#projects" class="btn primary-btn">View Projects</a>
-                    <a href="#contact" class="btn secondary-btn">Contact Me</a>
-                </div>
-            </div>
-            
-            <div class="hero-visuals">
-                <div class="profile-wrapper">
-                    <img src="profile.png" alt="Sundhar Ganesh" class="profile-img">
-                </div>
-
-                <div class="terminal-window floating-terminal">
-                    <div class="terminal-header">
-                        <span class="dot red"></span>
-                        <span class="dot yellow"></span>
-                        <span class="dot green"></span>
-                        <span class="title">sundhar@devops:~/skills</span>
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-text">
+                    <p class="greeting fade-in">Hi, my name is</p>
+                    <h1 class="name fade-in">Sundhar Ganesh</h1>
+                    <h2 class="role fade-in">System Engineer transitioning to DevOps</h2>
+                    <p class="bio fade-in">
+                        Infrastructure-focused Systems Engineer with <span class="highlight">6+ years</span> of experience 
+                        supporting mission-critical hospital IT systems. Building hands-on expertise in Docker, 
+                        Jenkins, Prometheus, and Grafana while actively transitioning into DevOps/Cloud Engineering roles.
+                    </p>
+                    <div class="hero-btns fade-in">
+                        <a href="#projects" class="btn primary-btn">View Projects</a>
+                        <a href="mailto:ganeshmuthvel303@gmail.com" class="btn secondary-btn">Get In Touch</a>
                     </div>
-                    <div class="terminal-body">
-                        <div class="command-line">
-                            <span class="prompt">➜</span> <span id="typing-text"></span><span class="cursor">_</span>
+                </div>
+                <div class="hero-visuals">
+                    <div class="profile-wrapper fade-in">
+                        <img src="https://via.placeholder.com/220" alt="Sundhar Ganesh" class="profile-img">
+                    </div>
+                    <div class="floating-terminal fade-in">
+                        <div class="terminal-window">
+                            <div class="terminal-header">
+                                <span class="dot red"></span>
+                                <span class="dot yellow"></span>
+                                <span class="dot green"></span>
+                                <span class="title">sundhar@devops:~$</span>
+                            </div>
+                            <div class="terminal-body">
+                                <div class="prompt">$</div>
+                                <span id="typing-text"></span><span class="cursor">|</span>
+                                <div id="terminal-output"></div>
+                            </div>
                         </div>
-                        <div class="output" id="terminal-output"></div>
                     </div>
                 </div>
             </div>
-
         </div>
     </section>
 
+    <!-- About Section -->
     <section id="about" class="section">
         <div class="container">
-            <h2 class="section-title">01. About Me</h2>
+            <h2 class="section-title scroll-reveal">About Me</h2>
             <div class="about-grid">
-                <div class="about-text">
+                <div class="about-content scroll-reveal">
+                    <p style="margin-bottom: 20px;">
+                        I'm a Systems Engineer at <span class="highlight">G. Kuppuswamy Naidu Memorial Hospital</span> 
+                        in Coimbatore, where I've been ensuring the uptime and reliability of mission-critical clinical 
+                        IT infrastructure since 2019.
+                    </p>
+                    <p style="margin-bottom: 20px;">
+                        My journey started with installing and maintaining Linux and Windows servers, troubleshooting 
+                        infrastructure issues, and collaborating with vendors. Over time, I've developed a strong interest 
+                        in <span class="highlight">DevOps practices</span> and modern infrastructure automation.
+                    </p>
+                    <p style="margin-bottom: 20px;">
+                        I'm actively building hands-on experience through real projects involving Docker containers, 
+                        CI/CD pipelines with Jenkins, infrastructure monitoring using Prometheus and Grafana, and 
+                        documenting everything on GitHub to demonstrate practical skills.
+                    </p>
                     <p>
-                        I am a proactive professional currently working at **G. Kuppuswamy Naidu Memorial Hospital**. 
-                        My journey started with managing Linux/Windows servers, but my curiosity led me to the world of automation and cloud infrastructure.
-                    </p> <p>
-                        I don't just learn theory; I build. From configuring **Prometheus** for monitoring to containerizing apps with **Docker**, I am hands-on.
-                        I am currently pursuing a B.Sc. in Computer Science to deepen my theoretical foundations.
-                    </p> </div>
-                <div class="about-stats">
+                        Currently pursuing <span class="highlight">B.Sc. Computer Science</span> from Bharathiar University 
+                        (Distance Education) while working full-time and building expertise in cloud platforms and 
+                        containerization technologies.
+                    </p>
+                </div>
+                <div class="about-stats scroll-reveal">
                     <div class="stat-box">
-                        <i class="fab fa-linux"></i>
-                        <h4>Linux</h4>
-                        <p>Administration</p>
+                        <i class="fas fa-briefcase"></i>
+                        <h4>6+</h4>
+                        <p>Years Experience</p>
                     </div>
                     <div class="stat-box">
                         <i class="fas fa-server"></i>
-                        <h4>6+ Years</h4>
-                        <p>Uptime</p>
+                        <h4>24/7</h4>
+                        <p>System Uptime Focus</p>
                     </div>
                     <div class="stat-box">
-                        <i class="fas fa-network-wired"></i>
-                        <h4>NetOps</h4>
-                        <p>Troubleshooting</p>
+                        <i class="fas fa-code-branch"></i>
+                        <h4>DevOps</h4>
+                        <p>Transition Journey</p>
+                    </div>
+                    <div class="stat-box">
+                        <i class="fas fa-hospital"></i>
+                        <h4>Healthcare</h4>
+                        <p>IT Systems</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Skills Section -->
     <section id="skills" class="section">
         <div class="container">
-            <h2 class="section-title">02. Tech Stack</h2> <div class="skills-wrapper">
-                
-                <div class="skill-card">
-                    <div class="skill-icon"><i class="fab fa-docker"></i></div>
-                    <h3>Containerization</h3>
+            <h2 class="section-title scroll-reveal">Technical Skills</h2>
+            <div class="skills-wrapper">
+                <div class="skill-card scroll-reveal">
+                    <div class="skill-icon">🐧</div>
+                    <h3>Operating Systems</h3>
                     <ul>
-                        [cite_start]<li>Docker Engine [cite: 7]</li>
-                        [cite_start]<li>Portainer Mgmt [cite: 8]</li>
-                        <li>Microservices</li>
+                        <li>Linux (Ubuntu, RHEL)</li>
+                        <li>Windows Server</li>
+                        <li>System Administration</li>
+                        <li>VMware & VirtualBox</li>
                     </ul>
                 </div>
-
-                <div class="skill-card">
-                    <div class="skill-icon"><i class="fas fa-chart-area"></i></div>
-                    <h3>Observability</h3>
+                <div class="skill-card scroll-reveal">
+                    <div class="skill-icon">🐳</div>
+                    <h3>Containers & Orchestration</h3>
                     <ul>
-                        [cite_start]<li>Prometheus [cite: 10]</li>
-                        [cite_start]<li>Grafana Dashboards [cite: 11]</li>
-                        [cite_start]<li>Node Exporter [cite: 12]</li>
+                        <li>Docker</li>
+                        <li>Portainer (multi-host)</li>
+                        <li>Container lifecycle mgmt</li>
+                        <li>Service isolation</li>
                     </ul>
                 </div>
-
-                <div class="skill-card">
-                    <div class="skill-icon"><i class="fas fa-terminal"></i></div>
-                    <h3>Scripting & OS</h3>
+                <div class="skill-card scroll-reveal">
+                    <div class="skill-icon">📊</div>
+                    <h3>Monitoring & Observability</h3>
                     <ul>
-                        [cite_start]<li>Linux (Ubuntu) [cite: 5]</li>
-                        [cite_start]<li>Bash Scripting [cite: 18]</li>
-                        [cite_start]<li>Python (Beginner) [cite: 19]</li>
+                        <li>Prometheus</li>
+                        <li>Grafana</li>
+                        <li>node_exporter</li>
+                        <li>Dashboard creation</li>
                     </ul>
                 </div>
-
-                <div class="skill-card">
-                    <div class="skill-icon"><i class="fas fa-infinity"></i></div>
-                    <h3>CI/CD & Tools</h3>
+                <div class="skill-card scroll-reveal">
+                    <div class="skill-icon">⚙️</div>
+                    <h3>CI/CD & DevOps Tools</h3>
                     <ul>
-                        [cite_start]<li>Jenkins [cite: 14]</li>
-                        [cite_start]<li>Git & GitHub [cite: 15]</li>
-                        [cite_start]<li>MySQL [cite: 20]</li>
+                        <li>Jenkins (containerized)</li>
+                        <li>Git & GitHub</li>
+                        <li>GitHub Workflows</li>
+                        <li>Documentation practices</li>
                     </ul>
                 </div>
-
+                <div class="skill-card scroll-reveal">
+                    <div class="skill-icon">💾</div>
+                    <h3>Databases</h3>
+                    <ul>
+                        <li>MySQL</li>
+                        <li>phpMyAdmin</li>
+                        <li>Database administration</li>
+                        <li>Container deployment</li>
+                    </ul>
+                </div>
+                <div class="skill-card scroll-reveal">
+                    <div class="skill-icon">💻</div>
+                    <h3>Scripting & Programming</h3>
+                    <ul>
+                        <li>Bash scripting (basic)</li>
+                        <li>Python (beginner)</li>
+                        <li>Automation scripts</li>
+                        <li>System troubleshooting</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
 
+    <!-- Experience Section -->
     <section id="experience" class="section">
         <div class="container">
-            <h2 class="section-title">03. Where I've Worked</h2>
+            <h2 class="section-title scroll-reveal">Professional Experience</h2>
             <div class="timeline">
-                <div class="timeline-item">
+                <div class="timeline-item scroll-reveal">
                     <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="job-header">
-                            <h3>System Engineer</h3>
-                            <span class="company">G. Kuppuswamy Naidu Memorial Hospital</span> <span class="years">2019 - Present</span>
-                        </div>
-                        <ul class="job-desc">
-                            [cite_start]<li>Installed, configured, and maintained Linux and Windows servers supporting clinical systems. [cite: 35]</li>
-                            [cite_start]<li>Implemented monitoring using Prometheus/Grafana to visualize CPU, memory, and disk usage. [cite: 37]</li>
-                            [cite_start]<li>Diagnosed firewall, port, and service accessibility issues to ensure high availability. [cite: 42]</li>
-                            [cite_start]<li>Documented operational procedures for audit readiness and repeatability. [cite: 41]</li>
-                        </ul>
+                    <div class="job-header">
+                        <h3>System Engineer</h3>
+                        <p class="company">G. Kuppuswamy Naidu Memorial Hospital | 2019 - Present</p>
                     </div>
+                    <ul class="job-desc">
+                        <li>Installed, configured, and maintained Linux and Windows servers supporting clinical and administrative systems</li>
+                        <li>Supported virtualization environments using VMware and VirtualBox for efficient resource utilization</li>
+                        <li>Implemented system monitoring using Prometheus and Grafana, improving visibility into CPU, memory, disk, and network usage</li>
+                        <li>Performed troubleshooting using system logs, service status, and network checks to ensure high availability of critical systems</li>
+                        <li>Assisted with deployment and configuration of internal applications and open-source platforms following vendor documentation</li>
+                        <li>Collaborated directly with application teams and vendors to resolve infrastructure-related issues</li>
+                        <li>Diagnosed service accessibility issues by validating ports, firewall rules, logs, and service status</li>
+                        <li>Maintained rigorous documentation for installation steps, configuration changes, and operational procedures for audit compliance</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Projects Section -->
     <section id="projects" class="section">
         <div class="container">
-            <h2 class="section-title">04. Featured Projects</h2> <div class="projects-grid">
-                
-                <article class="project-card">
+            <h2 class="section-title scroll-reveal">DevOps & Cloud Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card scroll-reveal">
                     <header>
-                        <div class="folder-icon"><i class="far fa-folder"></i></div>
+                        <div class="folder-icon">📁</div>
                         <div class="project-links">
-                            <a href="https://github.com/Nishanth7885/grafana-prometheus-monitoring" target="_blank" aria-label="GitHub Link"><i class="fab fa-github"></i></a>
+                            <a href="https://github.com/Nishanth7885/grafana-prometheus-monitoring" target="_blank">
+                                <i class="fab fa-github"></i>
+                            </a>
                         </div>
                     </header>
-                    <h3>Infrastructure Monitoring Stack</h3>
                     <div class="project-body">
-                        <p>A complete monitoring solution. I designed dashboards to visualize infrastructure health and debugged Prometheus YAML configurations.</p> </div>
-                    <footer>
+                        <h3>Infrastructure Monitoring Stack</h3>
+                        <p>
+                            Designed and deployed a complete monitoring solution using Prometheus, Grafana, and node_exporter 
+                            on Ubuntu Linux servers. Built custom dashboards to visualize infrastructure health, debugged YAML 
+                            configuration issues, and documented the entire setup process in GitHub.
+                        </p>
                         <ul class="tech-list">
                             <li>Prometheus</li>
                             <li>Grafana</li>
+                            <li>node_exporter</li>
                             <li>Linux</li>
-                            <li>YAML</li>
                         </ul>
-                    </footer>
-                </article>
+                    </div>
+                </div>
 
-                <article class="project-card">
+                <div class="project-card scroll-reveal">
                     <header>
-                        <div class="folder-icon"><i class="far fa-folder"></i></div>
+                        <div class="folder-icon">📁</div>
                         <div class="project-links">
-                            <a href="#" aria-label="GitHub Link"><i class="fab fa-github"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
                         </div>
                     </header>
-                    <h3>Container Mgmt w/ Portainer</h3>
                     <div class="project-body">
-                        <p>Deployed Jenkins and MySQL as containers. Managed environment variables and lifecycle operations centrally via Portainer UI.</p> </div>
-                    <footer>
+                        <h3>Containerized Infrastructure Management</h3>
+                        <p>
+                            Installed Docker on multiple Ubuntu servers and deployed containerized services using Portainer. 
+                            Managed Jenkins, MySQL, and phpMyAdmin containers with centralized environment variable configuration 
+                            through Portainer UI without SSH access to hosts.
+                        </p>
                         <ul class="tech-list">
                             <li>Docker</li>
                             <li>Portainer</li>
                             <li>Jenkins</li>
                             <li>MySQL</li>
                         </ul>
-                    </footer>
-                </article>
+                    </div>
+                </div>
 
+                <div class="project-card scroll-reveal">
+                    <header>
+                        <div class="folder-icon">📁</div>
+                        <div class="project-links">
+                            <a href="#"><i class="fab fa-github"></i></a>
+                        </div>
+                    </header>
+                    <div class="project-body">
+                        <h3>CI/CD Pipeline Experimentation</h3>
+                        <p>
+                            Set up Jenkins as a containerized service to support CI/CD pipeline experimentation. Gained hands-on 
+                            experience with pipeline execution in isolated container environments and multi-host container management 
+                            through Portainer's centralized interface.
+                        </p>
+                        <ul class="tech-list">
+                            <li>Jenkins</li>
+                            <li>Docker</li>
+                            <li>CI/CD</li>
+                            <li>GitHub</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
+    <!-- Contact Section -->
     <section id="contact" class="section">
         <div class="container text-center">
-            <h2 class="section-title center-line">05. What's Next?</h2>
-            <h2 class="big-heading">Get In Touch</h2>
-            <p class="contact-desc">
-                I am actively looking for **Junior DevOps** or **Cloud Engineer** roles. 
-                My inbox is always open for opportunities or just to discuss tech!
-            </p> <a href="mailto:ganeshmuthvel303@gmail.com" class="btn primary-btn big-btn">Say Hello</a> <div class="contact-info-footer">
-                <p><i class="fas fa-phone-alt"></i> +91 99408 65231</p> <p><i class="fas fa-map-marker-alt"></i> Coimbatore, India</p> </div>
+            <h2 class="section-title center-line scroll-reveal">Get In Touch</h2>
+            <p class="scroll-reveal" style="max-width: 600px; margin: 0 auto 30px; color: var(--text-secondary);">
+                I'm actively seeking Junior DevOps / Cloud Engineer opportunities and open to collaborations. 
+                Whether you want to discuss infrastructure automation, monitoring solutions, or potential opportunities, 
+                feel free to reach out!
+            </p>
+            <a href="mailto:ganeshmuthvel303@gmail.com" class="btn primary-btn scroll-reveal">
+                Say Hello
+            </a>
         </div>
     </section>
 
+    <!-- Footer -->
     <footer>
         <div class="social-links">
             <a href="https://github.com/Nishanth7885" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.linkedin.com/in/sundhar-ganesh" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:ganeshmuthvel303@gmail.com"><i class="fas fa-envelope"></i></a>
         </div>
-        <p>Built by Sundhar Ganesh</p>
+        <p>Built by Sundhar Ganesh | Systems Engineer → DevOps Enthusiast</p>
     </footer>
 
     <script src="script.js"></script>
