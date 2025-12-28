@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infrastructure Monitoring Stack - Sundhar Ganesh</title>
+    <meta name="description" content="Complete monitoring solution using Prometheus, Grafana, and node_exporter for real-time infrastructure observability.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">SG</a>
+            <ul class="nav-menu">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#skills">Skills</a></li>
+                <li><a href="index.html#experience">Experience</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="index.html#contact" class="nav-cta">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Project Hero -->
+    <section class="project-hero">
+        <div class="container">
+            <a href="index.html#projects" class="back-link">
+                <i class="fas fa-arrow-left"></i> Back to Projects
+            </a>
+            <div class="project-hero-content">
+                <div class="project-hero-icon">
+                    <i class="fas fa-chart-area"></i>
+                </div>
+                <h1>Infrastructure Monitoring Stack</h1>
+                <p class="project-hero-subtitle">Prometheus + Grafana + node_exporter</p>
+                <div class="project-meta">
+                    <span class="meta-item">
+                        <i class="fas fa-calendar-alt"></i> 2023 - 2024
+                    </span>
+                    <span class="meta-item">
+                        <i class="fas fa-code"></i> DevOps Project
+                    </span>
+                    <span class="meta-item">
+                        <i class="fas fa-server"></i> Production Environment
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Overview -->
+    <section class="section">
+        <div class="container project-container">
+            <div class="project-content">
+                <!-- Overview -->
+                <div class="content-block">
+                    <h2><i class="fas fa-info-circle"></i> Project Overview</h2>
+                    <p class="lead-text">
+                        Designed and deployed a complete infrastructure monitoring solution to track 
+                        system health across multiple Ubuntu Linux servers in a hospital environment.
+                    </p>
+                    <p>
+                        This project addressed the critical need for real-time visibility into server 
+                        performance metrics. I built custom Grafana dashboards that visualize CPU, memory, 
+                        disk, and network utilization, enabling proactive infrastructure management and 
+                        rapid troubleshooting of performance issues.
+                    </p>
+                    <p>
+                        The monitoring stack runs 24/7, collecting metrics from 10+ production servers 
+                        and providing instant alerts when system thresholds are exceeded. All 
+                        configuration and implementation steps were documented on GitHub for 
+                        reproducibility and knowledge sharing.
+                    </p>
+                </div>
+
+                <!-- Tech Stack -->
+                <div class="content-block">
+                    <h2><i class="fas fa-layer-group"></i> Technology Stack</h2>
+                    <div class="tech-stack-grid">
+                        <div class="tech-stack-item">
+                            <i class="fas fa-fire"></i>
+                            <h3>Prometheus</h3>
+                            <p>Time-series database for metrics collection and storage</p>
+                        </div>
+                        <div class="tech-stack-item">
+                            <i class="fas fa-chart-line"></i>
+                            <h3>Grafana</h3>
+                            <p>Dashboard platform for data visualization and analytics</p>
+                        </div>
+                        <div class="tech-stack-item">
+                            <i class="fas fa-microchip"></i>
+                            <h3>node_exporter</h3>
+                            <p>System metrics exporter for hardware and OS data</p>
+                        </div>
+                        <div class="tech-stack-item">
+                            <i class="fab fa-linux"></i>
+                            <h3>Ubuntu Linux</h3>
+                            <p>Server operating system (20.04 LTS)</p>
+                        </div>
+                        <div class="tech-stack-item">
+                            <i class="fas fa-cog"></i>
+                            <h3>systemd</h3>
+                            <p>Service management and process supervision</p>
+                        </div>
+                        <div class="tech-stack-item">
+                            <i class="fas fa-file-code"></i>
+                            <h3>YAML</h3>
+                            <p>Configuration management for Prometheus</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Screenshots -->
+                <div class="content-block">
+                    <h2><i class="fas fa-images"></i> Project Screenshots</h2>
+                    <div class="screenshot-gallery">
+                        <div class="screenshot-large">
+                            <img src="https://via.placeholder.com/1200x600/4F46E5/FFFFFF?text=Grafana+System+Dashboard" alt="Grafana Dashboard">
+                            <p>Grafana dashboard showing real-time system metrics across multiple servers</p>
+                        </div>
+                        <div class="screenshot-grid">
+                            <div class="screenshot-item">
+                                <img src="https://via.placeholder.com/600x400/10B981/FFFFFF?text=Prometheus+Targets" alt="Prometheus Targets">
+                                <p>Prometheus target configuration and health status</p>
+                            </div>
+                            <div class="screenshot-item">
+                                <img src="https://via.placeholder.com/600x400/F59E0B/FFFFFF?text=Node+Exporter+Metrics" alt="Node Exporter">
+                                <p>node_exporter metrics endpoint showing system data</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Key Features -->
+                <div class="content-block">
+                    <h2><i class="fas fa-star"></i> Key Features</h2>
+                    <ul class="feature-list-detailed">
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>Real-time Metrics Collection</strong>
+                                <p>Automated collection of CPU, memory, disk I/O, and network statistics every 15 seconds using node_exporter</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>Custom Grafana Dashboards</strong>
+                                <p>Interactive dashboards with drill-down capabilities for detailed analysis of system performance trends</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>Multi-Server Monitoring</strong>
+                                <p>Centralized monitoring of 10+ Ubuntu servers from a single Prometheus instance</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>Historical Data Analysis</strong>
+                                <p>30-day metric retention enabling trend analysis and capacity planning</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>Alert Configuration</strong>
+                                <p>Prometheus alerting rules for critical thresholds (CPU > 85%, Memory > 90%, Disk > 80%)</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>Service Health Monitoring</strong>
+                                <p>Automatic detection of down targets and service failures with immediate visibility</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Technical Implementation -->
+                <div class="content-block">
+                    <h2><i class="fas fa-code"></i> Technical Implementation</h2>
+                    <div class="implementation-grid">
+                        <div class="implementation-item">
+                            <h3>Infrastructure Setup</h3>
+                            <ul>
+                                <li>Ubuntu Linux 20.04 LTS servers</li>
+                                <li>Prometheus 2.x installed from binary</li>
+                                <li>Grafana 9.x installed via APT repository</li>
+                                <li>node_exporter deployed on all monitored hosts</li>
+                            </ul>
+                        </div>
+                        <div class="implementation-item">
+                            <h3>Configuration Management</h3>
+                            <ul>
+                                <li>YAML-based Prometheus configuration files</li>
+                                <li>systemd service units for process management</li>
+                                <li>Scrape intervals configured to 15s</li>
+                                <li>Static target discovery for servers</li>
+                            </ul>
+                        </div>
+                        <div class="implementation-item">
+                            <h3>Service Architecture</h3>
+                            <ul>
+                                <li>Prometheus: Port 9090 (metrics & UI)</li>
+                                <li>Grafana: Port 3000 (dashboards)</li>
+                                <li>node_exporter: Port 9100 (metrics endpoint)</li>
+                                <li>Firewall rules configured for service access</li>
+                            </ul>
+                        </div>
+                        <div class="implementation-item">
+                            <h3>Data & Storage</h3>
+                            <ul>
+                                <li>Time-series database with 30-day retention</li>
+                                <li>Metric storage in /var/lib/prometheus</li>
+                                <li>Grafana dashboards stored in SQLite</li>
+                                <li>Configuration backup to GitHub</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Challenges & Solutions -->
+                <div class="content-block">
+                    <h2><i class="fas fa-lightbulb"></i> Challenges & Solutions</h2>
+                    <div class="challenge-list">
+                        <div class="challenge-card">
+                            <div class="challenge-number">01</div>
+                            <div class="challenge-content">
+                                <h3>Prometheus Service Startup Failure</h3>
+                                <div class="challenge-detail">
+                                    <h4>Challenge:</h4>
+                                    <p>Prometheus failed to start with YAML syntax errors in configuration file. Service logs showed indentation and parsing issues.</p>
+                                    <h4>Solution:</h4>
+                                    <p>Used <code>promtool check config prometheus.yml</code> to validate configuration syntax. Corrected indentation issues and verified scrape target formatting. Implemented configuration validation as part of deployment process.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="challenge-card">
+                            <div class="challenge-number">02</div>
+                            <div class="challenge-content">
+                                <h3>node_exporter Metrics Not Appearing</h3>
+                                <div class="challenge-detail">
+                                    <h4>Challenge:</h4>
+                                    <p>Prometheus targets showed as "DOWN" status. node_exporter metrics endpoint was not accessible from Prometheus server.</p>
+                                    <h4>Solution:</h4>
+                                    <p>Verified node_exporter service status with <code>systemctl status node_exporter</code>. Checked firewall rules and opened port 9100. Tested connectivity with <code>curl http://target:9100/metrics</code> to confirm accessibility.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="challenge-card">
+                            <div class="challenge-number">03</div>
+                            <div class="challenge-content">
+                                <h3>Grafana Dashboard Data Source Issues</h3>
+                                <div class="challenge-detail">
+                                    <h4>Challenge:</h4>
+                                    <p>Grafana panels showed "No data" errors despite Prometheus collecting metrics successfully.</p>
+                                    <h4>Solution:</h4>
+                                    <p>Configured Prometheus as data source in Grafana with correct URL (http://localhost:9090). Tested connection and verified PromQL queries. Adjusted time ranges and metric names to match actual data available.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Results & Impact -->
+                <div class="content-block">
+                    <h2><i class="fas fa-chart-line"></i> Results & Impact</h2>
+                    <div class="impact-grid">
+                        <div class="impact-card">
+                            <div class="impact-icon"><i class="fas fa-eye"></i></div>
+                            <h3>100% Visibility</h3>
+                            <p>Complete real-time visibility into all critical server metrics across the infrastructure</p>
+                        </div>
+                        <div class="impact-card">
+                            <div class="impact-icon"><i class="fas fa-clock"></i></div>
+                            <h3>5 Minute Response</h3>
+                            <p>Reduced average incident response time from 30+ minutes to under 5 minutes</p>
+                        </div>
+                        <div class="impact-card">
+                            <div class="impact-icon"><i class="fas fa-server"></i></div>
+                            <h3>10+ Servers</h3>
+                            <p>Monitoring all production servers from centralized dashboard</p>
+                        </div>
+                        <div class="impact-card">
+                            <div class="impact-icon"><i class="fas fa-shield-alt"></i></div>
+                            <h3>Proactive Alerts</h3>
+                            <p>Early warning system preventing 15+ potential outages in first 3 months</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Documentation & Links -->
+                <div class="content-block">
+                    <h2><i class="fas fa-link"></i> Project Resources</h2>
+                    <div class="resource-cards">
+                        <a href="https://github.com/Nishanth7885/grafana-prometheus-monitoring" target="_blank" class="resource-card">
+                            <i class="fab fa-github"></i>
+                            <h3>GitHub Repository</h3>
+                            <p>Complete source code, configuration files, and installation documentation</p>
+                        </a>
+                        <a href="https://github.com/Nishanth7885/grafana-prometheus-monitoring#readme" target="_blank" class="resource-card">
+                            <i class="fas fa-book"></i>
+                            <h3>Documentation</h3>
+                            <p>Step-by-step installation guide with screenshots and troubleshooting tips</p>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- CTA -->
+                <div class="project-cta-section">
+                    <h2>Interested in Similar Solutions?</h2>
+                    <p>I'm actively seeking DevOps opportunities where I can implement monitoring and observability solutions.</p>
+                    <div class="cta-buttons">
+                        <a href="index.html#contact" class="btn btn-primary btn-large">
+                            <i class="fas fa-envelope"></i> Get In Touch
+                        </a>
+                        <a href="index.html#projects" class="btn btn-secondary btn-large">
+                            <i class="fas fa-folder-open"></i> View More Projects
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <aside class="project-sidebar">
+                <div class="sidebar-card">
+                    <h3>Project Info</h3>
+                    <div class="info-list">
+                        <div class="info-item">
+                            <span class="info-label">Duration</span>
+                            <span class="info-value">2 months</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Type</span>
+                            <span class="info-value">DevOps Project</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Environment</span>
+                            <span class="info-value">Production</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Servers</span>
+                            <span class="info-value">10+ Ubuntu hosts</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar-card">
+                    <h3>Technologies</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag-sidebar">Prometheus</span>
+                        <span class="tech-tag-sidebar">Grafana</span>
+                        <span class="tech-tag-sidebar">node_exporter</span>
+                        <span class="tech-tag-sidebar">Linux</span>
+                        <span class="tech-tag-sidebar">systemd</span>
+                        <span class="tech-tag-sidebar">YAML</span>
+                        <span class="tech-tag-sidebar">PromQL</span>
+                        <span class="tech-tag-sidebar">Bash</span>
+                    </div>
+                </div>
+
+                <div class="sidebar-card">
+                    <h3>Related Projects</h3>
+                    <div class="related-projects">
+                        <a href="project-docker.html" class="related-project">
+                            <i class="fas fa-boxes"></i>
+                            <span>Containerized Infrastructure</span>
+                        </a>
+                        <a href="project-cicd.html" class="related-project">
+                            <i class="fas fa-sitemap"></i>
+                            <span>CI/CD Pipeline</span>
+                        </a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Sundhar Ganesh. Systems Engineer transitioning to DevOps.</p>
+                <div class="footer-links">
+                    <a href="https://github.com/Nishanth7885" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://linkedin.com/in/sundhar-ganesh" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:ganeshmuthvel303@gmail.com"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
