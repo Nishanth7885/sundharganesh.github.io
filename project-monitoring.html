@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Infrastructure Monitoring Stack - Sundhar Ganesh</title>
-    <meta name="description" content="DevOps learning project leveraging 6+ years of Linux and network troubleshooting experience to implement Prometheus, Grafana, and node_exporter monitoring stack.">
+    <title>Production Incident Investigation - Sundhar Ganesh</title>
+    <meta name="description content="Root cause analysis of intermittent IIS outages using Prometheus, Grafana, and windows_exporter in a hospital production environment.">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -40,273 +40,412 @@
             </a>
             <div class="project-hero-content">
                 <div class="project-hero-icon">
-                    <i class="fas fa-chart-area"></i>
+                    <i class="fas fa-search"></i>
                 </div>
-                <h1>Infrastructure Monitoring Stack</h1>
-                <p class="project-hero-subtitle">Prometheus + Grafana + node_exporter</p>
+                <h1>IIS Application Outage Investigation</h1>
+                <p class="project-hero-subtitle">Root Cause Analysis Using Prometheus & Grafana</p>
                 <div class="project-meta">
                     <span class="meta-item">
-                        <i class="fas fa-calendar-alt"></i> 2024
+                        <i class="fas fa-hospital"></i> Hospital Production Environment
                     </span>
                     <span class="meta-item">
-                        <i class="fas fa-graduation-cap"></i> DevOps Learning Project
+                        <i class="fas fa-exclamation-circle"></i> Real Incident
                     </span>
                     <span class="meta-item">
-                        <i class="fas fa-server"></i> Production-like Setup
+                        <i class="fas fa-check-circle"></i> Successfully Resolved
                     </span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Project Overview -->
+    <!-- Project Content -->
     <section class="section">
         <div class="container project-container">
             <div class="project-content">
-                <!-- Overview -->
+                
+                <!-- Executive Summary -->
                 <div class="content-block">
-                    <h2><i class="fas fa-info-circle"></i> Project Overview</h2>
-                    <p class="lead-text">
-                        Leveraging 6+ years of Linux server administration and network troubleshooting experience, 
-                        I implemented a production-grade monitoring stack using Prometheus, Grafana, and node_exporter 
-                        as part of my DevOps transition journey.
-                    </p>
-                    <p>
-                        This project allowed me to apply my existing infrastructure expertise—particularly in 
-                        firewall configuration, port management, and service diagnostics—to modern DevOps 
-                        monitoring practices. Having spent years troubleshooting network connectivity issues 
-                        and managing Linux services in a hospital environment, I approached this implementation 
-                        with a production mindset rather than theoretical learning.
-                    </p>
-                    <p>
-                        I configured the entire monitoring stack across multiple Ubuntu servers, utilizing my 
-                        experience with systemd service management, network diagnostics, and infrastructure 
-                        troubleshooting to ensure reliable operation. The implementation is fully documented 
-                        on GitHub, demonstrating both my technical capabilities and commitment to DevOps best 
-                        practices.
-                    </p>
-                </div>
-
-                <!-- Tech Stack -->
-                <div class="content-block">
-                    <h2><i class="fas fa-layer-group"></i> Technology Stack</h2>
-                    <div class="tech-stack-grid">
-                        <div class="tech-stack-item">
-                            <i class="fas fa-fire"></i>
-                            <h3>Prometheus</h3>
-                            <p>Time-series metrics collection and storage</p>
-                        </div>
-                        <div class="tech-stack-item">
+                    <h2><i class="fas fa-file-alt"></i> Executive Summary</h2>
+                    <div class="summary-box">
+                        <div class="summary-header">
                             <i class="fas fa-chart-line"></i>
-                            <h3>Grafana</h3>
-                            <p>Advanced data visualization platform</p>
+                            <div>
+                                <h3>Incident Investigation & Resolution</h3>
+                                <p class="summary-date">Hospital Production Environment • 2024</p>
+                            </div>
                         </div>
-                        <div class="tech-stack-item">
-                            <i class="fas fa-microchip"></i>
-                            <h3>node_exporter</h3>
-                            <h3>Linux system metrics exporter</p>
-                        </div>
-                        <div class="tech-stack-item">
-                            <i class="fab fa-linux"></i>
-                            <h3>Ubuntu Linux</h3>
-                            <p>Server OS (leveraging 6+ years experience)</p>
-                        </div>
-                        <div class="tech-stack-item">
-                            <i class="fas fa-cog"></i>
-                            <h3>systemd</h3>
-                            <p>Service and process management</p>
-                        </div>
-                        <div class="tech-stack-item">
-                            <i class="fas fa-file-code"></i>
-                            <h3>YAML</h3>
-                            <p>Configuration management</p>
+                        <p>
+                            When developers reported intermittent "Server Unavailable" errors affecting a production 
+                            web application, I took the initiative to deploy monitoring infrastructure (Prometheus + 
+                            Grafana + windows_exporter) on the IIS server to investigate. Through systematic data 
+                            collection and analysis, I identified a memory leak in a co-hosted application that was 
+                            causing resource exhaustion. The issue was escalated to developers with evidence-based 
+                            findings and successfully resolved.
+                        </p>
+                        <div class="summary-impact">
+                            <div class="impact-stat">
+                                <i class="fas fa-bug"></i>
+                                <span>Memory leak identified</span>
+                            </div>
+                            <div class="impact-stat">
+                                <i class="fas fa-users"></i>
+                                <span>User complaints eliminated</span>
+                            </div>
+                            <div class="impact-stat">
+                                <i class="fas fa-chart-area"></i>
+                                <span>Ongoing monitoring established</span>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Screenshots -->
+                <!-- Problem Statement -->
                 <div class="content-block">
-                    <h2><i class="fas fa-images"></i> Implementation Screenshots</h2>
-                    <p style="color: var(--color-text-light); margin-bottom: var(--spacing-md);">
-                        Click on any screenshot to view full size
+                    <h2><i class="fas fa-exclamation-triangle"></i> Problem Statement</h2>
+                    <div class="problem-box">
+                        <div class="problem-header">
+                            <i class="fas fa-bug"></i>
+                            <h3>Reported Issue</h3>
+                        </div>
+                        <div class="problem-details">
+                            <div class="problem-item">
+                                <strong>Symptom:</strong>
+                                <p>Random "Server Unavailable" errors reported by end users</p>
+                            </div>
+                            <div class="problem-item">
+                                <strong>Frequency:</strong>
+                                <p>Intermittent - difficult to reproduce on demand</p>
+                            </div>
+                            <div class="problem-item">
+                                <strong>Impact:</strong>
+                                <p>User workflow interruptions, multiple user complaints</p>
+                            </div>
+                            <div class="problem-item">
+                                <strong>Environment:</strong>
+                                <p>Windows Server running IIS with multiple co-hosted applications</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="challenge-note">
+                        <i class="fas fa-info-circle"></i>
+                        <p>
+                            <strong>The Challenge:</strong> With no obvious error patterns in application logs and 
+                            intermittent failures, traditional troubleshooting wasn't revealing the root cause. 
+                            I needed visibility into system-level resource consumption to identify what was happening 
+                            during the outage windows.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- My Approach -->
+                <div class="content-block">
+                    <h2><i class="fas fa-tasks"></i> My Approach</h2>
+                    <p class="approach-intro">
+                        I took a <strong>data-driven, observability-first approach</strong> to investigate the issue. 
+                        Rather than making configuration changes or restarting services blindly, I first instrumented 
+                        the system to collect evidence.
                     </p>
-                    <div class="screenshot-vertical-list">
-                        <!-- Screenshot 1: Grafana -->
-                        <div class="screenshot-card" onclick="openImageModal('screenshots/grafana-login.png', 'Grafana Login Interface')">
-                            <div class="screenshot-thumbnail">
-                                <img src="screenshots/grafana-login.png" alt="Grafana Login">
-                                <div class="screenshot-overlay">
-                                    <i class="fas fa-search-plus"></i>
+                    
+                    <div class="approach-steps">
+                        <div class="approach-step">
+                            <div class="approach-number">01</div>
+                            <div class="approach-content">
+                                <h3>Instrumentation</h3>
+                                <div class="approach-detail">
+                                    <p><strong>Action Taken:</strong></p>
+                                    <p>Installed <code>windows_exporter</code> on the IIS server and enabled specific collectors:</p>
+                                    <ul>
+                                        <li><strong>IIS collector</strong> - Request queue depth, connections, requests/sec</li>
+                                        <li><strong>.NET collector</strong> - Application pool memory, GC metrics</li>
+                                        <li><strong>CPU collector</strong> - Processor utilization per core</li>
+                                        <li><strong>Memory collector</strong> - Available memory, paging activity</li>
+                                        <li><strong>Process collector</strong> - Per-process memory consumption</li>
+                                    </ul>
+                                    <p><strong>Why:</strong> Needed visibility into resource consumption at both system and application levels</p>
                                 </div>
-                            </div>
-                            <div class="screenshot-info">
-                                <h3><i class="fas fa-chart-line"></i> Grafana Web Interface</h3>
-                                <p>Successfully deployed Grafana on port 3000 with proper network configuration and firewall rules, applying production service deployment practices.</p>
                             </div>
                         </div>
 
-                        <!-- Screenshot 2: Prometheus -->
-                        <div class="screenshot-card" onclick="openImageModal('screenshots/prometheus-ui.png', 'Prometheus Web Interface')">
-                            <div class="screenshot-thumbnail">
-                                <img src="screenshots/prometheus-ui.png" alt="Prometheus UI">
-                                <div class="screenshot-overlay">
-                                    <i class="fas fa-search-plus"></i>
+                        <div class="approach-step">
+                            <div class="approach-number">02</div>
+                            <div class="approach-content">
+                                <h3>Metrics Collection</h3>
+                                <div class="approach-detail">
+                                    <p><strong>Action Taken:</strong></p>
+                                    <p>Configured our existing Prometheus instance to scrape the windows_exporter endpoint:</p>
+                                    <ul>
+                                        <li>Added scrape target to <code>prometheus.yml</code></li>
+                                        <li>Validated configuration with <code>promtool check config</code></li>
+                                        <li>Verified metrics collection in Prometheus UI</li>
+                                        <li>Set appropriate scrape interval (30s) for granular data</li>
+                                    </ul>
+                                    <p><strong>Why:</strong> Centralized metrics storage for historical analysis and correlation</p>
                                 </div>
-                            </div>
-                            <div class="screenshot-info">
-                                <h3><i class="fas fa-fire"></i> Prometheus Metrics System</h3>
-                                <p>Prometheus running on port 9090, configured with multi-target scraping and network accessibility validation using diagnostic techniques from production experience.</p>
                             </div>
                         </div>
 
-                        <!-- Screenshot 3: Node Exporter -->
-                        <div class="screenshot-card" onclick="openImageModal('screenshots/node-exporter.png', 'Node Exporter Metrics Endpoint')">
-                            <div class="screenshot-thumbnail">
-                                <img src="screenshots/node-exporter.png" alt="Node Exporter">
-                                <div class="screenshot-overlay">
-                                    <i class="fas fa-search-plus"></i>
+                        <div class="approach-step">
+                            <div class="approach-number">03</div>
+                            <div class="approach-content">
+                                <h3>Visualization & Monitoring</h3>
+                                <div class="approach-detail">
+                                    <p><strong>Action Taken:</strong></p>
+                                    <p>Built Grafana dashboards to visualize key metrics:</p>
+                                    <ul>
+                                        <li><strong>System Overview</strong> - CPU, memory, disk I/O</li>
+                                        <li><strong>IIS Health</strong> - HTTP request queue size, active connections</li>
+                                        <li><strong>Application Pools</strong> - Memory usage per pool over time</li>
+                                        <li><strong>.NET Runtime</strong> - GC pauses, heap size, exceptions</li>
+                                    </ul>
+                                    <p><strong>Why:</strong> Visual correlation of metrics to identify patterns during incident windows</p>
                                 </div>
                             </div>
-                            <div class="screenshot-info">
-                                <h3><i class="fas fa-microchip"></i> System Metrics Endpoint</h3>
-                                <p>node_exporter metrics endpoint on port 9100, verified using port accessibility checks and HTTP validation—standard diagnostic procedures from infrastructure work.</p>
+                        </div>
+
+                        <div class="approach-step">
+                            <div class="approach-number">04</div>
+                            <div class="approach-content">
+                                <h3>Data Analysis & Correlation</h3>
+                                <div class="approach-detail">
+                                    <p><strong>Action Taken:</strong></p>
+                                    <p>Monitored the dashboards and correlated metrics with incident reports:</p>
+                                    <ul>
+                                        <li>Matched user-reported outage times with dashboard timelines</li>
+                                        <li>Identified pattern: memory consumption steadily increasing</li>
+                                        <li>Traced spike to specific application pool (not the reported app)</li>
+                                        <li>Observed HTTP queue depth increase during memory pressure</li>
+                                    </ul>
+                                    <p><strong>Why:</strong> Transform user complaints into measurable, reproducible observations</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="approach-step">
+                            <div class="approach-number">05</div>
+                            <div class="approach-content">
+                                <h3>Root Cause Identification</h3>
+                                <div class="approach-detail">
+                                    <p><strong>Finding:</strong></p>
+                                    <p>A <strong>co-hosted application</strong> on the same IIS server had a memory leak:</p>
+                                    <ul>
+                                        <li>Memory consumption increased steadily over hours</li>
+                                        <li>As available memory depleted, IIS became unresponsive</li>
+                                        <li>HTTP request queue grew as worker process struggled</li>
+                                        <li>Eventually caused "Server Unavailable" for ALL apps on that server</li>
+                                    </ul>
+                                    <p><strong>Key Insight:</strong> The reported application was a victim, not the cause. 
+                                    Without monitoring, we might have wasted time debugging the wrong application.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="approach-step">
+                            <div class="approach-number">06</div>
+                            <div class="approach-content">
+                                <h3>Escalation & Resolution</h3>
+                                <div class="approach-detail">
+                                    <p><strong>Action Taken:</strong></p>
+                                    <ul>
+                                        <li>Documented findings with dashboard screenshots</li>
+                                        <li>Prepared evidence showing memory leak pattern</li>
+                                        <li>Escalated to development team with specific application identified</li>
+                                        <li>Developers confirmed memory leak in code</li>
+                                        <li>Patch deployed to fix the leak</li>
+                                        <li>Continued monitoring post-fix to validate resolution</li>
+                                    </ul>
+                                    <p><strong>Result:</strong> Issue completely resolved. No recurrence of "Server Unavailable" errors.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <!-- Applied Expertise -->
-                <div class="content-block">
-                    <h2><i class="fas fa-tools"></i> Infrastructure Expertise Applied</h2>
-                    <ul class="feature-list-detailed">
-                        <li>
-                            <i class="fas fa-check-circle"></i>
-                            <div>
-                                <strong>Network Diagnostics & Port Management</strong>
-                                <p>Applied 6+ years of experience troubleshooting network connectivity, validating port accessibility (9090, 3000, 9100), and configuring firewall rules across multiple servers</p>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="fas fa-check-circle"></i>
-                            <div>
-                                <strong>Linux Service Administration</strong>
-                                <p>Leveraged extensive systemd experience to create, configure, and manage monitoring services with proper auto-start configuration and daemon management</p>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="fas fa-check-circle"></i>
-                            <div>
-                                <strong>System-Level Troubleshooting</strong>
-                                <p>Utilized production-honed diagnostic skills with log file analysis, service status verification, and endpoint testing to resolve configuration issues</p>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="fas fa-check-circle"></i>
-                            <div>
-                                <strong>Multi-Server Infrastructure Setup</strong>
-                                <p>Deployed monitoring across multiple Ubuntu systems, applying server administration best practices from managing mission-critical hospital infrastructure</p>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="fas fa-check-circle"></i>
-                            <div>
-                                <strong>Service Availability Validation</strong>
-                                <p>Used established diagnostic methods (curl, netstat, service status checks) to verify endpoint reachability and system health—same techniques used in production troubleshooting</p>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="fas fa-check-circle"></i>
-                            <div>
-                                <strong>Configuration Management</strong>
-                                <p>Applied infrastructure documentation practices to YAML configuration management, validation workflows, and reproducible deployment procedures</p>
-                            </div>
-                        </li>
-                    </ul>
                 </div>
 
                 <!-- Technical Implementation -->
                 <div class="content-block">
-                    <h2><i class="fas fa-code"></i> Technical Implementation</h2>
-                    <div class="implementation-grid">
-                        <div class="implementation-item">
-                            <h3>Infrastructure Setup</h3>
-                            <ul>
-                                <li>Ubuntu Linux 20.04 LTS deployment</li>
-                                <li>Prometheus 2.x binary installation</li>
-                                <li>Grafana via APT repository</li>
-                                <li>Multi-host node_exporter rollout</li>
-                            </ul>
+                    <h2><i class="fas fa-tools"></i> Technical Implementation</h2>
+                    <div class="tech-implementation">
+                        <div class="tech-section">
+                            <h3><i class="fas fa-download"></i> Deployment</h3>
+                            <div class="tech-detail-box">
+                                <p><strong>windows_exporter installation:</strong></p>
+                                <ul>
+                                    <li>Downloaded MSI installer from official GitHub releases</li>
+                                    <li>Installed as Windows service with auto-start configuration</li>
+                                    <li>Configured firewall rule to allow Prometheus scraping (port 9182)</li>
+                                    <li>Enabled collectors: <code>iis,cpu,memory,net,process</code></li>
+                                    <li>Validated metrics endpoint accessibility</li>
+                                </ul>
+                            </div>
                         </div>
-                        <div class="implementation-item">
-                            <h3>Network & Security</h3>
-                            <ul>
-                                <li>Firewall rules for ports 9090/3000/9100</li>
-                                <li>Service accessibility validation</li>
-                                <li>Network connectivity diagnostics</li>
-                                <li>Port-level troubleshooting</li>
-                            </ul>
+
+                        <div class="tech-section">
+                            <h3><i class="fas fa-cog"></i> Configuration</h3>
+                            <div class="tech-detail-box">
+                                <p><strong>Prometheus scrape configuration:</strong></p>
+                                <pre><code>- job_name: 'iis-webserver'
+  static_configs:
+    - targets: ['<server-ip>:9182']
+      labels:
+        environment: 'production'
+        role: 'webserver'</code></pre>
+                                <p style="margin-top: var(--spacing-sm);"><strong>Validation:</strong></p>
+                                <p><code>promtool check config prometheus.yml</code></p>
+                            </div>
                         </div>
-                        <div class="implementation-item">
-                            <h3>Service Management</h3>
-                            <ul>
-                                <li>systemd unit file configuration</li>
-                                <li>Auto-start on boot setup</li>
-                                <li>Service health monitoring</li>
-                                <li>Process supervision</li>
-                            </ul>
-                        </div>
-                        <div class="implementation-item">
-                            <h3>Diagnostics & Validation</h3>
-                            <ul>
-                                <li>Log file analysis techniques</li>
-                                <li>Endpoint reachability testing</li>
-                                <li>Configuration syntax validation</li>
-                                <li>Service status verification</li>
-                            </ul>
+
+                        <div class="tech-section">
+                            <h3><i class="fas fa-chart-area"></i> Dashboards Created</h3>
+                            <div class="dashboard-list">
+                                <div class="dashboard-item">
+                                    <i class="fas fa-tachometer-alt"></i>
+                                    <div>
+                                        <strong>System Resources Dashboard</strong>
+                                        <p>CPU utilization, memory usage, disk I/O, network throughput</p>
+                                    </div>
+                                </div>
+                                <div class="dashboard-item">
+                                    <i class="fas fa-server"></i>
+                                    <div>
+                                        <strong>IIS Performance Dashboard</strong>
+                                        <p>Request queue depth, requests/sec, active connections, response times</p>
+                                    </div>
+                                </div>
+                                <div class="dashboard-item">
+                                    <i class="fas fa-memory"></i>
+                                    <div>
+                                        <strong>Application Pool Memory Tracking</strong>
+                                        <p>Per-pool memory consumption over time (this revealed the leak)</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Challenges & Solutions -->
+                <!-- Root Cause -->
                 <div class="content-block">
-                    <h2><i class="fas fa-lightbulb"></i> Technical Challenges Resolved</h2>
-                    <div class="challenge-list">
-                        <div class="challenge-card">
-                            <div class="challenge-number">01</div>
-                            <div class="challenge-content">
-                                <h3>Service Configuration & Validation</h3>
-                                <div class="challenge-detail">
-                                    <h4>Challenge:</h4>
-                                    <p>Prometheus service startup failures due to YAML syntax errors in configuration file.</p>
-                                    <h4>Solution Applied:</h4>
-                                    <p>Used <code>promtool check config</code> for pre-deployment validation, applying the same systematic troubleshooting approach used for production service issues. Implemented configuration validation as a deployment prerequisite.</p>
-                                </div>
+                    <h2><i class="fas fa-bullseye"></i> Root Cause Analysis</h2>
+                    <div class="rca-box">
+                        <div class="rca-header">
+                            <i class="fas fa-microscope"></i>
+                            <h3>What the Data Showed</h3>
+                        </div>
+                        <div class="rca-content">
+                            <div class="rca-finding">
+                                <h4>Observation 1: Memory Pattern</h4>
+                                <p>
+                                    One application pool showed continuous memory growth over 4-6 hour periods. 
+                                    Memory would climb from ~500MB to 3GB+, eventually consuming most available RAM.
+                                </p>
+                            </div>
+                            <div class="rca-finding">
+                                <h4>Observation 2: IIS Response Degradation</h4>
+                                <p>
+                                    When system memory dropped below 15% available, IIS HTTP request queue depth 
+                                    spiked from ~5 to 100+ requests. Worker process became unresponsive.
+                                </p>
+                            </div>
+                            <div class="rca-finding">
+                                <h4>Observation 3: Multi-Tenant Impact</h4>
+                                <p>
+                                    Because multiple applications shared the same IIS server, the memory leak in 
+                                    ONE application caused outages for ALL applications on that host.
+                                </p>
+                            </div>
+                            <div class="rca-conclusion">
+                                <strong>Conclusion:</strong>
+                                <p>
+                                    The "Server Unavailable" errors were caused by a <strong>noisy neighbor problem</strong> - 
+                                    a memory leak in a co-hosted application starved system resources, making the entire 
+                                    IIS instance unresponsive. Application logs didn't show crashes because the issue 
+                                    was resource exhaustion, not application exceptions.
+                                </p>
                             </div>
                         </div>
+                    </div>
+                </div>
 
-                        <div class="challenge-card">
-                            <div class="challenge-number">02</div>
-                            <div class="challenge-content">
-                                <h3>Network Connectivity & Port Accessibility</h3>
-                                <div class="challenge-detail">
-                                    <h4>Challenge:</h4>
-                                    <p>Prometheus unable to scrape metrics from node_exporter—targets showing DOWN status.</p>
-                                    <h4>Solution Applied:</h4>
-                                    <p>Applied standard network diagnostic procedures: verified firewall rules, tested port accessibility with <code>netstat</code> and <code>curl</code>, validated service binding, and checked network routes. Same methodologies used daily for diagnosing hospital system connectivity issues.</p>
-                                </div>
+                <!-- Outcome -->
+                <div class="content-block">
+                    <h2><i class="fas fa-trophy"></i> Outcome & Impact</h2>
+                    <div class="outcome-grid">
+                        <div class="outcome-card success">
+                            <i class="fas fa-check-circle"></i>
+                            <h3>Issue Resolved</h3>
+                            <p>Development team fixed the memory leak. Post-deployment monitoring confirmed stable memory usage.</p>
+                        </div>
+                        <div class="outcome-card success">
+                            <i class="fas fa-users"></i>
+                            <h3>User Impact</h3>
+                            <p>Zero recurrence of "Server Unavailable" errors. No further user complaints.</p>
+                        </div>
+                        <div class="outcome-card success">
+                            <i class="fas fa-chart-line"></i>
+                            <h3>Ongoing Monitoring</h3>
+                            <p>Monitoring infrastructure remains in place for future incident response and capacity planning.</p>
+                        </div>
+                        <div class="outcome-card success">
+                            <i class="fas fa-book"></i>
+                            <h3>Knowledge Transfer</h3>
+                            <p>Investigation methodology and dashboards documented for operations team use.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Key Takeaways -->
+                <div class="content-block">
+                    <h2><i class="fas fa-lightbulb"></i> Key Takeaways</h2>
+                    <div class="takeaways-list">
+                        <div class="takeaway-item">
+                            <div class="takeaway-icon">
+                                <i class="fas fa-chart-bar"></i>
+                            </div>
+                            <div class="takeaway-content">
+                                <h4>Observability Beats Guesswork</h4>
+                                <p>
+                                    Without monitoring, we might have spent days restarting services, changing 
+                                    configurations, or debugging the wrong application. Data-driven investigation 
+                                    led directly to root cause.
+                                </p>
                             </div>
                         </div>
-
-                        <div class="challenge-card">
-                            <div class="challenge-number">03</div>
-                            <div class="challenge-content">
-                                <h3>Service Persistence & Auto-Start</h3>
-                                <div class="challenge-detail">
-                                    <h4>Challenge:</h4>
-                                    <p>Services not persisting after system reboot, requiring manual intervention.</p>
-                                    <h4>Solution Applied:</h4>
-                                    <p>Configured proper systemd unit files with <code>systemctl enable</code> for boot-time auto-start—standard practice from managing production Linux services in hospital infrastructure where uptime is critical.</p>
-                                </div>
+                        <div class="takeaway-item">
+                            <div class="takeaway-icon">
+                                <i class="fas fa-project-diagram"></i>
+                            </div>
+                            <div class="takeaway-content">
+                                <h4>Multi-Tenant Risks</h4>
+                                <p>
+                                    Co-hosting multiple applications on the same server creates risk. One 
+                                    misbehaving application can impact all tenants. Monitoring helps identify 
+                                    these "noisy neighbor" problems.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="takeaway-item">
+                            <div class="takeaway-icon">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <div class="takeaway-content">
+                                <h4>Evidence-Based Escalation</h4>
+                                <p>
+                                    Presenting developers with graphs and metrics (not just "users are complaining") 
+                                    led to faster acknowledgment and resolution. Data builds credibility.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="takeaway-item">
+                            <div class="takeaway-icon">
+                                <i class="fas fa-tools"></i>
+                            </div>
+                            <div class="takeaway-content">
+                                <h4>Proactive Infrastructure</h4>
+                                <p>
+                                    Taking initiative to deploy monitoring tools without being asked demonstrates 
+                                    ownership and engineering mindset. It's not enough to react to problems - 
+                                    build systems to prevent them.
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -318,62 +457,132 @@
                     <div class="skills-demo-grid">
                         <div class="skill-demo-card">
                             <div class="skill-demo-icon">
-                                <i class="fas fa-network-wired"></i>
-                            </div>
-                            <h3>Network Troubleshooting</h3>
-                            <p>Applied production-level diagnostic skills for port validation, firewall configuration, and connectivity testing</p>
-                        </div>
-                        <div class="skill-demo-card">
-                            <div class="skill-demo-icon">
-                                <i class="fab fa-linux"></i>
-                            </div>
-                            <h3>Linux Administration</h3>
-                            <p>Leveraged 6+ years of systemd, service management, and server configuration expertise</p>
-                        </div>
-                        <div class="skill-demo-card">
-                            <div class="skill-demo-icon">
                                 <i class="fas fa-search"></i>
                             </div>
-                            <h3>Infrastructure Diagnostics</h3>
-                            <p>Utilized log analysis, service health checks, and system-level troubleshooting methodologies</p>
+                            <h3>Root Cause Analysis</h3>
+                            <p>Systematic investigation using data and metrics to identify true cause vs. symptoms</p>
                         </div>
                         <div class="skill-demo-card">
                             <div class="skill-demo-icon">
-                                <i class="fas fa-book-open"></i>
+                                <i class="fas fa-chart-area"></i>
+                            </div>
+                            <h3>Observability Engineering</h3>
+                            <p>Deployed and configured Prometheus, Grafana, and windows_exporter in production</p>
+                        </div>
+                        <div class="skill-demo-card">
+                            <div class="skill-demo-icon">
+                                <i class="fab fa-windows"></i>
+                            </div>
+                            <h3>Windows Infrastructure</h3>
+                            <p>Deep understanding of IIS, application pools, and Windows Server resource management</p>
+                        </div>
+                        <div class="skill-demo-card">
+                            <div class="skill-demo-icon">
+                                <i class="fas fa-users-cog"></i>
+                            </div>
+                            <h3>Cross-Team Collaboration</h3>
+                            <p>Worked with developers to translate infrastructure findings into code fixes</p>
+                        </div>
+                        <div class="skill-demo-card">
+                            <div class="skill-demo-icon">
+                                <i class="fas fa-rocket"></i>
+                            </div>
+                            <h3>Initiative & Ownership</h3>
+                            <p>Self-directed deployment of monitoring stack to solve a recurring problem</p>
+                        </div>
+                        <div class="skill-demo-card">
+                            <div class="skill-demo-icon">
+                                <i class="fas fa-file-alt"></i>
                             </div>
                             <h3>Technical Documentation</h3>
-                            <p>Maintained comprehensive GitHub documentation following infrastructure best practices</p>
+                            <p>Documented investigation process and created runbooks for future incidents</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Documentation & Links -->
+                <!-- Technologies Used -->
                 <div class="content-block">
-                    <h2><i class="fas fa-link"></i> Project Resources</h2>
-                    <div class="resource-cards">
-                        <a href="https://github.com/Nishanth7885/grafana-prometheus-monitoring" target="_blank" class="resource-card">
-                            <i class="fab fa-github"></i>
-                            <h3>GitHub Repository</h3>
-                            <p>Complete configuration files, deployment procedures, and diagnostic documentation</p>
-                        </a>
-                        <a href="https://github.com/Nishanth7885/grafana-prometheus-monitoring#readme" target="_blank" class="resource-card">
-                            <i class="fas fa-book"></i>
-                            <h3>Technical Documentation</h3>
-                            <p>Detailed setup guide with troubleshooting procedures and validation steps</p>
-                        </a>
+                    <h2><i class="fas fa-layer-group"></i> Technologies Used</h2>
+                    <div class="tech-stack-horizontal">
+                        <div class="tech-item-large">
+                            <i class="fab fa-windows"></i>
+                            <span>windows_exporter</span>
+                        </div>
+                        <div class="tech-item-large">
+                            <i class="fas fa-fire"></i>
+                            <span>Prometheus</span>
+                        </div>
+                        <div class="tech-item-large">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Grafana</span>
+                        </div>
+                        <div class="tech-item-large">
+                            <i class="fas fa-server"></i>
+                            <span>IIS Web Server</span>
+                        </div>
+                        <div class="tech-item-large">
+                            <i class="fas fa-code"></i>
+                            <span>PromQL</span>
+                        </div>
+                        <div class="tech-item-large">
+                            <i class="fab fa-microsoft"></i>
+                            <span>Windows Server</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interview Talking Points -->
+                <div class="content-block">
+                    <h2><i class="fas fa-comments"></i> How I Describe This in Interviews</h2>
+                    <div class="interview-box">
+                        <div class="interview-scenario">
+                            <h4><i class="fas fa-quote-left"></i> 30-Second Version</h4>
+                            <p>
+                                "When users reported intermittent outages on a production web application, I deployed 
+                                Prometheus and Grafana to instrument the IIS server. By analyzing memory and HTTP queue 
+                                metrics, I identified a memory leak in a co-hosted application that was starving system 
+                                resources. I escalated with evidence to the dev team, they fixed the leak, and the issue 
+                                was completely resolved."
+                            </p>
+                        </div>
+                        <div class="interview-scenario">
+                            <h4><i class="fas fa-quote-left"></i> Technical Deep-Dive Version</h4>
+                            <p>
+                                "This was a great example of observability-driven problem solving. The challenge was 
+                                intermittent failures with no obvious patterns in logs. I took the initiative to deploy 
+                                windows_exporter on the IIS server, configured Prometheus to scrape metrics, and built 
+                                Grafana dashboards for system resources, IIS performance, and per-application pool memory.
+                            </p>
+                            <p style="margin-top: var(--spacing-sm);">
+                                What the data revealed was interesting: one co-hosted application had a memory leak that 
+                                gradually consumed all available RAM over several hours. When memory pressure hit a 
+                                critical threshold, the IIS worker process became unresponsive, HTTP request queues backed 
+                                up, and users got 'Server Unavailable' errors.
+                            </p>
+                            <p style="margin-top: var(--spacing-sm);">
+                                The key insight was that the reported application was actually a victim - without monitoring, 
+                                we might have wasted time debugging the wrong code. I documented the findings with dashboard 
+                                screenshots, escalated to the development team, and they confirmed and fixed the leak. 
+                                Post-fix monitoring showed stable memory profiles and zero recurrence."
+                            </p>
+                        </div>
                     </div>
                 </div>
 
                 <!-- CTA -->
                 <div class="project-cta-section">
-                    <h2>DevOps Transition with Production Background</h2>
-                    <p>This project demonstrates how I'm applying 6+ years of infrastructure, networking, and Linux expertise to modern DevOps practices. Seeking Junior DevOps/Cloud Engineer roles where infrastructure troubleshooting skills are valued.</p>
+                    <h2>Production Problem-Solving in Action</h2>
+                    <p>
+                        This investigation demonstrates my approach to infrastructure challenges: build observability, 
+                        let data drive decisions, collaborate across teams, and document for the next person. I'm 
+                        looking for DevOps roles where this mindset is valued.
+                    </p>
                     <div class="cta-buttons">
                         <a href="index.html#contact" class="btn btn-primary btn-large">
-                            <i class="fas fa-envelope"></i> Get In Touch
+                            <i class="fas fa-envelope"></i> Let's Talk About This Project
                         </a>
                         <a href="index.html#projects" class="btn btn-secondary btn-large">
-                            <i class="fas fa-folder-open"></i> View More Projects
+                            <i class="fas fa-folder-open"></i> View Other Projects
                         </a>
                     </div>
                 </div>
@@ -382,49 +591,55 @@
             <!-- Sidebar -->
             <aside class="project-sidebar">
                 <div class="sidebar-card">
-                    <h3>Project Info</h3>
+                    <h3>Project Details</h3>
                     <div class="info-list">
                         <div class="info-item">
                             <span class="info-label">Type</span>
-                            <span class="info-value">DevOps Learning</span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-label">Approach</span>
-                            <span class="info-value">Production-grade</span>
+                            <span class="info-value">Production Incident</span>
                         </div>
                         <div class="info-item">
                             <span class="info-label">Environment</span>
-                            <span class="info-value">Multi-host Linux</span>
+                            <span class="info-value">Hospital IIS Server</span>
                         </div>
                         <div class="info-item">
                             <span class="info-label">Status</span>
-                            <span class="info-value">Deployed ✓</span>
+                            <span class="info-value">✅ Resolved</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Recurrence</span>
+                            <span class="info-value">Zero</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="sidebar-card">
-                    <h3>Technologies</h3>
+                    <h3>Tools Deployed</h3>
                     <div class="tech-tags">
+                        <span class="tech-tag-sidebar">windows_exporter</span>
                         <span class="tech-tag-sidebar">Prometheus</span>
                         <span class="tech-tag-sidebar">Grafana</span>
-                        <span class="tech-tag-sidebar">node_exporter</span>
-                        <span class="tech-tag-sidebar">Linux</span>
-                        <span class="tech-tag-sidebar">systemd</span>
-                        <span class="tech-tag-sidebar">YAML</span>
-                        <span class="tech-tag-sidebar">Networking</span>
-                        <span class="tech-tag-sidebar">Firewall</span>
+                        <span class="tech-tag-sidebar">PromQL</span>
                     </div>
                 </div>
 
                 <div class="sidebar-card">
-                    <h3>Core Skills Used</h3>
+                    <h3>Core Competencies</h3>
                     <div class="tech-tags">
-                        <span class="tech-tag-sidebar">Port Diagnostics</span>
-                        <span class="tech-tag-sidebar">Service Mgmt</span>
-                        <span class="tech-tag-sidebar">Log Analysis</span>
-                        <span class="tech-tag-sidebar">Network Debug</span>
+                        <span class="tech-tag-sidebar">RCA</span>
+                        <span class="tech-tag-sidebar">Observability</span>
+                        <span class="tech-tag-sidebar">IIS</span>
+                        <span class="tech-tag-sidebar">Windows Server</span>
+                        <span class="tech-tag-sidebar">Troubleshooting</span>
+                        <span class="tech-tag-sidebar">Initiative</span>
                     </div>
+                </div>
+
+                <div class="sidebar-card highlight-card">
+                    <h3><i class="fas fa-star"></i> Key Achievement</h3>
+                    <p style="font-size: 0.9375rem; color: var(--color-text-light); line-height: 1.7;">
+                        Self-directed deployment of production monitoring infrastructure that enabled data-driven 
+                        incident resolution and prevented future outages.
+                    </p>
                 </div>
 
                 <div class="sidebar-card">
@@ -432,7 +647,7 @@
                     <div class="related-projects">
                         <a href="project-docker.html" class="related-project">
                             <i class="fas fa-boxes"></i>
-                            <span>Containerized Infrastructure</span>
+                            <span>Container Infrastructure</span>
                         </a>
                         <a href="project-cicd.html" class="related-project">
                             <i class="fas fa-sitemap"></i>
@@ -444,18 +659,11 @@
         </div>
     </section>
 
-    <!-- Image Modal -->
-    <div id="imageModal" class="image-modal">
-        <span class="image-modal-close" onclick="closeImageModal()">&times;</span>
-        <img class="image-modal-content" id="modalImage">
-        <div class="image-modal-caption" id="modalCaption"></div>
-    </div>
-
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <p>&copy; 2025 Sundhar Ganesh. Systems Engineer transitioning to DevOps.</p>
+                <p>&copy; 2025 Sundhar Ganesh. Systems Engineer • DevOps Practitioner</p>
                 <div class="footer-links">
                     <a href="https://github.com/Nishanth7885" target="_blank"><i class="fab fa-github"></i></a>
                     <a href="https://linkedin.com/in/sundhar-ganesh" target="_blank"><i class="fab fa-linkedin"></i></a>
@@ -466,6 +674,5 @@
     </footer>
 
     <script src="script.js"></script>
-    <script src="project-modal.js"></script>
 </body>
 </html>
