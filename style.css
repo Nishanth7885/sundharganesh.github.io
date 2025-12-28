@@ -2199,3 +2199,71 @@ body {
         min-width: 120px;
     }
 }
+
+/* ==================== FIX PROJECT CONTAINER SCROLL ==================== */
+
+/* Fix the grid container */
+.project-container {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: var(--spacing-2xl);
+    align-items: start;
+}
+
+/* Main content should scroll normally */
+.project-content {
+    min-width: 0;
+    width: 100%;
+    /* Remove any height restrictions */
+    height: auto;
+    overflow: visible;
+}
+
+/* Sidebar sticky positioning fix */
+.project-sidebar {
+    position: sticky;
+    top: 100px;
+    align-self: start;
+    /* Add max-height to prevent it from being too tall */
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+}
+
+/* Ensure CTA section is fully visible */
+.project-cta-section {
+    background: linear-gradient(135deg, #F9FAFB 0%, #FFFFFF 100%);
+    padding: var(--spacing-2xl);
+    border-radius: var(--radius-xl);
+    text-align: center;
+    margin-top: var(--spacing-3xl);
+    margin-bottom: var(--spacing-xl); /* Add bottom margin */
+}
+
+/* Ensure section has proper spacing */
+.section {
+    padding: var(--spacing-3xl) 0;
+    overflow: visible; /* Allow natural overflow */
+}
+
+/* Remove any fixed heights that might be causing issues */
+.project-hero,
+.content-block,
+.approach-steps,
+.tech-implementation {
+    height: auto;
+    overflow: visible;
+}
+
+/* Responsive fix */
+@media (max-width: 968px) {
+    .project-container {
+        grid-template-columns: 1fr;
+    }
+
+    .project-sidebar {
+        position: static;
+        max-height: none;
+        overflow-y: visible;
+        order: -1;
+    }
+}

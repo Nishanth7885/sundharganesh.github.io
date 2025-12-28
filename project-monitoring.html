@@ -44,17 +44,7 @@
                 </div>
                 <h1>IIS Application Outage Investigation</h1>
                 <p class="project-hero-subtitle">Root Cause Analysis Using Prometheus & Grafana</p>
-                <div class="project-meta">
-                    <span class="meta-item">
-                        <i class="fas fa-hospital"></i> Hospital Production Environment
-                    </span>
-                    <span class="meta-item">
-                        <i class="fas fa-exclamation-circle"></i> Real Incident
-                    </span>
-                    <span class="meta-item">
-                        <i class="fas fa-check-circle"></i> Successfully Resolved
-                    </span>
-                </div>
+            
             </div>
         </div>
     </section>
@@ -72,7 +62,7 @@
                             <i class="fas fa-chart-line"></i>
                             <div>
                                 <h3>Incident Investigation & Resolution</h3>
-                                <p class="summary-date">Hospital Production Environment • 2024</p>
+                                <p class="summary-date">Hospital Production Environment • 2025</p>
                             </div>
                         </div>
                         <p>
@@ -531,47 +521,11 @@
                     </div>
                 </div>
 
-                <!-- Interview Talking Points -->
-                <div class="content-block">
-                    <h2><i class="fas fa-comments"></i> How I Describe This in Interviews</h2>
-                    <div class="interview-box">
-                        <div class="interview-scenario">
-                            <h4><i class="fas fa-quote-left"></i> 30-Second Version</h4>
-                            <p>
-                                "When users reported intermittent outages on a production web application, I deployed 
-                                Prometheus and Grafana to instrument the IIS server. By analyzing memory and HTTP queue 
-                                metrics, I identified a memory leak in a co-hosted application that was starving system 
-                                resources. I escalated with evidence to the dev team, they fixed the leak, and the issue 
-                                was completely resolved."
-                            </p>
-                        </div>
-                        <div class="interview-scenario">
-                            <h4><i class="fas fa-quote-left"></i> Technical Deep-Dive Version</h4>
-                            <p>
-                                "This was a great example of observability-driven problem solving. The challenge was 
-                                intermittent failures with no obvious patterns in logs. I took the initiative to deploy 
-                                windows_exporter on the IIS server, configured Prometheus to scrape metrics, and built 
-                                Grafana dashboards for system resources, IIS performance, and per-application pool memory.
-                            </p>
-                            <p style="margin-top: var(--spacing-sm);">
-                                What the data revealed was interesting: one co-hosted application had a memory leak that 
-                                gradually consumed all available RAM over several hours. When memory pressure hit a 
-                                critical threshold, the IIS worker process became unresponsive, HTTP request queues backed 
-                                up, and users got 'Server Unavailable' errors.
-                            </p>
-                            <p style="margin-top: var(--spacing-sm);">
-                                The key insight was that the reported application was actually a victim - without monitoring, 
-                                we might have wasted time debugging the wrong code. I documented the findings with dashboard 
-                                screenshots, escalated to the development team, and they confirmed and fixed the leak. 
-                                Post-fix monitoring showed stable memory profiles and zero recurrence."
-                            </p>
-                        </div>
-                    </div>
-                </div>
+               
 
                 <!-- CTA -->
                 <div class="project-cta-section">
-                    <h2>Production Problem-Solving in Action</h2>
+                    <h2>Observability-Driven Problem Resolution</h2>
                     <p>
                         This investigation demonstrates my approach to infrastructure challenges: build observability, 
                         let data drive decisions, collaborate across teams, and document for the next person. I'm 
@@ -599,7 +553,7 @@
                         </div>
                         <div class="info-item">
                             <span class="info-label">Environment</span>
-                            <span class="info-value">Hospital IIS Server</span>
+                            <span class="info-value">IIS Server</span>
                         </div>
                         <div class="info-item">
                             <span class="info-label">Status</span>
