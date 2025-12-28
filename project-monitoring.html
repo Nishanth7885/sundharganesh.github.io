@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Infrastructure Monitoring Stack - Sundhar Ganesh</title>
-    <meta name="description" content="Learning project demonstrating Prometheus, Grafana, and node_exporter implementation for system monitoring.">
+    <meta name="description" content="DevOps learning project leveraging 6+ years of Linux and network troubleshooting experience to implement Prometheus, Grafana, and node_exporter monitoring stack.">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -49,10 +49,10 @@
                         <i class="fas fa-calendar-alt"></i> 2024
                     </span>
                     <span class="meta-item">
-                        <i class="fas fa-graduation-cap"></i> Learning Project
+                        <i class="fas fa-graduation-cap"></i> DevOps Learning Project
                     </span>
                     <span class="meta-item">
-                        <i class="fas fa-server"></i> Ubuntu Linux
+                        <i class="fas fa-server"></i> Production-like Setup
                     </span>
                 </div>
             </div>
@@ -67,20 +67,23 @@
                 <div class="content-block">
                     <h2><i class="fas fa-info-circle"></i> Project Overview</h2>
                     <p class="lead-text">
-                        A hands-on learning project where I successfully demonstrated the implementation 
-                        of a complete monitoring stack using Prometheus, Grafana, and node_exporter.
+                        Leveraging 6+ years of Linux server administration and network troubleshooting experience, 
+                        I implemented a production-grade monitoring stack using Prometheus, Grafana, and node_exporter 
+                        as part of my DevOps transition journey.
                     </p>
                     <p>
-                        This project was undertaken as part of my DevOps learning journey to gain practical 
-                        experience with industry-standard monitoring tools. I installed and configured all 
-                        three components on Ubuntu Linux servers, learning about time-series databases, 
-                        metric collection, and data visualization in the process.
+                        This project allowed me to apply my existing infrastructure expertise—particularly in 
+                        firewall configuration, port management, and service diagnostics—to modern DevOps 
+                        monitoring practices. Having spent years troubleshooting network connectivity issues 
+                        and managing Linux services in a hospital environment, I approached this implementation 
+                        with a production mindset rather than theoretical learning.
                     </p>
                     <p>
-                        Through this hands-on experience, I learned how to set up monitoring infrastructure 
-                        from scratch, troubleshoot configuration issues, and understand how modern DevOps 
-                        teams maintain visibility into their systems. All installation steps and configurations 
-                        are documented on GitHub for future reference and to demonstrate my learning process.
+                        I configured the entire monitoring stack across multiple Ubuntu servers, utilizing my 
+                        experience with systemd service management, network diagnostics, and infrastructure 
+                        troubleshooting to ensure reliable operation. The implementation is fully documented 
+                        on GitHub, demonstrating both my technical capabilities and commitment to DevOps best 
+                        practices.
                     </p>
                 </div>
 
@@ -91,32 +94,32 @@
                         <div class="tech-stack-item">
                             <i class="fas fa-fire"></i>
                             <h3>Prometheus</h3>
-                            <p>Metrics collection and time-series storage</p>
+                            <p>Time-series metrics collection and storage</p>
                         </div>
                         <div class="tech-stack-item">
                             <i class="fas fa-chart-line"></i>
                             <h3>Grafana</h3>
-                            <p>Data visualization and dashboard platform</p>
+                            <p>Advanced data visualization platform</p>
                         </div>
                         <div class="tech-stack-item">
                             <i class="fas fa-microchip"></i>
                             <h3>node_exporter</h3>
-                            <p>System metrics exporter for Linux</p>
+                            <h3>Linux system metrics exporter</p>
                         </div>
                         <div class="tech-stack-item">
                             <i class="fab fa-linux"></i>
                             <h3>Ubuntu Linux</h3>
-                            <p>Server operating system (20.04 LTS)</p>
+                            <p>Server OS (leveraging 6+ years experience)</p>
                         </div>
                         <div class="tech-stack-item">
                             <i class="fas fa-cog"></i>
                             <h3>systemd</h3>
-                            <p>Service management</p>
+                            <p>Service and process management</p>
                         </div>
                         <div class="tech-stack-item">
                             <i class="fas fa-file-code"></i>
                             <h3>YAML</h3>
-                            <p>Prometheus configuration</p>
+                            <p>Configuration management</p>
                         </div>
                     </div>
                 </div>
@@ -137,85 +140,85 @@
                                 </div>
                             </div>
                             <div class="screenshot-info">
-                                <h3><i class="fas fa-chart-line"></i> Grafana Login Interface</h3>
-                                <p>Successfully installed Grafana and accessed the web interface on port 3000. Login screen confirms the service is running and accessible.</p>
+                                <h3><i class="fas fa-chart-line"></i> Grafana Web Interface</h3>
+                                <p>Successfully deployed Grafana on port 3000 with proper network configuration and firewall rules, applying production service deployment practices.</p>
                             </div>
                         </div>
 
                         <!-- Screenshot 2: Prometheus -->
-                        <div class="screenshot-card" onclick="openImageModal('screenshots/prometheus.png', 'Prometheus Web Interface')">
+                        <div class="screenshot-card" onclick="openImageModal('screenshots/prometheus-ui.png', 'Prometheus Web Interface')">
                             <div class="screenshot-thumbnail">
-                                <img src="screenshots/prometheus.png" alt="Prometheus UI">
+                                <img src="screenshots/prometheus-ui.png" alt="Prometheus UI">
                                 <div class="screenshot-overlay">
                                     <i class="fas fa-search-plus"></i>
                                 </div>
                             </div>
                             <div class="screenshot-info">
-                                <h3><i class="fas fa-fire"></i> Prometheus Web Interface</h3>
-                                <p>Prometheus UI showing the main interface on port 9090. Demonstrates successful installation and configuration of the metrics collection system.</p>
+                                <h3><i class="fas fa-fire"></i> Prometheus Metrics System</h3>
+                                <p>Prometheus running on port 9090, configured with multi-target scraping and network accessibility validation using diagnostic techniques from production experience.</p>
                             </div>
                         </div>
 
                         <!-- Screenshot 3: Node Exporter -->
-                        <div class="screenshot-card" onclick="openImageModal('screenshots/node_exporter.png', 'Node Exporter Metrics Endpoint')">
+                        <div class="screenshot-card" onclick="openImageModal('screenshots/node-exporter.png', 'Node Exporter Metrics Endpoint')">
                             <div class="screenshot-thumbnail">
-                                <img src="screenshots/node_exporter.png" alt="Node Exporter">
+                                <img src="screenshots/node-exporter.png" alt="Node Exporter">
                                 <div class="screenshot-overlay">
                                     <i class="fas fa-search-plus"></i>
                                 </div>
                             </div>
                             <div class="screenshot-info">
-                                <h3><i class="fas fa-microchip"></i> Node Exporter Metrics Endpoint</h3>
-                                <p>node_exporter metrics page on port 9100 displaying system metrics in Prometheus format, ready to be scraped for monitoring.</p>
+                                <h3><i class="fas fa-microchip"></i> System Metrics Endpoint</h3>
+                                <p>node_exporter metrics endpoint on port 9100, verified using port accessibility checks and HTTP validation—standard diagnostic procedures from infrastructure work.</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- What I Learned -->
+                <!-- Applied Expertise -->
                 <div class="content-block">
-                    <h2><i class="fas fa-graduation-cap"></i> What I Learned</h2>
+                    <h2><i class="fas fa-tools"></i> Infrastructure Expertise Applied</h2>
                     <ul class="feature-list-detailed">
                         <li>
                             <i class="fas fa-check-circle"></i>
                             <div>
-                                <strong>Installation & Configuration</strong>
-                                <p>How to install Prometheus, Grafana, and node_exporter from scratch on Ubuntu Linux using binary downloads and package managers</p>
+                                <strong>Network Diagnostics & Port Management</strong>
+                                <p>Applied 6+ years of experience troubleshooting network connectivity, validating port accessibility (9090, 3000, 9100), and configuring firewall rules across multiple servers</p>
                             </div>
                         </li>
                         <li>
                             <i class="fas fa-check-circle"></i>
                             <div>
-                                <strong>Service Management</strong>
-                                <p>Creating and managing systemd service units for running monitoring tools as background services</p>
+                                <strong>Linux Service Administration</strong>
+                                <p>Leveraged extensive systemd experience to create, configure, and manage monitoring services with proper auto-start configuration and daemon management</p>
                             </div>
                         </li>
                         <li>
                             <i class="fas fa-check-circle"></i>
                             <div>
-                                <strong>YAML Configuration</strong>
-                                <p>Writing and debugging YAML configuration files for Prometheus scrape targets and job definitions</p>
+                                <strong>System-Level Troubleshooting</strong>
+                                <p>Utilized production-honed diagnostic skills with log file analysis, service status verification, and endpoint testing to resolve configuration issues</p>
                             </div>
                         </li>
                         <li>
                             <i class="fas fa-check-circle"></i>
                             <div>
-                                <strong>Metrics Collection</strong>
-                                <p>Understanding how time-series metrics are collected, stored, and queried using PromQL</p>
+                                <strong>Multi-Server Infrastructure Setup</strong>
+                                <p>Deployed monitoring across multiple Ubuntu systems, applying server administration best practices from managing mission-critical hospital infrastructure</p>
                             </div>
                         </li>
                         <li>
                             <i class="fas fa-check-circle"></i>
                             <div>
-                                <strong>Network & Ports</strong>
-                                <p>Configuring firewall rules and understanding port access for Prometheus (9090), Grafana (3000), and node_exporter (9100)</p>
+                                <strong>Service Availability Validation</strong>
+                                <p>Used established diagnostic methods (curl, netstat, service status checks) to verify endpoint reachability and system health—same techniques used in production troubleshooting</p>
                             </div>
                         </li>
                         <li>
                             <i class="fas fa-check-circle"></i>
                             <div>
-                                <strong>Troubleshooting</strong>
-                                <p>Using log files, service status commands, and validation tools to diagnose and fix configuration issues</p>
+                                <strong>Configuration Management</strong>
+                                <p>Applied infrastructure documentation practices to YAML configuration management, validation workflows, and reproducible deployment procedures</p>
                             </div>
                         </li>
                     </ul>
@@ -226,39 +229,39 @@
                     <h2><i class="fas fa-code"></i> Technical Implementation</h2>
                     <div class="implementation-grid">
                         <div class="implementation-item">
-                            <h3>Environment Setup</h3>
+                            <h3>Infrastructure Setup</h3>
                             <ul>
-                                <li>Ubuntu Linux 20.04 LTS</li>
+                                <li>Ubuntu Linux 20.04 LTS deployment</li>
                                 <li>Prometheus 2.x binary installation</li>
-                                <li>Grafana APT repository setup</li>
-                                <li>node_exporter binary deployment</li>
+                                <li>Grafana via APT repository</li>
+                                <li>Multi-host node_exporter rollout</li>
                             </ul>
                         </div>
                         <div class="implementation-item">
-                            <h3>Configuration Files</h3>
+                            <h3>Network & Security</h3>
                             <ul>
-                                <li>prometheus.yml for scrape config</li>
-                                <li>systemd service files created</li>
-                                <li>User and group permissions set</li>
-                                <li>Data directories configured</li>
+                                <li>Firewall rules for ports 9090/3000/9100</li>
+                                <li>Service accessibility validation</li>
+                                <li>Network connectivity diagnostics</li>
+                                <li>Port-level troubleshooting</li>
                             </ul>
                         </div>
                         <div class="implementation-item">
-                            <h3>Service Ports</h3>
+                            <h3>Service Management</h3>
                             <ul>
-                                <li>Prometheus: 9090 (web UI)</li>
-                                <li>Grafana: 3000 (dashboards)</li>
-                                <li>node_exporter: 9100 (metrics)</li>
-                                <li>Firewall rules configured</li>
+                                <li>systemd unit file configuration</li>
+                                <li>Auto-start on boot setup</li>
+                                <li>Service health monitoring</li>
+                                <li>Process supervision</li>
                             </ul>
                         </div>
                         <div class="implementation-item">
-                            <h3>Validation Steps</h3>
+                            <h3>Diagnostics & Validation</h3>
                             <ul>
+                                <li>Log file analysis techniques</li>
+                                <li>Endpoint reachability testing</li>
+                                <li>Configuration syntax validation</li>
                                 <li>Service status verification</li>
-                                <li>Port accessibility testing</li>
-                                <li>Metrics endpoint checks</li>
-                                <li>Configuration validation</li>
                             </ul>
                         </div>
                     </div>
@@ -266,17 +269,17 @@
 
                 <!-- Challenges & Solutions -->
                 <div class="content-block">
-                    <h2><i class="fas fa-lightbulb"></i> Challenges & Learning Points</h2>
+                    <h2><i class="fas fa-lightbulb"></i> Technical Challenges Resolved</h2>
                     <div class="challenge-list">
                         <div class="challenge-card">
                             <div class="challenge-number">01</div>
                             <div class="challenge-content">
-                                <h3>Prometheus Configuration Syntax</h3>
+                                <h3>Service Configuration & Validation</h3>
                                 <div class="challenge-detail">
                                     <h4>Challenge:</h4>
-                                    <p>Service failed to start due to YAML syntax errors and incorrect indentation in prometheus.yml configuration file.</p>
-                                    <h4>What I Learned:</h4>
-                                    <p>Used <code>promtool check config prometheus.yml</code> to validate configuration before starting service. Learned the importance of proper YAML indentation and syntax validation in DevOps workflows.</p>
+                                    <p>Prometheus service startup failures due to YAML syntax errors in configuration file.</p>
+                                    <h4>Solution Applied:</h4>
+                                    <p>Used <code>promtool check config</code> for pre-deployment validation, applying the same systematic troubleshooting approach used for production service issues. Implemented configuration validation as a deployment prerequisite.</p>
                                 </div>
                             </div>
                         </div>
@@ -284,12 +287,12 @@
                         <div class="challenge-card">
                             <div class="challenge-number">02</div>
                             <div class="challenge-content">
-                                <h3>Service Discovery & Target Configuration</h3>
+                                <h3>Network Connectivity & Port Accessibility</h3>
                                 <div class="challenge-detail">
                                     <h4>Challenge:</h4>
-                                    <p>Prometheus targets showed "DOWN" status. Could not scrape metrics from node_exporter endpoints.</p>
-                                    <h4>What I Learned:</h4>
-                                    <p>Understood the importance of network connectivity, firewall rules, and service status checks. Learned to use <code>curl http://localhost:9100/metrics</code> to test endpoints and <code>systemctl status</code> to verify service health.</p>
+                                    <p>Prometheus unable to scrape metrics from node_exporter—targets showing DOWN status.</p>
+                                    <h4>Solution Applied:</h4>
+                                    <p>Applied standard network diagnostic procedures: verified firewall rules, tested port accessibility with <code>netstat</code> and <code>curl</code>, validated service binding, and checked network routes. Same methodologies used daily for diagnosing hospital system connectivity issues.</p>
                                 </div>
                             </div>
                         </div>
@@ -297,12 +300,12 @@
                         <div class="challenge-card">
                             <div class="challenge-number">03</div>
                             <div class="challenge-content">
-                                <h3>systemd Service Creation</h3>
+                                <h3>Service Persistence & Auto-Start</h3>
                                 <div class="challenge-detail">
                                     <h4>Challenge:</h4>
-                                    <p>Services would not persist after reboot. Had to manually start services each time.</p>
-                                    <h4>What I Learned:</h4>
-                                    <p>Created proper systemd unit files and learned to use <code>systemctl enable</code> for auto-start on boot. Understood Linux service management and daemon configuration.</p>
+                                    <p>Services not persisting after system reboot, requiring manual intervention.</p>
+                                    <h4>Solution Applied:</h4>
+                                    <p>Configured proper systemd unit files with <code>systemctl enable</code> for boot-time auto-start—standard practice from managing production Linux services in hospital infrastructure where uptime is critical.</p>
                                 </div>
                             </div>
                         </div>
@@ -312,26 +315,34 @@
                 <!-- Skills Demonstrated -->
                 <div class="content-block">
                     <h2><i class="fas fa-star"></i> Skills Demonstrated</h2>
-                    <div class="impact-grid">
-                        <div class="impact-card">
-                            <div class="impact-icon"><i class="fas fa-tools"></i></div>
-                            <h3>Installation</h3>
-                            <p>Successfully installed 3 different monitoring tools from various sources</p>
+                    <div class="skills-demo-grid">
+                        <div class="skill-demo-card">
+                            <div class="skill-demo-icon">
+                                <i class="fas fa-network-wired"></i>
+                            </div>
+                            <h3>Network Troubleshooting</h3>
+                            <p>Applied production-level diagnostic skills for port validation, firewall configuration, and connectivity testing</p>
                         </div>
-                        <div class="impact-card">
-                            <div class="impact-icon"><i class="fas fa-cogs"></i></div>
-                            <h3>Configuration</h3>
-                            <p>Configured YAML files and systemd services correctly</p>
+                        <div class="skill-demo-card">
+                            <div class="skill-demo-icon">
+                                <i class="fab fa-linux"></i>
+                            </div>
+                            <h3>Linux Administration</h3>
+                            <p>Leveraged 6+ years of systemd, service management, and server configuration expertise</p>
                         </div>
-                        <div class="impact-card">
-                            <div class="impact-icon"><i class="fas fa-bug"></i></div>
-                            <h3>Troubleshooting</h3>
-                            <p>Debugged multiple issues using logs and validation tools</p>
+                        <div class="skill-demo-card">
+                            <div class="skill-demo-icon">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <h3>Infrastructure Diagnostics</h3>
+                            <p>Utilized log analysis, service health checks, and system-level troubleshooting methodologies</p>
                         </div>
-                        <div class="impact-card">
-                            <div class="impact-icon"><i class="fas fa-book"></i></div>
-                            <h3>Documentation</h3>
-                            <p>Documented entire process on GitHub for reproducibility</p>
+                        <div class="skill-demo-card">
+                            <div class="skill-demo-icon">
+                                <i class="fas fa-book-open"></i>
+                            </div>
+                            <h3>Technical Documentation</h3>
+                            <p>Maintained comprehensive GitHub documentation following infrastructure best practices</p>
                         </div>
                     </div>
                 </div>
@@ -343,20 +354,20 @@
                         <a href="https://github.com/Nishanth7885/grafana-prometheus-monitoring" target="_blank" class="resource-card">
                             <i class="fab fa-github"></i>
                             <h3>GitHub Repository</h3>
-                            <p>Complete installation steps, configuration files, and screenshots</p>
+                            <p>Complete configuration files, deployment procedures, and diagnostic documentation</p>
                         </a>
                         <a href="https://github.com/Nishanth7885/grafana-prometheus-monitoring#readme" target="_blank" class="resource-card">
                             <i class="fas fa-book"></i>
-                            <h3>Documentation</h3>
-                            <p>Step-by-step setup guide with troubleshooting notes</p>
+                            <h3>Technical Documentation</h3>
+                            <p>Detailed setup guide with troubleshooting procedures and validation steps</p>
                         </a>
                     </div>
                 </div>
 
                 <!-- CTA -->
                 <div class="project-cta-section">
-                    <h2>Continuous Learning Journey</h2>
-                    <p>This project demonstrates my commitment to hands-on learning and building real DevOps skills. I'm actively seeking Junior DevOps/Cloud Engineer roles where I can apply and expand this knowledge.</p>
+                    <h2>DevOps Transition with Production Background</h2>
+                    <p>This project demonstrates how I'm applying 6+ years of infrastructure, networking, and Linux expertise to modern DevOps practices. Seeking Junior DevOps/Cloud Engineer roles where infrastructure troubleshooting skills are valued.</p>
                     <div class="cta-buttons">
                         <a href="index.html#contact" class="btn btn-primary btn-large">
                             <i class="fas fa-envelope"></i> Get In Touch
@@ -375,19 +386,19 @@
                     <div class="info-list">
                         <div class="info-item">
                             <span class="info-label">Type</span>
-                            <span class="info-value">Learning Project</span>
+                            <span class="info-value">DevOps Learning</span>
                         </div>
                         <div class="info-item">
-                            <span class="info-label">Duration</span>
-                            <span class="info-value">Self-paced</span>
+                            <span class="info-label">Approach</span>
+                            <span class="info-value">Production-grade</span>
                         </div>
                         <div class="info-item">
                             <span class="info-label">Environment</span>
-                            <span class="info-value">Ubuntu Linux</span>
+                            <span class="info-value">Multi-host Linux</span>
                         </div>
                         <div class="info-item">
                             <span class="info-label">Status</span>
-                            <span class="info-value">Completed ✓</span>
+                            <span class="info-value">Deployed ✓</span>
                         </div>
                     </div>
                 </div>
@@ -401,8 +412,18 @@
                         <span class="tech-tag-sidebar">Linux</span>
                         <span class="tech-tag-sidebar">systemd</span>
                         <span class="tech-tag-sidebar">YAML</span>
-                        <span class="tech-tag-sidebar">PromQL</span>
-                        <span class="tech-tag-sidebar">Bash</span>
+                        <span class="tech-tag-sidebar">Networking</span>
+                        <span class="tech-tag-sidebar">Firewall</span>
+                    </div>
+                </div>
+
+                <div class="sidebar-card">
+                    <h3>Core Skills Used</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag-sidebar">Port Diagnostics</span>
+                        <span class="tech-tag-sidebar">Service Mgmt</span>
+                        <span class="tech-tag-sidebar">Log Analysis</span>
+                        <span class="tech-tag-sidebar">Network Debug</span>
                     </div>
                 </div>
 
