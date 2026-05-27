@@ -3,75 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Production Incident Investigation - Sundhar Ganesh</title>
-    <meta name="description content="Root cause analysis of intermittent IIS outages using Prometheus, Grafana, and windows_exporter in a hospital production environment.">
+    <title>IIS Memory Leak RCA with Prometheus and Grafana | Sundhar Ganesh</title>
+    <meta name="description" content="Root cause analysis of intermittent IIS outages using Prometheus, Grafana, and windows_exporter. Identified a memory leak in a co hosted application via metrics.">
+    <link rel="icon" type="image/png" href="photo.png">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
+
+    <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <a href="index.html" class="logo">SG</a>
-            <ul class="nav-menu">
+            <a href="index.html" class="logo">
+                <span class="logo-mark">SG</span>
+                <span class="logo-dot"></span>
+            </a>
+            <ul class="nav-menu" id="nav-menu">
                 <li><a href="index.html#home">Home</a></li>
-                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#featured">Featured</a></li>
                 <li><a href="index.html#skills">Skills</a></li>
                 <li><a href="index.html#experience">Experience</a></li>
                 <li><a href="index.html#projects">Projects</a></li>
-                <li><a href="index.html#contact" class="nav-cta">Contact</a></li>
+                <li><a href="index.html#contact" class="nav-cta">Get in Touch</a></li>
             </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
         </div>
     </nav>
 
-    <!-- Project Hero -->
     <section class="project-hero">
         <div class="container">
             <a href="index.html#projects" class="back-link">
-                <i class="fas fa-arrow-left"></i> Back to Projects
+                <i class="fas fa-arrow-left"></i> Back to Portfolio
             </a>
             <div class="project-hero-content">
                 <div class="project-hero-icon">
-                    <i class="fas fa-search"></i>
+                    <i class="fas fa-chart-line"></i>
                 </div>
-                <h1>IIS Application Outage Investigation</h1>
-                <p class="project-hero-subtitle">Root Cause Analysis Using Prometheus & Grafana</p>
-            
+                <h1>IIS Application Outage Investigation with Prometheus and Grafana</h1>
+                <p class="project-hero-subtitle">
+                    Diagnosed intermittent "Server Unavailable" errors in a production hospital environment. Identified a memory leak in a co hosted application through systematic metrics analysis.
+                </p>
+                <div class="project-meta-row">
+                    <span class="tech-chip">Prometheus</span>
+                    <span class="tech-chip">Grafana</span>
+                    <span class="tech-chip">windows_exporter</span>
+                    <span class="tech-chip">IIS</span>
+                    <span class="tech-chip">Windows Server</span>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Project Content -->
     <section class="section">
         <div class="container project-container">
             <div class="project-content">
-                
-                <!-- Executive Summary -->
+
                 <div class="content-block">
                     <h2><i class="fas fa-file-alt"></i> Executive Summary</h2>
                     <div class="summary-box">
                         <div class="summary-header">
-                            <i class="fas fa-chart-line"></i>
+                            <i class="fas fa-search"></i>
                             <div>
-                                <h3>Incident Investigation & Resolution</h3>
-                                <p class="summary-date">Hospital Production Environment • 2025</p>
+                                <h3>Production Incident Investigation and Resolution</h3>
+                                <p class="summary-date">Hospital Production Environment, 2025</p>
                             </div>
                         </div>
                         <p>
-                            When developers reported intermittent "Server Unavailable" errors affecting a production 
-                            web application, I took the initiative to deploy monitoring infrastructure (Prometheus + 
-                            Grafana + windows_exporter) on the IIS server to investigate. Through systematic data 
-                            collection and analysis, I identified a memory leak in a co-hosted application that was 
-                            causing resource exhaustion. The issue was escalated to developers with evidence-based 
-                            findings and successfully resolved.
+                            Developers reported intermittent "Server Unavailable" errors on a production web application. With no obvious pattern in app logs, I deployed Prometheus, Grafana, and windows_exporter on the IIS server to investigate. Through metric analysis I identified a memory leak in a co hosted application that was starving system resources. The issue was escalated to developers with evidence, fixed, and has not recurred.
                         </p>
                         <div class="summary-impact">
                             <div class="impact-stat">
@@ -84,546 +86,150 @@
                             </div>
                             <div class="impact-stat">
                                 <i class="fas fa-chart-area"></i>
-                                <span>Ongoing monitoring established</span>
+                                <span>Ongoing monitoring in place</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Problem Statement -->
                 <div class="content-block">
-                    <h2><i class="fas fa-exclamation-triangle"></i> Problem Statement</h2>
-                    <div class="problem-box">
-                        <div class="problem-header">
-                            <i class="fas fa-bug"></i>
-                            <h3>Reported Issue</h3>
-                        </div>
-                        <div class="problem-details">
-                            <div class="problem-item">
-                                <strong>Symptom:</strong>
-                                <p>Random "Server Unavailable" errors reported by end users</p>
-                            </div>
-                            <div class="problem-item">
-                                <strong>Frequency:</strong>
-                                <p>Intermittent - difficult to reproduce on demand</p>
-                            </div>
-                            <div class="problem-item">
-                                <strong>Impact:</strong>
-                                <p>User workflow interruptions, multiple user complaints</p>
-                            </div>
-                            <div class="problem-item">
-                                <strong>Environment:</strong>
-                                <p>Windows Server running IIS with multiple co-hosted applications</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="challenge-note">
-                        <i class="fas fa-info-circle"></i>
-                        <p>
-                            <strong>The Challenge:</strong> With no obvious error patterns in application logs and 
-                            intermittent failures, traditional troubleshooting wasn't revealing the root cause. 
-                            I needed visibility into system-level resource consumption to identify what was happening 
-                            during the outage windows.
-                        </p>
-                    </div>
+                    <h2><i class="fas fa-exclamation-triangle"></i> The Problem</h2>
+                    <h3>What users saw</h3>
+                    <ul>
+                        <li>Symptom: random "Server Unavailable" errors during normal use.</li>
+                        <li>Frequency: intermittent, hard to reproduce on demand.</li>
+                        <li>Impact: workflow interruption for clinical and administrative users.</li>
+                        <li>Environment: Windows Server running IIS with multiple co hosted applications.</li>
+                    </ul>
+                    <h3>Why it was hard</h3>
+                    <p>
+                        Application logs were quiet. There was no clear stack trace, no obvious crash, no smoking gun in event viewer. Traditional log spelunking was not going to solve this. I needed visibility into what the system was doing during the outage windows, not just what the application thought it was doing.
+                    </p>
                 </div>
 
-                <!-- My Approach -->
                 <div class="content-block">
                     <h2><i class="fas fa-tasks"></i> My Approach</h2>
-                    <p class="approach-intro">
-                        I took a <strong>data-driven, observability-first approach</strong> to investigate the issue. 
-                        Rather than making configuration changes or restarting services blindly, I first instrumented 
-                        the system to collect evidence.
+                    <p>
+                        I took a data driven, observability first approach. Rather than restarting services blindly or changing configuration on a hunch, I instrumented the system first and let the data point me at the answer.
                     </p>
-                    
-                    <div class="approach-steps">
-                        <div class="approach-step">
-                            <div class="approach-number">01</div>
-                            <div class="approach-content">
-                                <h3>Instrumentation</h3>
-                                <div class="approach-detail">
-                                    <p><strong>Action Taken:</strong></p>
-                                    <p>Installed <code>windows_exporter</code> on the IIS server and enabled specific collectors:</p>
-                                    <ul>
-                                        <li><strong>IIS collector</strong> - Request queue depth, connections, requests/sec</li>
-                                        <li><strong>.NET collector</strong> - Application pool memory, GC metrics</li>
-                                        <li><strong>CPU collector</strong> - Processor utilization per core</li>
-                                        <li><strong>Memory collector</strong> - Available memory, paging activity</li>
-                                        <li><strong>Process collector</strong> - Per-process memory consumption</li>
-                                    </ul>
-                                    <p><strong>Why:</strong> Needed visibility into resource consumption at both system and application levels</p>
-                                </div>
-                            </div>
-                        </div>
 
-                        <div class="approach-step">
-                            <div class="approach-number">02</div>
-                            <div class="approach-content">
-                                <h3>Metrics Collection</h3>
-                                <div class="approach-detail">
-                                    <p><strong>Action Taken:</strong></p>
-                                    <p>Configured our existing Prometheus instance to scrape the windows_exporter endpoint:</p>
-                                    <ul>
-                                        <li>Added scrape target to <code>prometheus.yml</code></li>
-                                        <li>Validated configuration with <code>promtool check config</code></li>
-                                        <li>Verified metrics collection in Prometheus UI</li>
-                                        <li>Set appropriate scrape interval (30s) for granular data</li>
-                                    </ul>
-                                    <p><strong>Why:</strong> Centralized metrics storage for historical analysis and correlation</p>
-                                </div>
-                            </div>
-                        </div>
+                    <h3>1. Instrumentation</h3>
+                    <p>Installed windows_exporter on the IIS server and enabled the collectors I needed:</p>
+                    <ul>
+                        <li>IIS collector for request queue depth, connections, and requests per second.</li>
+                        <li>.NET collector for application pool memory and GC metrics.</li>
+                        <li>CPU collector for processor utilization per core.</li>
+                        <li>Memory collector for available memory and paging activity.</li>
+                        <li>Process collector for per process memory consumption.</li>
+                    </ul>
 
-                        <div class="approach-step">
-                            <div class="approach-number">03</div>
-                            <div class="approach-content">
-                                <h3>Visualization & Monitoring</h3>
-                                <div class="approach-detail">
-                                    <p><strong>Action Taken:</strong></p>
-                                    <p>Built Grafana dashboards to visualize key metrics:</p>
-                                    <ul>
-                                        <li><strong>System Overview</strong> - CPU, memory, disk I/O</li>
-                                        <li><strong>IIS Health</strong> - HTTP request queue size, active connections</li>
-                                        <li><strong>Application Pools</strong> - Memory usage per pool over time</li>
-                                        <li><strong>.NET Runtime</strong> - GC pauses, heap size, exceptions</li>
-                                    </ul>
-                                    <p><strong>Why:</strong> Visual correlation of metrics to identify patterns during incident windows</p>
-                                </div>
-                            </div>
-                        </div>
+                    <h3>2. Metrics collection</h3>
+                    <p>Pointed our existing Prometheus instance at the windows_exporter endpoint, validated the scrape config, and confirmed metrics were landing in Prometheus.</p>
 
-                        <div class="approach-step">
-                            <div class="approach-number">04</div>
-                            <div class="approach-content">
-                                <h3>Data Analysis & Correlation</h3>
-                                <div class="approach-detail">
-                                    <p><strong>Action Taken:</strong></p>
-                                    <p>Monitored the dashboards and correlated metrics with incident reports:</p>
-                                    <ul>
-                                        <li>Matched user-reported outage times with dashboard timelines</li>
-                                        <li>Identified pattern: memory consumption steadily increasing</li>
-                                        <li>Traced spike to specific application pool (not the reported app)</li>
-                                        <li>Observed HTTP queue depth increase during memory pressure</li>
-                                    </ul>
-                                    <p><strong>Why:</strong> Transform user complaints into measurable, reproducible observations</p>
-                                </div>
-                            </div>
-                        </div>
+                    <h3>3. Visualization in Grafana</h3>
+                    <p>Built dashboards for system overview, IIS health, application pool memory, and .NET runtime so I could correlate metrics with user reported incident times.</p>
 
-                        <div class="approach-step">
-                            <div class="approach-number">05</div>
-                            <div class="approach-content">
-                                <h3>Root Cause Identification</h3>
-                                <div class="approach-detail">
-                                    <p><strong>Finding:</strong></p>
-                                    <p>A <strong>co-hosted application</strong> on the same IIS server had a memory leak:</p>
-                                    <ul>
-                                        <li>Memory consumption increased steadily over hours</li>
-                                        <li>As available memory depleted, IIS became unresponsive</li>
-                                        <li>HTTP request queue grew as worker process struggled</li>
-                                        <li>Eventually caused "Server Unavailable" for ALL apps on that server</li>
-                                    </ul>
-                                    <p><strong>Key Insight:</strong> The reported application was a victim, not the cause. 
-                                    Without monitoring, we might have wasted time debugging the wrong application.</p>
-                                </div>
-                            </div>
-                        </div>
+                    <h3>4. Pattern discovery</h3>
+                    <p>Matched dashboard timelines against the times users reported errors. Memory was creeping up steadily on one specific application pool and the HTTP queue depth spiked exactly when memory ran low.</p>
 
-                        <div class="approach-step">
-                            <div class="approach-number">06</div>
-                            <div class="approach-content">
-                                <h3>Escalation & Resolution</h3>
-                                <div class="approach-detail">
-                                    <p><strong>Action Taken:</strong></p>
-                                    <ul>
-                                        <li>Documented findings with dashboard screenshots</li>
-                                        <li>Prepared evidence showing memory leak pattern</li>
-                                        <li>Escalated to development team with specific application identified</li>
-                                        <li>Developers confirmed memory leak in code</li>
-                                        <li>Patch deployed to fix the leak</li>
-                                        <li>Continued monitoring post-fix to validate resolution</li>
-                                    </ul>
-                                    <p><strong>Result:</strong> Issue completely resolved. No recurrence of "Server Unavailable" errors.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <h3>5. Root cause</h3>
+                    <p>The application that users were reporting was not the source of the problem. A different, co hosted application on the same IIS server had a memory leak. Over a few hours its memory consumption would climb from a few hundred megabytes to several gigabytes, eventually starving the whole IIS instance and taking everything down with it.</p>
+
+                    <h3>6. Escalation and resolution</h3>
+                    <p>Documented the findings with dashboard screenshots and clear before / after evidence. Handed it to the development team with the specific application identified. They confirmed the leak in code, shipped a fix, and the dashboards stayed up to validate that memory was now stable.</p>
                 </div>
 
-                <!-- Technical Implementation -->
                 <div class="content-block">
-                    <h2><i class="fas fa-tools"></i> Technical Implementation</h2>
-                    <div class="tech-implementation">
-                        <div class="tech-section">
-                            <h3><i class="fas fa-download"></i> Deployment</h3>
-                            <div class="tech-detail-box">
-                                <p><strong>windows_exporter installation:</strong></p>
-                                <ul>
-                                    <li>Downloaded MSI installer from official GitHub releases</li>
-                                    <li>Installed as Windows service with auto-start configuration</li>
-                                    <li>Configured firewall rule to allow Prometheus scraping (port 9182)</li>
-                                    <li>Enabled collectors: <code>iis,cpu,memory,net,process</code></li>
-                                    <li>Validated metrics endpoint accessibility</li>
-                                </ul>
-                            </div>
-                        </div>
+                    <h2><i class="fas fa-cogs"></i> Technical Implementation</h2>
+                    <h3>windows_exporter deployment</h3>
+                    <ul>
+                        <li>Downloaded the official MSI installer from the project GitHub releases.</li>
+                        <li>Installed as a Windows service with auto start configuration.</li>
+                        <li>Opened the firewall rule for Prometheus to scrape port 9182.</li>
+                        <li>Enabled the collectors: iis, cpu, memory, net, process.</li>
+                        <li>Validated the metrics endpoint by hitting it from the Prometheus host.</li>
+                    </ul>
 
-                        <div class="tech-section">
-                            <h3><i class="fas fa-cog"></i> Configuration</h3>
-                            <div class="tech-detail-box">
-                                <p><strong>Prometheus scrape configuration:</strong></p>
-                                <pre><code>- job_name: 'iis-webserver'
+                    <h3>Prometheus scrape configuration</h3>
+                    <div class="code-block">
+- job_name: <span class="key">'iis-webserver'</span>
   static_configs:
-    - targets: ['<server-ip>:9182']
+    - targets: [<span class="key">'&lt;server-ip&gt;:9182'</span>]
       labels:
-        environment: 'production'
-        role: 'webserver'</code></pre>
-                                <p style="margin-top: var(--spacing-sm);"><strong>Validation:</strong></p>
-                                <p><code>promtool check config prometheus.yml</code></p>
-                            </div>
-                        </div>
-
-                        <div class="tech-section">
-                            <h3><i class="fas fa-chart-area"></i> Dashboards Created</h3>
-                            <div class="dashboard-list">
-                                <div class="dashboard-item">
-                                    <i class="fas fa-tachometer-alt"></i>
-                                    <div>
-                                        <strong>System Resources Dashboard</strong>
-                                        <p>CPU utilization, memory usage, disk I/O, network throughput</p>
-                                    </div>
-                                </div>
-                                <div class="dashboard-item">
-                                    <i class="fas fa-server"></i>
-                                    <div>
-                                        <strong>IIS Performance Dashboard</strong>
-                                        <p>Request queue depth, requests/sec, active connections, response times</p>
-                                    </div>
-                                </div>
-                                <div class="dashboard-item">
-                                    <i class="fas fa-memory"></i>
-                                    <div>
-                                        <strong>Application Pool Memory Tracking</strong>
-                                        <p>Per-pool memory consumption over time (this revealed the leak)</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+        environment: <span class="key">'production'</span>
+        role: <span class="key">'webserver'</span>
                     </div>
+                    <p>Validated with <code>promtool check config prometheus.yml</code> and verified targets in the Prometheus UI.</p>
+
+                    <h3>Dashboards built</h3>
+                    <ul>
+                        <li>System resources: CPU utilization, memory usage, disk I/O, network throughput.</li>
+                        <li>IIS performance: request queue depth, requests per second, active connections, response times.</li>
+                        <li>Application pool memory tracking over time. This is the one that revealed the leak.</li>
+                    </ul>
                 </div>
 
-                <!-- Root Cause -->
                 <div class="content-block">
-                    <h2><i class="fas fa-bullseye"></i> Root Cause Analysis</h2>
-                    <div class="rca-box">
-                        <div class="rca-header">
-                            <i class="fas fa-microscope"></i>
-                            <h3>What the Data Showed</h3>
+                    <h2><i class="fas fa-image"></i> Screenshots</h2>
+                    <div class="screenshot-grid">
+                        <div class="screenshot">
+                            <img src="screenshots/Prometheus.png" alt="Prometheus targets view">
+                            <div class="screenshot-caption">Prometheus targets after wiring up windows_exporter</div>
                         </div>
-                        <div class="rca-content">
-                            <div class="rca-finding">
-                                <h4>Observation 1: Memory Pattern</h4>
-                                <p>
-                                    One application pool showed continuous memory growth over 4-6 hour periods. 
-                                    Memory would climb from ~500MB to 3GB+, eventually consuming most available RAM.
-                                </p>
-                            </div>
-                            <div class="rca-finding">
-                                <h4>Observation 2: IIS Response Degradation</h4>
-                                <p>
-                                    When system memory dropped below 15% available, IIS HTTP request queue depth 
-                                    spiked from ~5 to 100+ requests. Worker process became unresponsive.
-                                </p>
-                            </div>
-                            <div class="rca-finding">
-                                <h4>Observation 3: Multi-Tenant Impact</h4>
-                                <p>
-                                    Because multiple applications shared the same IIS server, the memory leak in 
-                                    ONE application caused outages for ALL applications on that host.
-                                </p>
-                            </div>
-                            <div class="rca-conclusion">
-                                <strong>Conclusion:</strong>
-                                <p>
-                                    The "Server Unavailable" errors were caused by a <strong>noisy neighbor problem</strong> - 
-                                    a memory leak in a co-hosted application starved system resources, making the entire 
-                                    IIS instance unresponsive. Application logs didn't show crashes because the issue 
-                                    was resource exhaustion, not application exceptions.
-                                </p>
-                            </div>
+                        <div class="screenshot">
+                            <img src="screenshots/grafana-login.png" alt="Grafana dashboard">
+                            <div class="screenshot-caption">Grafana, the visualization layer used for the investigation</div>
+                        </div>
+                        <div class="screenshot">
+                            <img src="screenshots/node_exporter.png" alt="node_exporter metrics">
+                            <div class="screenshot-caption">Node exporter sample for the Linux side of the stack</div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Outcome -->
                 <div class="content-block">
-                    <h2><i class="fas fa-trophy"></i> Outcome & Impact</h2>
-                    <div class="outcome-grid">
-                        <div class="outcome-card success">
-                            <i class="fas fa-check-circle"></i>
-                            <h3>Issue Resolved</h3>
-                            <p>Development team fixed the memory leak. Post-deployment monitoring confirmed stable memory usage.</p>
-                        </div>
-                        <div class="outcome-card success">
-                            <i class="fas fa-users"></i>
-                            <h3>User Impact</h3>
-                            <p>Zero recurrence of "Server Unavailable" errors. No further user complaints.</p>
-                        </div>
-                        <div class="outcome-card success">
-                            <i class="fas fa-chart-line"></i>
-                            <h3>Ongoing Monitoring</h3>
-                            <p>Monitoring infrastructure remains in place for future incident response and capacity planning.</p>
-                        </div>
-                        <div class="outcome-card success">
-                            <i class="fas fa-book"></i>
-                            <h3>Knowledge Transfer</h3>
-                            <p>Investigation methodology and dashboards documented for operations team use.</p>
-                        </div>
-                    </div>
+                    <h2><i class="fas fa-bullseye"></i> What the Data Showed</h2>
+                    <h3>Observation 1: Memory pattern</h3>
+                    <p>One application pool grew steadily from around 500 MB to over 3 GB across a 4 to 6 hour window. Then it would restart or starve the host and the cycle would repeat.</p>
+                    <h3>Observation 2: IIS response degradation</h3>
+                    <p>When available system memory dropped below 15 percent, the IIS HTTP request queue depth spiked from around 5 requests to more than 100. The worker process effectively stopped responding.</p>
+                    <h3>Observation 3: Multi tenant impact</h3>
+                    <p>Because multiple applications shared the same IIS server, a memory leak in one application caused outages for all applications on that host. The reported application was a victim, not the cause.</p>
                 </div>
 
-                <!-- Key Takeaways -->
+                <div class="content-block">
+                    <h2><i class="fas fa-trophy"></i> Outcome and Impact</h2>
+                    <ul>
+                        <li>Issue resolved at the source. Memory consumption stayed flat after the fix.</li>
+                        <li>Zero recurrence of "Server Unavailable" errors. No further user complaints.</li>
+                        <li>The monitoring stack remained in place for ongoing operations and capacity planning.</li>
+                        <li>The investigation method and dashboards were documented for the rest of the team.</li>
+                    </ul>
+                </div>
+
                 <div class="content-block">
                     <h2><i class="fas fa-lightbulb"></i> Key Takeaways</h2>
-                    <div class="takeaways-list">
-                        <div class="takeaway-item">
-                            <div class="takeaway-icon">
-                                <i class="fas fa-chart-bar"></i>
-                            </div>
-                            <div class="takeaway-content">
-                                <h4>Observability Beats Guesswork</h4>
-                                <p>
-                                    Without monitoring, we might have spent days restarting services, changing 
-                                    configurations, or debugging the wrong application. Data-driven investigation 
-                                    led directly to root cause.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="takeaway-item">
-                            <div class="takeaway-icon">
-                                <i class="fas fa-project-diagram"></i>
-                            </div>
-                            <div class="takeaway-content">
-                                <h4>Multi-Tenant Risks</h4>
-                                <p>
-                                    Co-hosting multiple applications on the same server creates risk. One 
-                                    misbehaving application can impact all tenants. Monitoring helps identify 
-                                    these "noisy neighbor" problems.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="takeaway-item">
-                            <div class="takeaway-icon">
-                                <i class="fas fa-handshake"></i>
-                            </div>
-                            <div class="takeaway-content">
-                                <h4>Evidence-Based Escalation</h4>
-                                <p>
-                                    Presenting developers with graphs and metrics (not just "users are complaining") 
-                                    led to faster acknowledgment and resolution. Data builds credibility.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="takeaway-item">
-                            <div class="takeaway-icon">
-                                <i class="fas fa-tools"></i>
-                            </div>
-                            <div class="takeaway-content">
-                                <h4>Proactive Infrastructure</h4>
-                                <p>
-                                    Taking initiative to deploy monitoring tools without being asked demonstrates 
-                                    ownership and engineering mindset. It's not enough to react to problems - 
-                                    build systems to prevent them.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                    <ul>
+                        <li><strong>Observability beats guesswork.</strong> Without metrics, this could have been days of restarting things and blaming the wrong application.</li>
+                        <li><strong>Multi tenant risk is real.</strong> One misbehaving app on a shared host can take everyone down with it. Monitoring is what reveals "noisy neighbor" problems.</li>
+                        <li><strong>Evidence based escalation works.</strong> Handing developers graphs and metrics, not just "users are complaining", led to a fast acknowledgment and fix.</li>
+                        <li><strong>Initiative matters.</strong> Deploying monitoring without being asked is what made the investigation possible in the first place.</li>
+                    </ul>
                 </div>
 
-                <!-- Skills Demonstrated -->
-                <div class="content-block">
-                    <h2><i class="fas fa-star"></i> Skills Demonstrated</h2>
-                    <div class="skills-demo-grid">
-                        <div class="skill-demo-card">
-                            <div class="skill-demo-icon">
-                                <i class="fas fa-search"></i>
-                            </div>
-                            <h3>Root Cause Analysis</h3>
-                            <p>Systematic investigation using data and metrics to identify true cause vs. symptoms</p>
-                        </div>
-                        <div class="skill-demo-card">
-                            <div class="skill-demo-icon">
-                                <i class="fas fa-chart-area"></i>
-                            </div>
-                            <h3>Observability Engineering</h3>
-                            <p>Deployed and configured Prometheus, Grafana, and windows_exporter in production</p>
-                        </div>
-                        <div class="skill-demo-card">
-                            <div class="skill-demo-icon">
-                                <i class="fab fa-windows"></i>
-                            </div>
-                            <h3>Windows Infrastructure</h3>
-                            <p>Deep understanding of IIS, application pools, and Windows Server resource management</p>
-                        </div>
-                        <div class="skill-demo-card">
-                            <div class="skill-demo-icon">
-                                <i class="fas fa-users-cog"></i>
-                            </div>
-                            <h3>Cross-Team Collaboration</h3>
-                            <p>Worked with developers to translate infrastructure findings into code fixes</p>
-                        </div>
-                        <div class="skill-demo-card">
-                            <div class="skill-demo-icon">
-                                <i class="fas fa-rocket"></i>
-                            </div>
-                            <h3>Initiative & Ownership</h3>
-                            <p>Self-directed deployment of monitoring stack to solve a recurring problem</p>
-                        </div>
-                        <div class="skill-demo-card">
-                            <div class="skill-demo-icon">
-                                <i class="fas fa-file-alt"></i>
-                            </div>
-                            <h3>Technical Documentation</h3>
-                            <p>Documented investigation process and created runbooks for future incidents</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Technologies Used -->
-                <div class="content-block">
-                    <h2><i class="fas fa-layer-group"></i> Technologies Used</h2>
-                    <div class="tech-stack-horizontal">
-                        <div class="tech-item-large">
-                            <i class="fab fa-windows"></i>
-                            <span>windows_exporter</span>
-                        </div>
-                        <div class="tech-item-large">
-                            <i class="fas fa-fire"></i>
-                            <span>Prometheus</span>
-                        </div>
-                        <div class="tech-item-large">
-                            <i class="fas fa-chart-line"></i>
-                            <span>Grafana</span>
-                        </div>
-                        <div class="tech-item-large">
-                            <i class="fas fa-server"></i>
-                            <span>IIS Web Server</span>
-                        </div>
-                        <div class="tech-item-large">
-                            <i class="fas fa-code"></i>
-                            <span>PromQL</span>
-                        </div>
-                        <div class="tech-item-large">
-                            <i class="fab fa-microsoft"></i>
-                            <span>Windows Server</span>
-                        </div>
-                    </div>
-                </div>
-
-               
-
-                <!-- CTA -->
-                <div class="project-cta-section">
-                    <h2>Observability-Driven Problem Resolution</h2>
-                    <p>
-                        This investigation demonstrates my approach to infrastructure challenges: build observability, 
-                        let data drive decisions, collaborate across teams, and document for the next person. I'm 
-                        looking for DevOps roles where this mindset is valued.
-                    </p>
-                    <div class="cta-buttons">
-                        <a href="index.html#contact" class="btn btn-primary btn-large">
-                            <i class="fas fa-envelope"></i> Let's Talk About This Project
-                        </a>
-                        <a href="index.html#projects" class="btn btn-secondary btn-large">
-                            <i class="fas fa-folder-open"></i> View Other Projects
-                        </a>
-                    </div>
-                </div>
             </div>
 
-            <!-- Sidebar -->
-            <aside class="project-sidebar">
-                <div class="sidebar-card">
-                    <h3>Project Details</h3>
-                    <div class="info-list">
-                        <div class="info-item">
-                            <span class="info-label">Type</span>
-                            <span class="info-value">Production Incident</span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-label">Environment</span>
-                            <span class="info-value">IIS Server</span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-label">Status</span>
-                            <span class="info-value">✅ Resolved</span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-label">Recurrence</span>
-                            <span class="info-value">Zero</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="sidebar-card">
-                    <h3>Tools Deployed</h3>
-                    <div class="tech-tags">
-                        <span class="tech-tag-sidebar">windows_exporter</span>
-                        <span class="tech-tag-sidebar">Prometheus</span>
-                        <span class="tech-tag-sidebar">Grafana</span>
-                        <span class="tech-tag-sidebar">PromQL</span>
-                    </div>
-                </div>
-
-                <div class="sidebar-card">
-                    <h3>Core Competencies</h3>
-                    <div class="tech-tags">
-                        <span class="tech-tag-sidebar">RCA</span>
-                        <span class="tech-tag-sidebar">Observability</span>
-                        <span class="tech-tag-sidebar">IIS</span>
-                        <span class="tech-tag-sidebar">Windows Server</span>
-                        <span class="tech-tag-sidebar">Troubleshooting</span>
-                        <span class="tech-tag-sidebar">Initiative</span>
-                    </div>
-                </div>
-
-                <div class="sidebar-card highlight-card">
-                    <h3><i class="fas fa-star"></i> Key Achievement</h3>
-                    <p style="font-size: 0.9375rem; color: var(--color-text-light); line-height: 1.7;">
-                        Self-directed deployment of production monitoring infrastructure that enabled data-driven 
-                        incident resolution and prevented future outages.
-                    </p>
-                </div>
-
-                <div class="sidebar-card">
-                    <h3>Related Projects</h3>
-                    <div class="related-projects">
-                        <a href="project-docker.html" class="related-project">
-                            <i class="fas fa-boxes"></i>
-                            <span>Container Infrastructure</span>
-                        </a>
-                        <a href="project-cicd.html" class="related-project">
-                            <i class="fas fa-sitemap"></i>
-                            <span>CI/CD Pipeline</span>
-                        </a>
-                    </div>
-                </div>
-            </aside>
+            <div class="next-projects">
+                <a href="index.html#projects" class="btn btn-secondary">
+                    <i class="fas fa-th-large"></i> View More Projects
+                </a>
+            </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <p>&copy; 2025 Sundhar Ganesh. Systems Engineer • DevOps Practitioner</p>
-                <div class="footer-links">
-                    <a href="https://github.com/Nishanth7885" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="https://linkedin.com/in/sundhar-ganesh" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="mailto:ganeshmuthvel303@gmail.com"><i class="fas fa-envelope"></i></a>
-                </div>
-            </div>
+            <p>Sundhar Ganesh <span class="footer-sep">/</span> DevOps Engineer <span class="footer-sep">/</span> Coimbatore <span class="footer-sep">/</span> 2026</p>
         </div>
     </footer>
 

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Containerized Infrastructure with Docker and Portainer | Sundhar Ganesh</title>
+    <meta name="description" content="Multi host Docker infrastructure managed through Portainer. Jenkins, MySQL, and phpMyAdmin running as containers with a unified management plane.">
+    <link rel="icon" type="image/png" href="photo.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-mark">SG</span>
+                <span class="logo-dot"></span>
+            </a>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#featured">Featured</a></li>
+                <li><a href="index.html#skills">Skills</a></li>
+                <li><a href="index.html#experience">Experience</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="index.html#contact" class="nav-cta">Get in Touch</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <section class="project-hero">
+        <div class="container">
+            <a href="index.html#projects" class="back-link">
+                <i class="fas fa-arrow-left"></i> Back to Portfolio
+            </a>
+            <div class="project-hero-content">
+                <div class="project-hero-icon">
+                    <i class="fas fa-cubes"></i>
+                </div>
+                <h1>Containerized Infrastructure Management with Docker and Portainer</h1>
+                <p class="project-hero-subtitle">
+                    Replaced bare metal services with containers and gave the team a single pane of glass for multi host container management.
+                </p>
+                <div class="project-meta-row">
+                    <span class="tech-chip">Docker</span>
+                    <span class="tech-chip">Portainer</span>
+                    <span class="tech-chip">Jenkins</span>
+                    <span class="tech-chip">MySQL</span>
+                    <span class="tech-chip">phpMyAdmin</span>
+                    <span class="tech-chip">Linux</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container project-container">
+            <div class="project-content">
+
+                <div class="content-block">
+                    <h2><i class="fas fa-file-alt"></i> Executive Summary</h2>
+                    <div class="summary-box">
+                        <div class="summary-header">
+                            <i class="fab fa-docker"></i>
+                            <div>
+                                <h3>Containers as the New Default</h3>
+                                <p class="summary-date">G. Kuppuswamy Naidu Memorial Hospital</p>
+                            </div>
+                        </div>
+                        <p>
+                            Internal supporting services used to run directly on host machines with hand crafted configuration. That made every host a snowflake and made changes risky. I configured Docker on multiple Ubuntu servers and brought them under one Portainer instance so the team could manage containers across hosts from one screen, without having to SSH everywhere.
+                        </p>
+                        <div class="summary-impact">
+                            <div class="impact-stat">
+                                <i class="fab fa-docker"></i>
+                                <span>Docker on multiple hosts</span>
+                            </div>
+                            <div class="impact-stat">
+                                <i class="fas fa-window-restore"></i>
+                                <span>One Portainer pane of glass</span>
+                            </div>
+                            <div class="impact-stat">
+                                <i class="fas fa-cubes"></i>
+                                <span>Jenkins, MySQL, phpMyAdmin containerized</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-block">
+                    <h2><i class="fas fa-exclamation-triangle"></i> The Problem</h2>
+                    <ul>
+                        <li>Internal services ran on bare hosts with inconsistent configuration.</li>
+                        <li>Standing up a new instance of any service meant reading old notes and hoping they were current.</li>
+                        <li>There was no unified way to see what was running across the fleet.</li>
+                        <li>Restarting or upgrading a service depended on whoever set it up originally.</li>
+                    </ul>
+                </div>
+
+                <div class="content-block">
+                    <h2><i class="fas fa-tasks"></i> What I Built</h2>
+                    <h3>1. Standardized Docker on Ubuntu hosts</h3>
+                    <p>
+                        Installed Docker on each target host with a consistent setup, log rotation, and a sensible daemon configuration so containers behave the same way across the fleet.
+                    </p>
+                    <h3>2. Centralized management with Portainer</h3>
+                    <p>
+                        Stood up Portainer as the management plane and added each Docker host as an endpoint. Now the operations team can inspect, restart, and update containers across multiple hosts from one UI, without needing SSH on every box.
+                    </p>
+                    <h3>3. Containerized internal services</h3>
+                    <p>
+                        Moved Jenkins, MySQL, and phpMyAdmin onto Docker. Each service is now defined declaratively, comes with its own isolated environment, and can be torn down and rebuilt without touching the host.
+                    </p>
+                    <h3>4. Container lifecycle management</h3>
+                    <p>
+                        Established conventions for image tagging, volume backups, and service restart policies so the platform behaves predictably under load and across reboots.
+                    </p>
+                    <h3>5. Isolation and networking</h3>
+                    <p>
+                        Worked through container networking and isolated environments so internal services do not step on each other. This made it safe to run multiple Jenkins instances and database stacks on the same hosts.
+                    </p>
+                </div>
+
+                <div class="content-block">
+                    <h2><i class="fas fa-trophy"></i> Outcome and Impact</h2>
+                    <ul>
+                        <li>The internal platform is reproducible. If a host dies, we redeploy the containers, not the OS configuration.</li>
+                        <li>Operations stopped needing tribal knowledge to manage internal services.</li>
+                        <li>Jenkins, MySQL, and phpMyAdmin became boring services that anyone on the team can restart.</li>
+                        <li>Gave the CI/CD project a container runtime it could rely on from day one.</li>
+                    </ul>
+                </div>
+
+                <div class="content-block">
+                    <h2><i class="fas fa-lightbulb"></i> What I Learned</h2>
+                    <ul>
+                        <li>Docker + Portainer is a strong stepping stone before Kubernetes. The hospital does not need orchestration at K8s scale, and Portainer fills the gap pragmatically.</li>
+                        <li>Backups are about the volumes, not the containers. Treat the container as cattle, the data volume as the pet.</li>
+                        <li>A pane of glass changes behavior. Once the team could see everything at a glance, they started fixing things they previously did not know existed.</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="next-projects">
+                <a href="index.html#projects" class="btn btn-secondary">
+                    <i class="fas fa-th-large"></i> View More Projects
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>Sundhar Ganesh <span class="footer-sep">/</span> DevOps Engineer <span class="footer-sep">/</span> Coimbatore <span class="footer-sep">/</span> 2026</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

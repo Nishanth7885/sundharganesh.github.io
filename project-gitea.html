@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centralized Source Code Management with Gitea | Sundhar Ganesh</title>
+    <meta name="description" content="Self hosted Gitea server replacing local project folders with proper version control, branch policy, and a single source of truth for internal codebases.">
+    <link rel="icon" type="image/png" href="photo.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-mark">SG</span>
+                <span class="logo-dot"></span>
+            </a>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#featured">Featured</a></li>
+                <li><a href="index.html#skills">Skills</a></li>
+                <li><a href="index.html#experience">Experience</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="index.html#contact" class="nav-cta">Get in Touch</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <section class="project-hero">
+        <div class="container">
+            <a href="index.html#projects" class="back-link">
+                <i class="fas fa-arrow-left"></i> Back to Portfolio
+            </a>
+            <div class="project-hero-content">
+                <div class="project-hero-icon">
+                    <i class="fas fa-code-merge"></i>
+                </div>
+                <h1>Centralized Source Code Management using Gitea</h1>
+                <p class="project-hero-subtitle">
+                    Migrated internal projects from local folders to a self hosted Git platform with proper version control, traceability, and access control.
+                </p>
+                <div class="project-meta-row">
+                    <span class="tech-chip">Gitea</span>
+                    <span class="tech-chip">Git</span>
+                    <span class="tech-chip">Linux</span>
+                    <span class="tech-chip">Ubuntu</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container project-container">
+            <div class="project-content">
+
+                <div class="content-block">
+                    <h2><i class="fas fa-file-alt"></i> Executive Summary</h2>
+                    <div class="summary-box">
+                        <div class="summary-header">
+                            <i class="fas fa-cube"></i>
+                            <div>
+                                <h3>From Local Folders to a Single Source of Truth</h3>
+                                <p class="summary-date">G. Kuppuswamy Naidu Memorial Hospital, 2026</p>
+                            </div>
+                        </div>
+                        <p>
+                            Source code for internal applications used to live in scattered project folders on developer laptops and shared drives. There was no single source of truth, no review trail, and no way to recover work if a machine went down. I deployed and configured a self hosted Gitea server to fix this, then migrated existing projects onto it and trained teams on basic Git workflows.
+                        </p>
+                        <div class="summary-impact">
+                            <div class="impact-stat">
+                                <i class="fas fa-server"></i>
+                                <span>Self hosted Gitea in production</span>
+                            </div>
+                            <div class="impact-stat">
+                                <i class="fas fa-code-branch"></i>
+                                <span>Repos migrated from local folders</span>
+                            </div>
+                            <div class="impact-stat">
+                                <i class="fas fa-history"></i>
+                                <span>Full commit history and traceability</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-block">
+                    <h2><i class="fas fa-exclamation-triangle"></i> The Problem</h2>
+                    <p>
+                        Without a central Git server, every team handled source code their own way. Some used a project folder on a shared drive, some kept code only on the developer machine. There was no concept of branches, pull requests, or code review built into the workflow.
+                    </p>
+                    <ul>
+                        <li>No single source of truth for any internal codebase.</li>
+                        <li>No history of who changed what or why.</li>
+                        <li>Onboarding a new developer meant copying a folder.</li>
+                        <li>If a laptop died, work could be lost.</li>
+                        <li>No platform to plug into for any future CI/CD work.</li>
+                    </ul>
+                </div>
+
+                <div class="content-block">
+                    <h2><i class="fas fa-tasks"></i> What I Built</h2>
+                    <h3>1. Deployed and hardened Gitea on Linux</h3>
+                    <p>
+                        Stood up Gitea on an Ubuntu server with a dedicated service account, systemd unit, and regular backups of the data directory and database. Gitea was the right fit for the hospital because it is lightweight, self hosted, and stays inside the network.
+                    </p>
+                    <h3>2. Created organizations and teams</h3>
+                    <p>
+                        Modeled the actual team structure inside Gitea so each application area has its own organization and the right people have the right access. No more shared logins or anonymous folder shares.
+                    </p>
+                    <h3>3. Migrated existing projects</h3>
+                    <p>
+                        For each active internal project, initialized a repository, imported the current code, and got the original developer to make their next change as a Git commit instead of editing the shared folder. Once the new workflow stuck, the shared folder was decommissioned.
+                    </p>
+                    <h3>4. Trained teams on Git basics</h3>
+                    <p>
+                        Most developers had never used Git in a structured way. Ran short, practical sessions on clone, branch, commit, push, pull request, and merge. Wrote a short internal cheat sheet so people had something to refer back to.
+                    </p>
+                    <h3>5. Set the stage for CI/CD</h3>
+                    <p>
+                        With Gitea in place, the CI/CD project that came next (Jenkins triggered by Git push events) was suddenly possible. This project is the foundation of the whole DevOps modernization at the hospital.
+                    </p>
+                </div>
+
+                <div class="content-block">
+                    <h2><i class="fas fa-trophy"></i> Outcome and Impact</h2>
+                    <ul>
+                        <li>Every internal project on the platform has a full commit history.</li>
+                        <li>Code is no longer lost when a machine dies or a developer leaves.</li>
+                        <li>Reviews happen via pull requests instead of "send me the new files".</li>
+                        <li>Provided the platform that the Jenkins CI/CD project hooks into via webhooks.</li>
+                        <li>Standardized the way teams collaborate on code across the organization.</li>
+                    </ul>
+                </div>
+
+                <div class="content-block">
+                    <h2><i class="fas fa-lightbulb"></i> What I Learned</h2>
+                    <ul>
+                        <li>Tooling without training does not stick. The migration only worked because we taught the workflow at the same time.</li>
+                        <li>Self hosted Git is a low cost, high leverage move for a healthcare org with strict data residency.</li>
+                        <li>Picking Gitea instead of a heavier platform paid off. Less to operate, faster to run, easier to back up.</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="next-projects">
+                <a href="index.html#projects" class="btn btn-secondary">
+                    <i class="fas fa-th-large"></i> View More Projects
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>Sundhar Ganesh <span class="footer-sep">/</span> DevOps Engineer <span class="footer-sep">/</span> Coimbatore <span class="footer-sep">/</span> 2026</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

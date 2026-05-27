@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CI/CD Pipeline with Gitea and Jenkins | Sundhar Ganesh</title>
+    <meta name="description" content="Self hosted CI/CD pipeline at a 24/7 hospital using Gitea and Jenkins. Replaced manual copy paste deployments with Git push triggered, approval gated workflows.">
+    <link rel="icon" type="image/png" href="photo.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-mark">SG</span>
+                <span class="logo-dot"></span>
+            </a>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#featured">Featured</a></li>
+                <li><a href="index.html#skills">Skills</a></li>
+                <li><a href="index.html#experience">Experience</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="index.html#contact" class="nav-cta">Get in Touch</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <section class="project-hero">
+        <div class="container">
+            <a href="index.html#featured" class="back-link">
+                <i class="fas fa-arrow-left"></i> Back to Portfolio
+            </a>
+            <div class="project-hero-content">
+                <div class="project-hero-icon">
+                    <i class="fas fa-code-branch"></i>
+                </div>
+                <h1>CI/CD Pipeline Automation using Gitea and Jenkins</h1>
+                <p class="project-hero-subtitle">
+                    Modernized legacy deployment workflows by introducing self hosted CI/CD with Git push triggers and approval based production gates.
+                </p>
+                <div class="project-meta-row">
+                    <span class="tech-chip">Gitea</span>
+                    <span class="tech-chip">Jenkins</span>
+                    <span class="tech-chip">Git</span>
+                    <span class="tech-chip">Docker</span>
+                    <span class="tech-chip">Linux</span>
+                    <span class="tech-chip">Webhooks</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container project-container">
+            <div class="project-content">
+
+                <div class="content-block">
+                    <h2><i class="fas fa-file-alt"></i> Executive Summary</h2>
+                    <div class="summary-box">
+                        <div class="summary-header">
+                            <i class="fas fa-rocket"></i>
+                            <div>
+                                <h3>Production CI/CD for a 24/7 Hospital</h3>
+                                <p class="summary-date">G. Kuppuswamy Naidu Memorial Hospital, 2026</p>
+                            </div>
+                        </div>
+                        <p>
+                            Internal applications were being deployed manually with copy and paste workflows. The process was slow, error prone, and lacked any audit trail. As DevOps Engineer, I designed and rolled out a self hosted CI/CD platform using Gitea and Jenkins. Git push events now trigger build pipelines automatically. Production deploys still require human approval, so we get speed without losing control.
+                        </p>
+                        <div class="summary-impact">
+                            <div class="impact-stat">
+                                <i class="fas fa-stopwatch"></i>
+                                <span>Faster, repeatable deploys</span>
+                            </div>
+                            <div class="impact-stat">
+                                <i class="fas fa-shield-halved"></i>
+                                <span>Approval gated production</span>
+                            </div>
+                            <div class="impact-stat">
+                                <i class="fas fa-clipboard-list"></i>
+                                <span>Audit trail for every release</span>
+                            </div>
+                            <div class="impact-stat">
+                                <i class="fas fa-users"></i>
+                                <span>Developers trained on Git</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-block">
+                    <h2><i class="fas fa-exclamation-triangle"></i> The Problem</h2>
+                    <p>
+                        Before this project, deployments at the hospital looked like this: a developer would build locally, then either an engineer or the developer would copy artifacts onto the server, restart the application, and hope nothing broke. There was no version pinning, no build server, no review step, and no rollback plan beyond "do it again with the old files".
+                    </p>
+                    <h3>Specifically, the pain points were:</h3>
+                    <ul>
+                        <li>Releases sat in one person's head, not in any system.</li>
+                        <li>No way to answer "what changed between yesterday and today" with confidence.</li>
+                        <li>Rollbacks meant tracking down old binaries on a laptop.</li>
+                        <li>Dev teams had no shared workflow, every project ran differently.</li>
+                        <li>Production changes happened without a second pair of eyes.</li>
+                    </ul>
+                </div>
+
+                <div class="content-block">
+                    <h2><i class="fas fa-tasks"></i> What I Built</h2>
+                    <h3>1. Self hosted Gitea as the source of truth</h3>
+                    <p>
+                        Stood up Gitea on a hardened Linux server to give every team a single place to put their code. Project folders that used to live on individual machines became proper repositories with branches, history, and per project access control.
+                    </p>
+                    <h3>2. Jenkins as the build and deploy engine</h3>
+                    <p>
+                        Deployed Jenkins on the same infrastructure to handle automation. Each repository got a pipeline that builds, tests where applicable, and ships to a staging environment automatically. Production deploys are a separate, manual approval step inside the same pipeline.
+                    </p>
+                    <h3>3. Git push triggers via webhooks</h3>
+                    <p>
+                        Wired Gitea webhooks into Jenkins so that a push to a tracked branch immediately kicks off the right pipeline. Developers do not need to know Jenkins, they just push their code.
+                    </p>
+                    <h3>4. Approval based production deploys</h3>
+                    <p>
+                        Production stages in Jenkins require an explicit human click before they run. This keeps speed for dev and staging, but stops anything from landing on production servers without sign off.
+                    </p>
+                    <h3>5. Developer enablement</h3>
+                    <p>
+                        Ran working sessions with each dev team on basic Git workflows, branching, pull requests, and how to read a Jenkins build. The platform only works if people actually use it, so this part mattered as much as the wiring.
+                    </p>
+                </div>
+
+                <div class="content-block">
+                    <h2><i class="fas fa-cogs"></i> How It Fits Together</h2>
+                    <div class="code-block">
+<span class="cmt"># end to end flow</span>
+developer commits code
+        |
+        v
+git push  --&gt;  <span class="key">Gitea</span> (self hosted, source of truth)
+        |
+        | webhook on push
+        v
+   <span class="key">Jenkins</span> pipeline
+        |
+        +--&gt; build artifact
+        +--&gt; deploy to staging (automatic)
+        +--&gt; wait for approval
+        +--&gt; deploy to production (manual click)
+        |
+        v
+   release recorded in Gitea + Jenkins history
+                    </div>
+                    <p>
+                        Every step leaves a trail. If a deploy goes sideways, we can see which commit, which build, who approved it, and roll back to the previous green build with the same pipeline.
+                    </p>
+                </div>
+
+                <div class="content-block">
+                    <h2><i class="fas fa-trophy"></i> Outcome and Impact</h2>
+                    <ul>
+                        <li>Manual copy and paste deployments are gone for the projects on the new pipeline.</li>
+                        <li>Deploy time dropped substantially because the human bottleneck is now just the approval click.</li>
+                        <li>Every release has an audit trail tying the commit, the build, the approver, and the timestamp together.</li>
+                        <li>Rollbacks became boring. Pick a previous green build and re run the deploy stage.</li>
+                        <li>The dev teams are now Git native, which is the foundation for any future automation we layer on top.</li>
+                    </ul>
+                    <p>
+                        This project is the work that earned the promotion from System Engineer to DevOps Engineer in May 2026. It is also the template for how we will modernize the rest of the application portfolio.
+                    </p>
+                </div>
+
+                <div class="content-block">
+                    <h2><i class="fas fa-lightbulb"></i> What I Learned</h2>
+                    <ul>
+                        <li>The hard part of CI/CD in a healthcare org is not the tooling, it is the change management. Most of the win came from training and standardization, not from Jenkins itself.</li>
+                        <li>Self hosted tools (Gitea, Jenkins) were the right pick for a network constrained hospital environment. No data leaves the building, and we own every knob.</li>
+                        <li>Approval gates are not bureaucracy when they are wired correctly. They are a forcing function for someone to look before production changes.</li>
+                        <li>Documentation as you go beats a doc sprint at the end. Every pipeline has a README in its repo.</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="next-projects">
+                <a href="index.html#projects" class="btn btn-secondary">
+                    <i class="fas fa-th-large"></i> View More Projects
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>Sundhar Ganesh <span class="footer-sep">/</span> DevOps Engineer <span class="footer-sep">/</span> Coimbatore <span class="footer-sep">/</span> 2026</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
