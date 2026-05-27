@@ -1,0 +1,33 @@
+name = "portfolio-analytics"
+main = "worker.js"
+compatibility_date = "2026-05-01"
+workers_dev = false
+
+# account_id is optional if you only have one Cloudflare account.
+# Wrangler will use the account you logged in with via `wrangler login`.
+# Uncomment and set this only if you have multiple accounts:
+# account_id = "7d47d31e13ce42f09938b06a7aedd6ba"
+
+# Worker mounted on the apex domain at /api/*
+# IMPORTANT: routes must be at the top level (above any [section] header).
+# CF Access protects /api/list and /api/stats. /api/track stays public.
+routes = [
+    { pattern = "sundharganesh.in/api/*",     zone_name = "sundharganesh.in" },
+    { pattern = "www.sundharganesh.in/api/*", zone_name = "sundharganesh.in" }
+]
+
+# Bind the D1 database. Create it with:
+#   wrangler d1 create portfolio_analytics
+# then paste the returned database_id below.
+[[d1_databases]]
+binding = "DB"
+database_name = "portfolio_analytics"
+database_id = "1eae2e5f-2d36-449a-9007-c234065213c0"
+
+# Public site origin used for CORS. Override per environment if needed.
+[vars]
+SITE = "https://sundharganesh.in"
+
+# IP_SALT is a Secret, not a var. Set it once with:
+#   wrangler secret put IP_SALT
+# Use a long random string, never commit it.
