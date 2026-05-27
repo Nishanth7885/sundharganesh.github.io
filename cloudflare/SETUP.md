@@ -128,7 +128,15 @@ curl -X POST https://sundharganesh.in/api/track \
 
 You should get `ok` back either way. (PowerShell's built-in `curl` alias is actually `Invoke-WebRequest` and does not accept bash-style flags - that's why we use `Invoke-RestMethod`.)
 
-Confirm it landed in D1:
+Confirm it landed in D1.
+
+**PowerShell:**
+
+```powershell
+wrangler d1 execute portfolio_analytics --remote --command "SELECT id, ts, path, country, org FROM views ORDER BY ts DESC LIMIT 5;"
+```
+
+**Bash:**
 
 ```bash
 wrangler d1 execute portfolio_analytics --remote \
@@ -136,6 +144,8 @@ wrangler d1 execute portfolio_analytics --remote \
 ```
 
 You should see your test row.
+
+> Heads up: bash uses `\` to continue a command across lines. PowerShell uses backtick `` ` ``. If you copy a multi-line bash command into PowerShell, either join it into one line or replace each `\` with backtick.
 
 ---
 

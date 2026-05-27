@@ -1,3 +1,23 @@
+// Privacy-respecting pageview beacon. Fires once per page load.
+// Skips the analytics dashboard itself so it does not inflate its own counts.
+(function () {
+    try {
+        const path = location.pathname || '/';
+        if (path.indexOf('/analytics') === 0) return;
+        if (!navigator.sendBeacon && !window.fetch) return;
+        const payload = JSON.stringify({
+            path: path,
+            referrer: document.referrer || '',
+            screen: (screen && screen.width && screen.height) ? screen.width + 'x' + screen.height : ''
+        });
+        if (navigator.sendBeacon) {
+            navigator.sendBeacon('/api/track', new Blob([payload], { type: 'application/json' }));
+        } else {
+            fetch('/api/track', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: payload, keepalive: true }).catch(() => {});
+        }
+    } catch (e) { /* ignore */ }
+})();
+
 document.addEventListener('DOMContentLoaded', () => {
 
     const navbar = document.getElementById('navbar');

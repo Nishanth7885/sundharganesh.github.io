@@ -1,0 +1,12 @@
+# Wrangler local state and dev artifacts
+cloudflare/.wrangler/
+cloudflare/node_modules/
+cloudflare/.dev.vars
+cloudflare/*.log
+
+# Local verification artifacts
+/tmp-verify/
+
+# OS junk
+.DS_Store
+Thumbs.db

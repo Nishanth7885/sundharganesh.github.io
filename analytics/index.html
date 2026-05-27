@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Analytics - Sundhar Ganesh</title>
+    <link rel="icon" type="image/png" href="../photo.png">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .analytics-shell { padding: 120px 0 64px; min-height: 100vh; }
+        .a-header { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-bottom: 28px; }
+        .a-title-row h1 { font-size: 1.8rem; font-weight: 700; color: var(--text); letter-spacing: -0.01em; }
+        .a-title-row p { color: var(--text-muted); font-size: 0.95rem; margin-top: 4px; }
+        .a-controls { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+        .a-select, .a-button {
+            font-family: var(--mono); font-size: 0.85rem; color: var(--text);
+            background: var(--bg-elev); border: 1px solid var(--border-strong);
+            border-radius: 8px; padding: 9px 14px; cursor: pointer;
+            transition: border-color 0.2s ease, color 0.2s ease;
+        }
+        .a-select:hover, .a-button:hover { border-color: var(--accent); color: var(--accent); }
+        .a-select { appearance: none; padding-right: 28px;
+            background-image: linear-gradient(45deg, transparent 50%, var(--accent) 50%), linear-gradient(135deg, var(--accent) 50%, transparent 50%);
+            background-position: calc(100% - 14px) 50%, calc(100% - 9px) 50%;
+            background-size: 5px 5px, 5px 5px; background-repeat: no-repeat;
+        }
+        .a-toggle { display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 0.82rem; color: var(--text-muted); user-select: none; cursor: pointer; }
+        .a-toggle input { accent-color: var(--accent); }
+
+        .a-tiles { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; margin-bottom: 28px; }
+        .a-tile {
+            background: var(--bg-elev); border: 1px solid var(--border); border-radius: 12px;
+            padding: 18px; position: relative; overflow: hidden;
+        }
+        .a-tile::before { content: ''; position: absolute; top:0; left:0; right:0; height: 2px; background: var(--gradient); opacity: 0.7; }
+        .a-tile-label { font-family: var(--mono); font-size: 0.72rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1.5px; }
+        .a-tile-value { font-family: var(--mono); font-size: 1.6rem; color: var(--accent); font-weight: 600; margin-top: 6px; }
+
+        .a-grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: 20px; }
+        .a-panel {
+            background: var(--bg-elev); border: 1px solid var(--border); border-radius: 14px;
+            padding: 22px; overflow: hidden;
+        }
+        .a-panel h3 { font-size: 1rem; font-weight: 600; color: var(--text); margin-bottom: 16px; display: inline-flex; align-items: center; gap: 10px; }
+        .a-panel h3 i { color: var(--accent); }
+
+        .a-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+        .a-table th, .a-table td {
+            text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border);
+            font-family: var(--mono); color: var(--text-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+        }
+        .a-table th {
+            color: var(--text-dim); text-transform: uppercase; font-size: 0.7rem;
+            letter-spacing: 1.5px; font-weight: 600; background: rgba(255,255,255,0.02); position: sticky; top: 0;
+        }
+        .a-table tr:hover td { background: rgba(255,255,255,0.02); color: var(--text); }
+        .a-table td.org { color: var(--accent); font-weight: 500; }
+        .a-table .bot { color: var(--warning); }
+        .a-scroll { max-height: 640px; overflow-y: auto; border-radius: 10px; border: 1px solid var(--border); }
+
+        .a-rank-list { display: flex; flex-direction: column; gap: 10px; }
+        .a-rank-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; font-family: var(--mono); font-size: 0.85rem; }
+        .a-rank-row .label { color: var(--text); flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .a-rank-row .count { color: var(--accent); font-weight: 600; }
+
+        .a-empty { color: var(--text-dim); font-family: var(--mono); font-size: 0.85rem; padding: 14px 4px; }
+        .a-status { font-family: var(--mono); font-size: 0.78rem; color: var(--text-muted); }
+        .a-status.error { color: var(--warning); }
+
+        .setup-banner {
+            margin-bottom: 28px; padding: 18px 22px;
+            background: rgba(245,158,11,0.07); border: 1px solid rgba(245,158,11,0.3);
+            border-radius: 12px; color: #FBD38D; font-size: 0.92rem; line-height: 1.65;
+            font-family: var(--mono); display: none;
+        }
+        .setup-banner.show { display: block; }
+        .setup-banner b { color: #F59E0B; }
+        .setup-banner code { background: rgba(0,0,0,0.3); padding: 1px 6px; border-radius: 4px; color: var(--accent); }
+
+        @media (max-width: 1024px) {
+            .a-tiles { grid-template-columns: repeat(2, 1fr); }
+            .a-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 600px) {
+            .a-tiles { grid-template-columns: 1fr 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">
+                <span class="logo-mark">SG</span>
+                <span class="logo-dot"></span>
+            </a>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="../index.html#home">Home</a></li>
+                <li><a href="../index.html#projects">Case Studies</a></li>
+                <li><a href="../index.html#contact" class="nav-cta">Get in Touch</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="analytics-shell">
+        <div class="container">
+
+            <div id="setup-banner" class="setup-banner">
+                <b>Analytics backend is not reachable.</b> The Cloudflare Worker at <code>/api/list</code> returned an error or is not deployed yet.
+                Follow <code>cloudflare/SETUP.md</code> in the repo to wire it up. Once the Worker is live and you are signed in via Cloudflare Access, this page will start showing data.
+            </div>
+
+            <div class="a-header">
+                <div class="a-title-row">
+                    <span class="section-label"><span class="prompt">~/</span> analytics <span class="prompt">$</span></span>
+                    <h1>Who visited the portfolio</h1>
+                    <p>Pageviews logged via a Cloudflare Worker. Visible only to you behind Cloudflare Access.</p>
+                </div>
+                <div class="a-controls">
+                    <select id="range" class="a-select" aria-label="Time range">
+                        <option value="1d">Last 24 hours</option>
+                        <option value="7d" selected>Last 7 days</option>
+                        <option value="30d">Last 30 days</option>
+                        <option value="90d">Last 90 days</option>
+                        <option value="all">All time</option>
+                    </select>
+                    <label class="a-toggle">
+                        <input type="checkbox" id="hideBots" checked>
+                        Hide bots
+                    </label>
+                    <button class="a-button" id="refresh"><i class="fas fa-rotate"></i> Refresh</button>
+                </div>
+            </div>
+
+            <div id="status" class="a-status">Loading...</div>
+
+            <div class="a-tiles" id="tiles" style="display:none;">
+                <div class="a-tile"><div class="a-tile-label">Total Views</div><div class="a-tile-value" id="t-total">0</div></div>
+                <div class="a-tile"><div class="a-tile-label">Unique Visitors</div><div class="a-tile-value" id="t-unique">0</div></div>
+                <div class="a-tile"><div class="a-tile-label">Countries</div><div class="a-tile-value" id="t-countries">0</div></div>
+                <div class="a-tile"><div class="a-tile-label">Networks / Orgs</div><div class="a-tile-value" id="t-orgs">0</div></div>
+                <div class="a-tile"><div class="a-tile-label">Bots Filtered</div><div class="a-tile-value" id="t-bots">0</div></div>
+            </div>
+
+            <div class="a-grid" id="grid" style="display:none;">
+                <div class="a-panel">
+                    <h3><i class="fas fa-eye"></i> Recent Pageviews</h3>
+                    <div class="a-scroll">
+                        <table class="a-table" id="rows-table">
+                            <thead>
+                                <tr>
+                                    <th>When</th>
+                                    <th>Path</th>
+                                    <th>Referrer</th>
+                                    <th>Location</th>
+                                    <th>Org / Network</th>
+                                </tr>
+                            </thead>
+                            <tbody id="rows-body"></tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="a-panel">
+                    <h3><i class="fas fa-building"></i> Top Networks / Orgs</h3>
+                    <div id="top-orgs" class="a-rank-list"></div>
+                    <h3 style="margin-top: 24px;"><i class="fas fa-link"></i> Top Referrers</h3>
+                    <div id="top-referrers" class="a-rank-list"></div>
+                    <h3 style="margin-top: 24px;"><i class="fas fa-file"></i> Top Pages</h3>
+                    <div id="top-paths" class="a-rank-list"></div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>Sundhar Ganesh <span class="footer-sep">/</span> Analytics <span class="footer-sep">/</span> Private View</p>
+        </div>
+    </footer>
+
+    <script>
+        (function() {
+            const rangeSel = document.getElementById('range');
+            const hideBots = document.getElementById('hideBots');
+            const refreshBtn = document.getElementById('refresh');
+            const statusEl = document.getElementById('status');
+            const tilesEl = document.getElementById('tiles');
+            const gridEl = document.getElementById('grid');
+            const banner = document.getElementById('setup-banner');
+
+            async function fetchJson(url) {
+                const r = await fetch(url, { credentials: 'include', cache: 'no-store' });
+                if (!r.ok) throw new Error(`${r.status} ${r.statusText}`);
+                return r.json();
+            }
+
+            function fmtTime(ts) {
+                const d = new Date(ts);
+                return d.toLocaleString('en-IN', { hour12: false });
+            }
+            function fmtLoc(row) {
+                const parts = [row.city, row.region, row.country].filter(Boolean);
+                return parts.join(', ') || '-';
+            }
+            function fmtRef(r) {
+                if (!r) return 'direct';
+                try { const u = new URL(r); return u.hostname.replace(/^www\./, ''); }
+                catch { return r.slice(0, 40); }
+            }
+            function fmtOrg(row) {
+                if (!row.org) return row.asn ? `ASN ${row.asn}` : '-';
+                return row.org;
+            }
+
+            async function load() {
+                const range = rangeSel.value;
+                const bots = hideBots.checked ? '0' : '1';
+                statusEl.textContent = 'Loading...';
+                statusEl.classList.remove('error');
+                tilesEl.style.display = 'none';
+                gridEl.style.display = 'none';
+                banner.classList.remove('show');
+
+                try {
+                    const [stats, list] = await Promise.all([
+                        fetchJson(`/api/stats?range=${range}`),
+                        fetchJson(`/api/list?range=${range}&bots=${bots}&limit=500`)
+                    ]);
+
+                    const t = stats.totals || {};
+                    document.getElementById('t-total').textContent = t.total_views || 0;
+                    document.getElementById('t-unique').textContent = t.unique_visitors || 0;
+                    document.getElementById('t-countries').textContent = t.countries || 0;
+                    document.getElementById('t-orgs').textContent = t.orgs || 0;
+                    document.getElementById('t-bots').textContent = t.bot_views || 0;
+
+                    const tbody = document.getElementById('rows-body');
+                    tbody.innerHTML = '';
+                    (list.rows || []).forEach(row => {
+                        const tr = document.createElement('tr');
+                        tr.innerHTML = `
+                            <td title="${fmtTime(row.ts)}">${fmtTime(row.ts)}</td>
+                            <td title="${escapeHtml(row.path)}">${escapeHtml(row.path)}</td>
+                            <td title="${escapeHtml(row.referrer || '')}">${escapeHtml(fmtRef(row.referrer))}</td>
+                            <td title="${escapeHtml(fmtLoc(row))}">${escapeHtml(fmtLoc(row))}</td>
+                            <td class="org ${row.is_bot ? 'bot' : ''}" title="${escapeHtml(fmtOrg(row))}">
+                                ${row.is_bot ? '<i class="fas fa-robot"></i> ' : ''}${escapeHtml(fmtOrg(row))}
+                            </td>
+                        `;
+                        tbody.appendChild(tr);
+                    });
+
+                    renderRank('top-orgs', stats.topOrgs, 'org');
+                    renderRank('top-referrers', stats.topReferrers, 'referrer');
+                    renderRank('top-paths', stats.topPaths, 'path');
+
+                    tilesEl.style.display = 'grid';
+                    gridEl.style.display = 'grid';
+                    statusEl.textContent = `Last refresh: ${new Date().toLocaleTimeString('en-IN', { hour12: false })}`;
+                } catch (err) {
+                    statusEl.textContent = `Error: ${err.message}. If you have not deployed the Worker yet, follow cloudflare/SETUP.md.`;
+                    statusEl.classList.add('error');
+                    banner.classList.add('show');
+                }
+            }
+
+            function renderRank(elId, rows, field) {
+                const el = document.getElementById(elId);
+                el.innerHTML = '';
+                if (!rows || !rows.length) { el.innerHTML = '<div class="a-empty">No data yet</div>'; return; }
+                rows.forEach(r => {
+                    const label = String(r[field] || '').slice(0, 80) || '-';
+                    const div = document.createElement('div');
+                    div.className = 'a-rank-row';
+                    div.innerHTML = `<span class="label" title="${escapeHtml(label)}">${escapeHtml(label)}</span><span class="count">${r.n}</span>`;
+                    el.appendChild(div);
+                });
+            }
+
+            function escapeHtml(s) {
+                return String(s || '').replace(/[&<>"']/g, c => ({
+                    '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+                }[c]));
+            }
+
+            rangeSel.addEventListener('change', load);
+            hideBots.addEventListener('change', load);
+            refreshBtn.addEventListener('click', load);
+            load();
+        })();
+    </script>
+</body>
+</html>
