@@ -820,8 +820,8 @@ ul { list-style: none; }
    ============================================ */
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
 }
 .project-card {
     display: flex;
@@ -1339,7 +1339,7 @@ ul { list-style: none; }
    Responsive
    ============================================ */
 @media (max-width: 1099px) {
-    .projects-grid { grid-template-columns: repeat(2, 1fr); }
+    .projects-grid { grid-template-columns: repeat(2, 1fr); gap: 18px; }
 }
 
 @media (max-width: 960px) {

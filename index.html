@@ -29,10 +29,9 @@
             </a>
             <ul class="nav-menu" id="nav-menu">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#featured">Featured</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
+                <li><a href="#projects">Case Studies</a></li>
                 <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
             </ul>
             <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
@@ -78,8 +77,8 @@
                     </div>
                 </div>
                 <div class="hero-buttons">
-                    <a href="#featured" class="btn btn-primary">
-                        <i class="fas fa-rocket"></i> View Featured Project
+                    <a href="#projects" class="btn btn-primary">
+                        <i class="fas fa-folder-open"></i> View Case Studies
                     </a>
                     <a href="#contact" class="btn btn-secondary">
                         <i class="fas fa-paper-plane"></i> Get in Touch
@@ -124,53 +123,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Featured Project -->
-    <section id="featured" class="section section-featured">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label"><span class="prompt">~/</span> featured-project <span class="prompt">$</span></span>
-                <h2 class="section-title">The Project That Earned the Promotion</h2>
-            </div>
-            <a href="project-cicd.html" class="featured-card">
-                <div class="featured-card-edge" aria-hidden="true"></div>
-                <div class="featured-card-grid">
-                    <div class="featured-card-left">
-                        <div class="featured-icon">
-                            <i class="fas fa-code-branch"></i>
-                        </div>
-                        <h3 class="featured-title">CI/CD Pipeline Automation using Gitea and Jenkins</h3>
-                        <div class="featured-tech">
-                            <span class="tech-chip">Gitea</span>
-                            <span class="tech-chip">Jenkins</span>
-                            <span class="tech-chip">Git</span>
-                            <span class="tech-chip">Docker</span>
-                            <span class="tech-chip">Linux</span>
-                        </div>
-                    </div>
-                    <div class="featured-card-right">
-                        <div class="featured-block">
-                            <span class="featured-tag">Problem</span>
-                            <p>Manual copy and paste deployments at a 24/7 hospital created release risk, audit gaps, and slow recovery when something broke in production.</p>
-                        </div>
-                        <div class="featured-block">
-                            <span class="featured-tag">Action</span>
-                            <ul class="featured-list">
-                                <li>Implemented self-hosted CI/CD using Gitea and Jenkins to modernize legacy deployment workflows.</li>
-                                <li>Configured Gitea repositories and Jenkins pipelines triggered through Git push events with approval based production gates.</li>
-                                <li>Trained development teams on Git workflows and standardized deployment practices across the organization.</li>
-                            </ul>
-                        </div>
-                        <div class="featured-block">
-                            <span class="featured-tag tag-outcome">Outcome</span>
-                            <p>Replaced manual copy and paste deployments with reviewable, repeatable, Git driven pipelines. Reduced deployment time, minimized human error, and gave the team an audit trail for every release.</p>
-                        </div>
-                        <span class="featured-cta">Read the full case study <i class="fas fa-arrow-right"></i></span>
-                    </div>
-                </div>
-            </a>
         </div>
     </section>
 
@@ -271,10 +223,7 @@
                     <div class="timeline-card">
                         <div class="timeline-header">
                             <div>
-                                <div class="timeline-role-row">
-                                    <h3>DevOps Engineer</h3>
-                                    <span class="timeline-pill">Promotion</span>
-                                </div>
+                                <h3>DevOps Engineer</h3>
                                 <p class="timeline-company">
                                     <i class="fas fa-hospital"></i>
                                     G. Kuppuswamy Naidu Memorial Hospital
@@ -325,14 +274,38 @@
         </div>
     </section>
 
-    <!-- All Projects -->
+    <!-- DevOps Case Studies -->
     <section id="projects" class="section">
         <div class="container">
             <div class="section-header">
-                <span class="section-label"><span class="prompt">~/</span> all-projects <span class="prompt">$</span></span>
-                <h2 class="section-title">More DevOps Projects</h2>
+                <span class="section-label"><span class="prompt">~/</span> case-studies <span class="prompt">$</span></span>
+                <h2 class="section-title">DevOps Case Studies</h2>
             </div>
             <div class="projects-grid">
+                <a href="project-cicd.html" class="project-card">
+                    <div class="project-card-edge" aria-hidden="true"></div>
+                    <div class="project-icon">
+                        <i class="fas fa-code-branch"></i>
+                    </div>
+                    <h3>CI/CD Pipeline Automation using Gitea and Jenkins</h3>
+                    <p class="project-problem">
+                        Manual copy and paste deployments created release risk, audit gaps, and slow recovery when something broke in production.
+                    </p>
+                    <ul class="project-actions">
+                        <li>Implemented self hosted CI/CD using Gitea and Jenkins to modernize legacy deployment workflows.</li>
+                        <li>Configured Git push triggered pipelines with approval based production gates for safety and speed.</li>
+                        <li>Trained development teams on Git workflows and standardized deployment practices.</li>
+                    </ul>
+                    <div class="project-tech">
+                        <span class="tech-chip">Gitea</span>
+                        <span class="tech-chip">Jenkins</span>
+                        <span class="tech-chip">Git</span>
+                        <span class="tech-chip">Docker</span>
+                        <span class="tech-chip">Linux</span>
+                    </div>
+                    <span class="project-link">Read Case Study <i class="fas fa-arrow-right"></i></span>
+                </a>
+
                 <a href="project-gitea.html" class="project-card">
                     <div class="project-card-edge" aria-hidden="true"></div>
                     <div class="project-icon">
@@ -352,7 +325,7 @@
                         <span class="tech-chip">Git</span>
                         <span class="tech-chip">Linux</span>
                     </div>
-                    <span class="project-link">View Details <i class="fas fa-arrow-right"></i></span>
+                    <span class="project-link">Read Case Study <i class="fas fa-arrow-right"></i></span>
                 </a>
 
                 <a href="project-monitoring.html" class="project-card">
@@ -375,7 +348,7 @@
                         <span class="tech-chip">node_exporter</span>
                         <span class="tech-chip">windows_exporter</span>
                     </div>
-                    <span class="project-link">View Case Study <i class="fas fa-arrow-right"></i></span>
+                    <span class="project-link">Read Case Study <i class="fas fa-arrow-right"></i></span>
                 </a>
 
                 <a href="project-docker.html" class="project-card">
@@ -398,7 +371,7 @@
                         <span class="tech-chip">Jenkins</span>
                         <span class="tech-chip">MySQL</span>
                     </div>
-                    <span class="project-link">View Details <i class="fas fa-arrow-right"></i></span>
+                    <span class="project-link">Read Case Study <i class="fas fa-arrow-right"></i></span>
                 </a>
             </div>
         </div>
@@ -412,7 +385,7 @@
                     <span class="section-label"><span class="prompt">~/</span> currently-learning <span class="prompt">$</span></span>
                     <h2 class="learning-title">Growing Beyond On Premise into Cloud and IaC</h2>
                     <p class="learning-text">
-                        Actively expanding the toolkit. Building hands on projects with cloud native and infrastructure as code so the next promotion is just as honest as the last one.
+                        Actively expanding the toolkit. Building hands on projects with cloud native and infrastructure as code to round out the on premise foundation.
                     </p>
                 </div>
                 <div class="learning-chips">
