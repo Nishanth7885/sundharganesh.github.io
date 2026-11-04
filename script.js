@@ -103,7 +103,11 @@
             const x = r.left + r.width / 2;
             const y = r.top + r.height / 2;
             const radius = Math.hypot(Math.max(x, vw - x), Math.max(y, vh - y));
+            // Scope the "no crossfade" rule to theme switches; page navigations keep a normal fade.
+            root.classList.add('vt-theme');
             const transition = doc.startViewTransition(() => apply(next));
+            const done = () => root.classList.remove('vt-theme');
+            transition.finished.then(done, done);
             transition.ready.then(() => {
                 root.animate(
                     { clipPath: ['circle(0px at ' + x + 'px ' + y + 'px)', 'circle(' + radius + 'px at ' + x + 'px ' + y + 'px)'] },
@@ -310,7 +314,7 @@
                 el.classList.add('is-in');
                 io.unobserve(el);
             });
-        }, { threshold: 0.14, rootMargin: '0px 0px -7% 0px' });
+        }, { threshold: 0, rootMargin: '0px 0px -10% 0px' });
         els.forEach((el) => io.observe(el));
     }
 
@@ -402,7 +406,19 @@
             }
             plan[plan.length - 1].line.classList.add('is-last');
         };
-        setTimeout(run, hasIntro ? 2100 : 900);
+        // Type when the terminal is actually visible (it sits below the fold on phones).
+        const readyAt = performance.now() + (hasIntro ? 2100 : 900);
+        const start = () => setTimeout(run, Math.max(0, readyAt - performance.now()));
+        if (!('IntersectionObserver' in window)) {
+            start();
+            return;
+        }
+        const io = new IntersectionObserver((entries) => {
+            if (!entries[0].isIntersecting) return;
+            io.disconnect();
+            start();
+        }, { threshold: 0.4 });
+        io.observe(term);
     }
 
     /* ---------- Marquee: speed and direction follow scroll velocity ---------- */
@@ -511,6 +527,14 @@
                 if (inner.offsetHeight + 24 > vh) sec.classList.remove('pin-on');
                 else mode = 'pin';
             }
+            // Vertical layout: the track runs exactly from the first node centre to the last.
+            if (mode === 'column') {
+                line.style.bottom = 'auto';
+                line.style.height = (nodes[total - 1].offsetTop - nodes[0].offsetTop) + 'px';
+            } else {
+                line.style.bottom = '';
+                line.style.height = '';
+            }
             sec.style.setProperty('--lw', String(line.offsetWidth));
             sec.style.setProperty('--lh', String(line.offsetHeight));
             active = -2;
@@ -530,11 +554,11 @@
                 const f = raw - k;
                 const eased = f < 0.3 ? 0 : f > 0.8 ? 1 : smooth((f - 0.3) / 0.5);
                 pp = (k + eased) / seg;
-                idx = Math.round(pp * seg);
+                idx = Math.floor(pp * seg + 0.001);
             } else if (mode === 'row') {
                 const r = pin.getBoundingClientRect();
                 pp = clamp((vh * 0.8 - r.top) / Math.max(1, r.height * 0.75), 0, 1);
-                idx = Math.round(pp * seg);
+                idx = Math.floor(pp * seg + 0.001);
             } else {
                 const r = line.getBoundingClientRect();
                 const mark = vh * 0.62;
@@ -703,12 +727,15 @@
 
     /* ---------- Case study pages reuse the reveal system ---------- */
     function initSubpages() {
-        $$('.project-hero-content, .content-block, .next-projects').forEach((el) => {
+        // The hero stays visible so its title can morph in from the case study list.
+        $$('.content-block, .next-projects').forEach((el) => {
             if (!el.hasAttribute('data-reveal')) el.setAttribute('data-reveal', '');
         });
     }
 
     function init() {
+        // iOS only applies :active press states when a touch listener exists.
+        doc.addEventListener('touchstart', function () {}, { passive: true });
         initSubpages();
         initTheme();
         initNav();

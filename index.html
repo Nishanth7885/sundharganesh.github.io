@@ -47,7 +47,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@1&family=JetBrains+Mono:wght@400;500;600;700&display=swap">
     <link rel="preload" as="image" type="image/webp" href="assets/img/portrait-800.webp" imagesrcset="assets/img/portrait-480.webp 480w, assets/img/portrait-800.webp 800w" imagesizes="(max-width: 960px) 72vw, 360px">
-    <link rel="stylesheet" href="style.css?v=5b32dd6236">
+    <link rel="stylesheet" href="style.css?v=2052e66a92">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
     <script type="application/ld+json">
@@ -157,7 +157,7 @@
                         <span class="line"><span class="line-in" style="--hd:3">to <em>production.</em></span></span>
                     </h1>
                     <p class="hero-lead" data-hero style="--hd:4">
-                        I build secure hospital software with agentic coding tools like <strong>Claude Code</strong> and <strong>Codex</strong>, then ship it through the self-hosted CI/CD platform I run. Three systems delivered, and every one passed external VAPT with no major vulnerabilities.
+                        I build secure hospital software with agentic coding tools like <strong>Claude Code</strong> and <strong>Codex</strong>, then ship it through the <span class="nowrap">self-hosted</span> CI/CD platform I run. Three systems delivered, and every one passed external VAPT with no major vulnerabilities.
                     </p>
                     <div class="hero-ctas" data-hero style="--hd:5">
                         <a href="#agentic" class="btn btn-primary" data-magnetic><span>See the builds</span><i class="fas fa-arrow-right" aria-hidden="true"></i></a>
@@ -247,13 +247,13 @@
             <div class="container">
                 <header class="sec-head">
                     <p class="kicker" data-reveal><span class="kicker-num">01</span><span class="kicker-path">~/agentic-builds</span></p>
-                    <h2 class="sec-title" data-split>Three hospital systems. Built entirely with <em>Claude Code.</em></h2>
-                    <p class="sec-lead" data-reveal>Real software for G. Kuppuswamy Naidu Memorial Hospital, written through agentic coding and delivered on the same self-hosted Gitea, Jenkins, and Docker platform I run.</p>
+                    <h2 class="sec-title" data-split><span class="t-line">Three hospital systems.</span> <span class="t-line">Built entirely with <em>Claude Code.</em></span></h2>
+                    <p class="sec-lead" data-reveal>Real software for G. Kuppuswamy Naidu Memorial Hospital, written through agentic coding and delivered on the same <span class="nowrap">self-hosted</span> Gitea, Jenkins, and Docker platform I run.</p>
                 </header>
 
                 <div class="build-stack" id="build-stack">
                     <article class="build" style="--i:0" data-reveal>
-                        <div class="build-card" data-spotlight data-inview>
+                        <div class="build-card" data-spotlight>
                             <div class="build-copy">
                                 <div class="build-top">
                                     <span class="build-num">01 <small>/ 03</small></span>
@@ -264,14 +264,8 @@
                                 </div>
                                 <h3 class="build-title">Transport Management System</h3>
                                 <p class="build-desc">Web application for managing the hospital's transport operations.</p>
-                                <dl class="spec">
-                                    <div><dt>Built with</dt><dd>Claude Code</dd></div>
-                                    <div><dt>Backend</dt><dd>.NET 10 (ASP.NET Core)</dd></div>
-                                    <div><dt>Ships via</dt><dd>Gitea → Jenkins → Docker on Linux</dd></div>
-                                    <div><dt>Security</dt><dd class="dd-sec">External VAPT, no major vulnerabilities</dd></div>
-                                </dl>
                             </div>
-                            <div class="build-visual" aria-hidden="true">
+                            <div class="build-visual" data-inview aria-hidden="true">
                                 <svg class="viz viz-route" viewBox="0 0 420 300" preserveAspectRatio="xMidYMid meet" focusable="false">
                                     <defs>
                                         <linearGradient id="vzRouteG" x1="0" y1="1" x2="1" y2="0">
@@ -323,7 +317,7 @@
                     </article>
 
                     <article class="build" style="--i:1" data-reveal>
-                        <div class="build-card" data-spotlight data-inview>
+                        <div class="build-card" data-spotlight>
                             <div class="build-copy">
                                 <div class="build-top">
                                     <span class="build-num">02 <small>/ 03</small></span>
@@ -334,14 +328,8 @@
                                 </div>
                                 <h3 class="build-title">Project Management System</h3>
                                 <p class="build-desc">Web application for planning and tracking internal hospital projects.</p>
-                                <dl class="spec">
-                                    <div><dt>Built with</dt><dd>Claude Code</dd></div>
-                                    <div><dt>Backend</dt><dd>.NET 10 (ASP.NET Core)</dd></div>
-                                    <div><dt>Ships via</dt><dd>Gitea → Jenkins → Docker on Linux</dd></div>
-                                    <div><dt>Security</dt><dd class="dd-sec">External VAPT, no major vulnerabilities</dd></div>
-                                </dl>
                             </div>
-                            <div class="build-visual" aria-hidden="true">
+                            <div class="build-visual" data-inview aria-hidden="true">
                                 <svg class="viz viz-plan" viewBox="0 0 420 300" preserveAspectRatio="xMidYMid meet" focusable="false">
                                     <defs>
                                         <linearGradient id="vzPlanA" x1="0" y1="0" x2="1" y2="0">
@@ -389,7 +377,7 @@
                     </article>
 
                     <article class="build" style="--i:2" data-reveal>
-                        <div class="build-card" data-spotlight data-inview>
+                        <div class="build-card" data-spotlight>
                             <div class="build-copy">
                                 <div class="build-top">
                                     <span class="build-num">03 <small>/ 03</small></span>
@@ -400,14 +388,8 @@
                                 </div>
                                 <h3 class="build-title">License Management System</h3>
                                 <p class="build-desc">Web application for managing the hospital's licenses in one place.</p>
-                                <dl class="spec">
-                                    <div><dt>Built with</dt><dd>Claude Code</dd></div>
-                                    <div><dt>Backend</dt><dd>.NET 10 (ASP.NET Core)</dd></div>
-                                    <div><dt>Ships via</dt><dd>Gitea → Jenkins → Docker on Linux</dd></div>
-                                    <div><dt>Security</dt><dd class="dd-sec">External VAPT, no major vulnerabilities</dd></div>
-                                </dl>
                             </div>
-                            <div class="build-visual" aria-hidden="true">
+                            <div class="build-visual" data-inview aria-hidden="true">
                                 <svg class="viz viz-license" viewBox="0 0 420 300" preserveAspectRatio="xMidYMid meet" focusable="false">
                                     <defs>
                                         <linearGradient id="vzLicG" x1="0" y1="0" x2="1" y2="0">
@@ -447,21 +429,16 @@
                     </article>
                 </div>
 
-                <div class="stack-strip" data-reveal>
-                    <span class="stack-strip-label"><i class="fas fa-layer-group" aria-hidden="true"></i>Stack across the three systems</span>
-                    <ul class="chips">
-                        <li class="chip">Claude Code</li>
-                        <li class="chip">.NET 10</li>
-                        <li class="chip">ASP.NET Core</li>
-                        <li class="chip">ReactJS</li>
-                        <li class="chip">Vue.js</li>
-                        <li class="chip">MySQL</li>
-                        <li class="chip">PostgreSQL</li>
-                        <li class="chip">Docker</li>
-                        <li class="chip">Linux</li>
-                        <li class="chip">Jenkins</li>
-                        <li class="chip">Gitea</li>
-                    </ul>
+                <div class="shared-spec" data-reveal>
+                    <p class="shared-spec-label"><i class="fas fa-layer-group" aria-hidden="true"></i>Across all three systems</p>
+                    <dl class="spec spec-grid">
+                        <div><dt>Built with</dt><dd>Claude Code</dd></div>
+                        <div><dt>Backend</dt><dd>.NET 10 (ASP.NET Core)</dd></div>
+                        <div><dt>Frontend</dt><dd>ReactJS or Vue</dd></div>
+                        <div><dt>Database</dt><dd>MySQL or PostgreSQL</dd></div>
+                        <div><dt>Ships via</dt><dd>Gitea → Jenkins → Docker on Linux</dd></div>
+                        <div><dt>Security</dt><dd class="dd-sec">External VAPT, no major vulnerabilities</dd></div>
+                    </dl>
                 </div>
             </div>
         </section>
@@ -481,8 +458,8 @@
                         <svg class="shield" viewBox="0 0 200 236" focusable="false">
                             <defs>
                                 <linearGradient id="shG" x1="0" y1="0" x2="1" y2="1">
-                                    <stop offset="0" stop-color="#34d399"/>
-                                    <stop offset="1" stop-color="#22d3ee"/>
+                                    <stop offset="0" style="stop-color: var(--green)"/>
+                                    <stop offset="1" style="stop-color: var(--cyan)"/>
                                 </linearGradient>
                             </defs>
                             <path class="shield-fill" d="M100 8 L184 40 V108 C184 162 148 204 100 226 C52 204 16 162 16 108 V40 Z"/>
@@ -495,7 +472,7 @@
                 <div class="security-copy">
                     <p class="kicker" data-reveal><span class="kicker-num">02</span><span class="kicker-path">~/security</span></p>
                     <h2 class="sec-title" data-split>Secure by <em>prompt.</em></h2>
-                    <p class="sec-lead" data-reveal>Every app went through an external VAPT (Vulnerability Assessment and Penetration Testing) and passed with no major vulnerabilities. I got there through careful, security-focused prompting and my own security knowledge, because hospital software has to be trustworthy from day one.</p>
+                    <p class="sec-lead" data-reveal>Every app went through an external VAPT (Vulnerability Assessment and Penetration Testing) and passed with no major vulnerabilities. I got there through careful, <span class="nowrap">security-focused</span> prompting and my own security knowledge, because hospital software has to be trustworthy from day one.</p>
                     <div class="sec-stats" data-stagger="120">
                         <div class="sec-stat" data-reveal>
                             <span class="sec-num"><span data-count="3">3</span><span class="stat-suffix">/3</span></span>
@@ -544,7 +521,7 @@
                                     <span class="pipe-node" aria-hidden="true"><i class="fab fa-git-alt"></i></span>
                                     <span class="pipe-k">03 · Version</span>
                                     <h3 class="pipe-t">Gitea</h3>
-                                    <p class="pipe-d">Every codebase is versioned in self-hosted Gitea.</p>
+                                    <p class="pipe-d">Every codebase is versioned in <span class="nowrap">self-hosted</span> Gitea.</p>
                                 </li>
                                 <li class="pipe-step">
                                     <span class="pipe-node" aria-hidden="true"><i class="fab fa-jenkins"></i></span>
@@ -601,10 +578,10 @@
                             </header>
                             <ul class="tl-list">
                                 <li>Built three hospital systems entirely with Claude Code and delivered them end to end: Transport Management, Project Management, and License Management.</li>
-                                <li class="li-sec">All three passed external VAPT (Vulnerability Assessment and Penetration Testing) with no major vulnerabilities, achieved through careful, security-focused prompting and hands-on security knowledge.</li>
+                                <li class="li-sec">All three passed external VAPT (Vulnerability Assessment and Penetration Testing) with no major vulnerabilities, achieved through careful, <span class="nowrap">security-focused</span> prompting and <span class="nowrap">hands-on</span> security knowledge.</li>
                                 <li>Used agentic coding tools like Claude Code and Codex across the development lifecycle, from requirements through implementation, debugging, and iteration.</li>
                                 <li>Developed .NET 10 (ASP.NET Core) backends with ReactJS and Vue frontends on top of MySQL and PostgreSQL databases.</li>
-                                <li>Paired agentic development with DevOps guardrails: every codebase versioned in self-hosted Gitea, built and deployed through Jenkins CI/CD, and run as Docker containers on Linux.</li>
+                                <li>Paired agentic development with DevOps guardrails: every codebase versioned in <span class="nowrap">self-hosted</span> Gitea, built and deployed through Jenkins CI/CD, and run as Docker containers on Linux.</li>
                             </ul>
                             <ul class="chips">
                                 <li class="chip">Claude Code</li>
@@ -618,7 +595,6 @@
                                 <li class="chip">Linux</li>
                                 <li class="chip">Jenkins</li>
                                 <li class="chip">Gitea</li>
-                                <li class="chip chip-sec">VAPT passed</li>
                             </ul>
                         </div>
                     </article>
@@ -634,7 +610,7 @@
                                 <span class="tl-period"><i class="far fa-calendar" aria-hidden="true"></i>May 2026 to Present</span>
                             </header>
                             <ul class="tl-list">
-                                <li>Implemented self-hosted CI/CD workflows using Gitea and Jenkins to modernize manual deployment processes.</li>
+                                <li>Implemented <span class="nowrap">self-hosted</span> CI/CD workflows using Gitea and Jenkins to modernize manual deployment processes.</li>
                                 <li>Automated application deployment workflows using Git based version control and approval based deployments.</li>
                                 <li>Configured Gitea repositories and Jenkins pipelines triggered through Git push events.</li>
                                 <li>Trained development teams on Git workflows and standardized deployment practices.</li>
@@ -658,7 +634,7 @@
                                 <li>Managed and supported Linux and Windows server environments powering healthcare and administrative systems.</li>
                                 <li>Supported production IIS application environments and day to day infrastructure operations.</li>
                                 <li>Set up Prometheus and Grafana on Linux servers to gain operational visibility and accelerate troubleshooting.</li>
-                                <li>Investigated intermittent IIS application outages and identified a memory leak in a co-hosted application through metrics analysis.</li>
+                                <li>Investigated intermittent IIS application outages and identified a memory leak in a <span class="nowrap">co-hosted</span> application through metrics analysis.</li>
                                 <li>Worked with VMware environments, server troubleshooting, and infrastructure support operations.</li>
                                 <li>Collaborated with development teams for application deployment, troubleshooting, and operational support.</li>
                             </ul>
@@ -683,7 +659,7 @@
                             <h3>Agentic Coding</h3>
                             <span class="pill pill-focus">Primary focus</span>
                         </div>
-                        <p class="bento-desc">Building complete, secure applications with AI coding agents. Three hospital systems delivered end to end with Claude Code, all passing external VAPT.</p>
+                        <p class="bento-desc">Building complete, secure applications with AI coding agents. Three hospital systems delivered end to end with Claude Code.</p>
                         <div class="agent-loop" aria-hidden="true">
                             <svg viewBox="0 0 520 172" focusable="false">
                                 <defs>
@@ -856,7 +832,7 @@
                         <a class="case" href="project-cicd.html" data-spotlight>
                             <span class="case-num">01</span>
                             <span class="case-main">
-                                <span class="case-title">CI/CD Pipeline Automation using Gitea and Jenkins</span>
+                                <span class="case-title" style="view-transition-name: cs-cicd">CI/CD Pipeline Automation using Gitea and Jenkins</span>
                                 <span class="case-problem">Manual copy and paste deployments created release risk, audit gaps, and slow recovery when something broke in production.</span>
                                 <span class="case-tags"><span class="chip">Gitea</span><span class="chip">Jenkins</span><span class="chip">Git</span><span class="chip">Docker</span><span class="chip">Linux</span></span>
                             </span>
@@ -867,7 +843,7 @@
                         <a class="case" href="project-gitea.html" data-spotlight>
                             <span class="case-num">02</span>
                             <span class="case-main">
-                                <span class="case-title">Centralized Source Code Management using Gitea</span>
+                                <span class="case-title" style="view-transition-name: cs-gitea">Centralized Source Code Management using Gitea</span>
                                 <span class="case-problem">Source code lived in local project folders with no review trail and no single source of truth.</span>
                                 <span class="case-tags"><span class="chip">Gitea</span><span class="chip">Git</span><span class="chip">Linux</span></span>
                             </span>
@@ -878,7 +854,7 @@
                         <a class="case" href="project-monitoring.html" data-spotlight>
                             <span class="case-num">03</span>
                             <span class="case-main">
-                                <span class="case-title">Infrastructure Monitoring with Prometheus and Grafana</span>
+                                <span class="case-title" style="view-transition-name: cs-monitoring">Infrastructure Monitoring with Prometheus and Grafana</span>
                                 <span class="case-problem">Production issues were discovered by users before the IT team had any signal something was wrong.</span>
                                 <span class="case-tags"><span class="chip">Prometheus</span><span class="chip">Grafana</span><span class="chip">node_exporter</span><span class="chip">windows_exporter</span></span>
                             </span>
@@ -889,7 +865,7 @@
                         <a class="case" href="project-docker.html" data-spotlight>
                             <span class="case-num">04</span>
                             <span class="case-main">
-                                <span class="case-title">Containerized Infrastructure with Docker and Portainer</span>
+                                <span class="case-title" style="view-transition-name: cs-docker">Containerized Infrastructure with Docker and Portainer</span>
                                 <span class="case-problem">Internal services ran on bare hosts with inconsistent configuration and no unified management plane.</span>
                                 <span class="case-tags"><span class="chip">Docker</span><span class="chip">Portainer</span><span class="chip">Jenkins</span><span class="chip">MySQL</span></span>
                             </span>
@@ -961,6 +937,6 @@
 
     <div class="toast" role="status" aria-live="polite"></div>
 
-    <script src="script.js?v=5cf2fbb998" defer></script>
+    <script src="script.js?v=1686bf2c57" defer></script>
 </body>
 </html>
