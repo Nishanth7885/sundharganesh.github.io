@@ -39,7 +39,6 @@
     --amber-border: rgba(251, 191, 36, 0.3);
     --nav-bg: rgba(8, 10, 18, 0.72);
     --glass: rgba(11, 14, 24, 0.9);
-    --stats-bg: rgba(10, 13, 22, 0.78);
     --menu-bg: #05060b;
     --shade: #000000;
     --shade-max: 0.5;
@@ -118,7 +117,6 @@
     --amber-border: rgba(180, 83, 9, 0.26);
     --nav-bg: rgba(255, 255, 255, 0.78);
     --glass: rgba(255, 255, 255, 0.94);
-    --stats-bg: rgba(255, 255, 255, 0.82);
     --menu-bg: #f5f7fc;
     --shade: #0a1020;
     --shade-max: 0.1;
@@ -248,6 +246,7 @@ h1, h2, h3, h4 {
 .contact-title,
 .build-title,
 .case-title,
+.hero-hello,
 .project-hero h1 { text-wrap: balance; }
 .sec-lead,
 .hero-lead { text-wrap: pretty; }
@@ -934,34 +933,8 @@ html:not(.js) .nav-container {
     animation-delay: var(--fd, 0s);
 }
 .hv-chip-in i { color: var(--cyan); }
-.hv-chip-sec .hv-chip-in { color: var(--sec-text); border-color: var(--sec-border); }
-.hv-chip-sec .hv-chip-in i { color: var(--green); }
 @keyframes float { from { transform: translate3d(0, -6px, 0); } to { transform: translate3d(0, 6px, 0); } }
 
-/* Hero stats */
-.hero-stats {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    margin-top: clamp(44px, 7vh, 80px);
-    overflow: hidden;
-    border-radius: var(--r-lg);
-    background: var(--stats-bg);
-    border: 1px solid var(--border);
-}
-.stat { position: relative; padding: clamp(18px, 2.4vw, 26px) clamp(18px, 2.4vw, 28px); }
-.stat + .stat { border-left: 1px solid var(--border); }
-.stat-num {
-    display: flex;
-    align-items: baseline;
-    margin-bottom: 10px;
-    font-family: var(--display);
-    font-size: clamp(2.1rem, 4vw, 3.2rem);
-    font-weight: 700;
-    line-height: 1;
-    letter-spacing: -0.04em;
-    font-variant-numeric: tabular-nums;
-}
-.stat-num > span,
 .sec-num > span {
     color: transparent;
     background: var(--grad);
@@ -969,9 +942,7 @@ html:not(.js) .nav-container {
     background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-.stat-sec .stat-num > span { background: var(--grad-sec); -webkit-background-clip: text; background-clip: text; }
 .stat-suffix { margin-left: 2px; font-size: 0.6em; }
-.stat-label { display: block; max-width: 22ch; font-size: 0.86rem; line-height: 1.45; color: var(--muted); }
 
 .scroll-cue {
     position: absolute;
@@ -1948,7 +1919,6 @@ a, button { -webkit-tap-highlight-color: transparent; }
 .case-problem,
 .bento-desc,
 .bento-note,
-.stat-label,
 .sec-label { text-wrap: pretty; }
 
 /* Cross-document morph from the case study list into each case study page */
@@ -2070,9 +2040,6 @@ a, button { -webkit-tap-highlight-color: transparent; }
     .hv-portrait { justify-self: center; width: 74%; }
     .hv-badge { left: -10%; }
     .hv-term { width: 100%; margin-top: -26%; }
-    .hero-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .stat:nth-child(3) { border-left: 0; }
-    .stat:nth-child(n + 3) { border-top: 1px solid var(--border); }
 
     .build-card { grid-template-columns: 1fr; }
 
@@ -2128,7 +2095,6 @@ a, button { -webkit-tap-highlight-color: transparent; }
     .hv-chip:nth-of-type(1),
     .hv-chip:nth-of-type(2) { display: none; }
     .hv-chip:nth-of-type(3) { --xm: 19%; --ym: 30%; }
-    .hv-chip:nth-of-type(4) { --xm: 80%; --ym: 40%; }
 
     .build-card { padding: 20px; border-radius: 22px; }
     .build-top { margin-bottom: 16px; }
