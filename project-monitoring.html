@@ -1,38 +1,94 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <title>IIS Memory Leak RCA with Prometheus and Grafana | Sundhar Ganesh</title>
     <meta name="description" content="Root cause analysis of intermittent IIS outages using Prometheus, Grafana, and windows_exporter. Identified a memory leak in a co hosted application via metrics.">
-    <link rel="icon" type="image/png" href="photo.png">
-    <link rel="stylesheet" href="style.css">
+    <meta name="theme-color" content="#05060b">
+    <meta name="color-scheme" content="dark light">
+    <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
+    <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+    <script>
+        (function () {
+            var d = document.documentElement;
+            d.classList.add('js');
+            try {
+                var t = localStorage.getItem('sg-theme');
+                if (t === 'light' || t === 'dark') d.setAttribute('data-theme', t);
+            } catch (e) {}
+            if (d.getAttribute('data-theme') === 'light') {
+                var m = document.querySelector('meta[name="theme-color"]');
+                if (m) m.setAttribute('content', '#f5f7fc');
+            }
+            setTimeout(function () { if (!window.__sgReady) d.classList.add('no-anim'); }, 4000);
+        })();
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@1&family=JetBrains+Mono:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="style.css?v=5b32dd6236">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
 </head>
-<body>
+<body class="project-page">
 
-    <nav class="navbar" id="navbar">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="navbar" id="navbar">
         <div class="nav-container">
-            <a href="index.html" class="logo">
+            <a href="index.html" class="logo" aria-label="Sundhar Ganesh, home">
                 <span class="logo-mark">SG</span>
-                <span class="logo-dot"></span>
+                <span class="logo-dot" aria-hidden="true"></span>
+                <span class="logo-text">Sundhar Ganesh</span>
             </a>
-            <ul class="nav-menu" id="nav-menu">
-                <li><a href="index.html#home">Home</a></li>
-                <li><a href="index.html#agentic">Agentic Builds</a></li>
-                <li><a href="index.html#skills">Skills</a></li>
-                <li><a href="index.html#experience">Experience</a></li>
-                <li><a href="index.html#projects">Case Studies</a></li>
-                <li><a href="index.html#contact" class="nav-cta">Get in Touch</a></li>
-            </ul>
-            <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
-                <span></span><span></span><span></span>
-            </button>
+            <nav class="nav-links" aria-label="Primary">
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="index.html#agentic">Builds</a></li>
+                    <li><a href="index.html#pipeline">Pipeline</a></li>
+                    <li><a href="index.html#experience">Experience</a></li>
+                    <li><a href="index.html#skills">Skills</a></li>
+                    <li><a href="index.html#projects">Case Studies</a></li>
+                    <li><a href="index.html#contact" class="nav-cta">Let's talk</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to light theme" aria-pressed="false">
+                    <i class="fas fa-sun" aria-hidden="true"></i>
+                    <i class="fas fa-moon" aria-hidden="true"></i>
+                </button>
+                <button class="hamburger" id="hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+                    <span></span><span></span>
+                </button>
+            </div>
         </div>
-    </nav>
+    </header>
+
+    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+        <nav aria-label="Mobile">
+            <ol class="mm-links">
+                <li style="--i:0"><a href="index.html#home"><span>00</span>Home</a></li>
+                <li style="--i:1"><a href="index.html#agentic"><span>01</span>Agentic Builds</a></li>
+                <li style="--i:2"><a href="index.html#security"><span>02</span>Security</a></li>
+                <li style="--i:3"><a href="index.html#pipeline"><span>03</span>Pipeline</a></li>
+                <li style="--i:4"><a href="index.html#experience"><span>04</span>Experience</a></li>
+                <li style="--i:5"><a href="index.html#skills"><span>05</span>Skills</a></li>
+                <li style="--i:6"><a href="index.html#projects"><span>06</span>Case Studies</a></li>
+                <li style="--i:7"><a href="index.html#contact"><span>07</span>Contact</a></li>
+            </ol>
+        </nav>
+        <div class="mm-foot">
+            <a href="mailto:ganeshmuthvel303@gmail.com" class="mm-mail">ganeshmuthvel303@gmail.com</a>
+            <div class="mm-social">
+                <a href="https://linkedin.com/in/sundhar-ganesh-771578227" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+                <a href="https://github.com/Nishanth7885" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+                <a href="tel:+919940865231" aria-label="Phone"><i class="fas fa-phone" aria-hidden="true"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <main id="main">
 
     <section class="project-hero">
         <div class="container">
@@ -209,12 +265,15 @@
         </div>
     </section>
 
+    </main>
+
     <footer class="footer">
-        <div class="container">
+        <div class="container footer-inner">
             <p>Sundhar Ganesh <span class="footer-sep">/</span> DevOps Engineer <span class="footer-sep">/</span> Coimbatore <span class="footer-sep">/</span> 2026</p>
+            <p class="footer-built"><i class="fas fa-robot" aria-hidden="true"></i>Built with Claude Code</p>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=5cf2fbb998" defer></script>
 </body>
 </html>

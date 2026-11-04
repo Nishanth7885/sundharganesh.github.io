@@ -1,655 +1,966 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark" data-intro>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sundhar Ganesh | DevOps Engineer | Agentic Coding, CI/CD, Observability</title>
-    <meta name="description" content="Sundhar Ganesh, DevOps Engineer at GKNM Hospital. Builds full stack hospital systems with agentic coding tools like Claude Code and Codex on .NET 10, ReactJS, and Vue, shipped through self-hosted Gitea, Jenkins, and Docker.">
-    <meta name="keywords" content="Agentic Coding, Claude Code, Codex, AI Assisted Software Development, .NET 10, ASP.NET Core, ReactJS, Vue.js, MySQL, PostgreSQL, DevOps Engineer, CI/CD, Jenkins, Gitea, Prometheus, Grafana, Docker, Portainer, Linux, Site Reliability, Healthcare IT, Coimbatore">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Sundhar Ganesh | DevOps Engineer | Agentic Coding, CI/CD, Security</title>
+    <meta name="description" content="Sundhar Ganesh, DevOps Engineer at GKNM Hospital. Builds secure hospital systems with Claude Code and Codex on .NET 10, ReactJS, and Vue. All three passed external VAPT with no major vulnerabilities.">
+    <meta name="keywords" content="Agentic Coding, Claude Code, Codex, AI Assisted Software Development, Secure Coding, VAPT, Application Security, .NET 10, ASP.NET Core, ReactJS, Vue.js, MySQL, PostgreSQL, DevOps Engineer, CI/CD, Jenkins, Gitea, Prometheus, Grafana, Docker, Portainer, Linux, Healthcare IT, Coimbatore">
     <meta name="author" content="Sundhar Ganesh">
-    <meta property="og:title" content="Sundhar Ganesh | DevOps Engineer | Agentic Coding">
-    <meta property="og:description" content="Hospital systems built end to end with Claude Code and shipped through self-hosted CI/CD. Agentic coding, DevOps, and production reliability for Healthcare IT.">
-    <meta property="og:image" content="photo.png">
+    <meta name="theme-color" content="#05060b">
+    <meta name="color-scheme" content="dark light">
+    <link rel="canonical" href="https://sundharganesh.in/">
     <meta property="og:type" content="website">
-    <link rel="icon" type="image/png" href="photo.png">
-    <link rel="stylesheet" href="style.css">
+    <meta property="og:url" content="https://sundharganesh.in/">
+    <meta property="og:title" content="Sundhar Ganesh | From prompt to production">
+    <meta property="og:description" content="DevOps Engineer building secure hospital software with Claude Code. Three systems shipped through self-hosted CI/CD, all passing external VAPT with no major vulnerabilities.">
+    <meta property="og:image" content="https://sundharganesh.in/assets/img/og-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Sundhar Ganesh: From prompt to production">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
+    <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+    <script>
+        (function () {
+            var d = document.documentElement;
+            d.classList.add('js');
+            try {
+                var t = localStorage.getItem('sg-theme');
+                if (t === 'light' || t === 'dark') d.setAttribute('data-theme', t);
+            } catch (e) {}
+            if (d.getAttribute('data-theme') === 'light') {
+                var m = document.querySelector('meta[name="theme-color"]');
+                if (m) m.setAttribute('content', '#f5f7fc');
+            }
+            var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            if (d.hasAttribute('data-intro') && !reduce) {
+                var seen = false;
+                try { seen = sessionStorage.getItem('sg-intro') === '1'; sessionStorage.setItem('sg-intro', '1'); } catch (e) {}
+                if (!seen) d.classList.add('has-intro');
+            }
+            setTimeout(function () { if (!window.__sgReady) d.classList.add('no-anim'); }, 4000);
+        })();
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@1&family=JetBrains+Mono:wght@400;500;600;700&display=swap">
+    <link rel="preload" as="image" type="image/webp" href="assets/img/portrait-800.webp" imagesrcset="assets/img/portrait-480.webp 480w, assets/img/portrait-800.webp 800w" imagesizes="(max-width: 960px) 72vw, 360px">
+    <link rel="stylesheet" href="style.css?v=5b32dd6236">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Sundhar Ganesh",
+        "jobTitle": "DevOps Engineer",
+        "url": "https://sundharganesh.in/",
+        "image": "https://sundharganesh.in/assets/img/portrait-800.jpg",
+        "email": "mailto:ganeshmuthvel303@gmail.com",
+        "worksFor": { "@type": "Organization", "name": "G. Kuppuswamy Naidu Memorial Hospital" },
+        "address": { "@type": "PostalAddress", "addressLocality": "Coimbatore", "addressCountry": "IN" },
+        "sameAs": ["https://linkedin.com/in/sundhar-ganesh-771578227", "https://github.com/Nishanth7885"],
+        "knowsAbout": ["Agentic coding", "Claude Code", "Codex", "Application security", "VAPT", ".NET 10", "ASP.NET Core", "ReactJS", "Vue.js", "MySQL", "PostgreSQL", "Docker", "Jenkins", "Gitea", "Linux", "Prometheus", "Grafana", "CI/CD"]
+    }
+    </script>
 </head>
 <body>
 
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <!-- Intro (first visit per session, pure CSS timing) -->
+    <div class="intro" aria-hidden="true">
+        <div class="intro-inner">
+            <p class="intro-line"><span class="t-dim">sundhar@gknm</span><span class="t-cyan">:~$</span> claude --ship</p>
+            <p class="intro-line"><span class="t-violet">›</span> plan · build · secure · deploy</p>
+            <p class="intro-line"><span class="t-green">✓</span> 3 systems live, VAPT passed</p>
+            <div class="intro-bar"><span></span></div>
+        </div>
+    </div>
+
+    <div class="scroll-progress" aria-hidden="true"><span></span></div>
+
     <!-- Navigation -->
-    <nav class="navbar" id="navbar">
+    <header class="navbar" id="navbar">
         <div class="nav-container">
-            <a href="#home" class="logo">
+            <a href="#home" class="logo" aria-label="Sundhar Ganesh, back to top">
                 <span class="logo-mark">SG</span>
-                <span class="logo-dot"></span>
+                <span class="logo-dot" aria-hidden="true"></span>
+                <span class="logo-text">Sundhar Ganesh</span>
             </a>
-            <ul class="nav-menu" id="nav-menu">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#agentic">Agentic Builds</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Case Studies</a></li>
-                <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
-            </ul>
-            <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
-                <span></span><span></span><span></span>
-            </button>
-        </div>
-    </nav>
-
-    <!-- Hero -->
-    <section id="home" class="hero">
-        <div class="hero-bg-grid" aria-hidden="true"></div>
-        <div class="container hero-container">
-            <div class="hero-left">
-                <span class="hero-eyebrow">Agentic Coding <span class="eyebrow-sep">/</span> DevOps <span class="eyebrow-sep">/</span> Healthcare IT</span>
-                <h1 class="hero-title">
-                    Sundhar Ganesh
-                </h1>
-                <h2 class="hero-subtitle">
-                    <span class="accent">DevOps Engineer</span> <span class="sep">|</span> Agentic Software Development, CI/CD, and Production Reliability
-                </h2>
-                <p class="hero-description">
-                    DevOps Engineer with 6+ years in healthcare IT, now building full stack software with agentic coding tools like Claude Code and Codex. I built three hospital systems entirely with Claude Code (Transport Management, Project Management, and License Management) on .NET 10, ReactJS, Vue, MySQL, and PostgreSQL.
-                </p>
-                <p class="hero-description">
-                    Every system ships through the self-hosted platform I built: Gitea for version control, Jenkins for CI/CD, and Docker on Linux. Alongside development, I run Linux and Windows servers, deployment automation, and Prometheus and Grafana observability for critical hospital systems.
-                </p>
-                <div class="hero-stats">
-                    <div class="stat-tile stat-tile-featured">
-                        <span class="stat-value">3</span>
-                        <span class="stat-label">Hospital Systems Built with Claude Code</span>
-                    </div>
-                    <div class="stat-tile">
-                        <span class="stat-value">6+</span>
-                        <span class="stat-label">Years in 24/7 Hospital Production</span>
-                    </div>
-                    <div class="stat-tile">
-                        <span class="stat-value">CI/CD</span>
-                        <span class="stat-label">Self Hosted with Gitea + Jenkins</span>
-                    </div>
-                    <div class="stat-tile">
-                        <span class="stat-value">0</span>
-                        <span class="stat-label">Downtime, Approval Gated Deploys</span>
-                    </div>
-                </div>
-                <div class="hero-buttons">
-                    <a href="#agentic" class="btn btn-primary">
-                        <i class="fas fa-robot"></i> View Agentic Builds
-                    </a>
-                    <a href="#contact" class="btn btn-secondary">
-                        <i class="fas fa-paper-plane"></i> Get in Touch
-                    </a>
-                </div>
-            </div>
-
-            <div class="hero-right">
-                <div class="terminal-caption">
-                    <span class="prompt">~/ status $</span>
-                    <span class="caption-text"><span class="status-dot"></span> available for opportunities</span>
-                </div>
-                <div class="profile-card">
-                    <div class="profile-image-wrapper">
-                        <div class="profile-image">
-                            <img src="photo.png" alt="Sundhar Ganesh, DevOps Engineer">
-                        </div>
-                    </div>
-                    <div class="profile-info">
-                        <h3>Sundhar Ganesh</h3>
-                        <p class="profile-role">DevOps Engineer at GKNM Hospital</p>
-                        <div class="profile-location">
-                            <i class="fas fa-map-marker-alt"></i> Coimbatore, India
-                        </div>
-                        <div class="profile-relocate">
-                            <i class="fas fa-globe"></i> Open to Relocation
-                        </div>
-                    </div>
-                    <div class="profile-social">
-                        <a href="mailto:ganeshmuthvel303@gmail.com" class="social-link" aria-label="Email">
-                            <i class="fas fa-envelope"></i>
-                        </a>
-                        <a href="tel:+919940865231" class="social-link" aria-label="Phone">
-                            <i class="fas fa-phone"></i>
-                        </a>
-                        <a href="https://linkedin.com/in/sundhar-ganesh-771578227" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="https://github.com/Nishanth7885" target="_blank" rel="noopener" class="social-link" aria-label="GitHub">
-                            <i class="fab fa-github"></i>
-                        </a>
-                    </div>
-                </div>
+            <nav class="nav-links" aria-label="Primary">
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="#agentic">Builds</a></li>
+                    <li><a href="#pipeline">Pipeline</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Case Studies</a></li>
+                    <li><a href="#contact" class="nav-cta">Let's talk</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to light theme" aria-pressed="false">
+                    <i class="fas fa-sun" aria-hidden="true"></i>
+                    <i class="fas fa-moon" aria-hidden="true"></i>
+                </button>
+                <button class="hamburger" id="hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+                    <span></span><span></span>
+                </button>
             </div>
         </div>
-    </section>
+    </header>
 
-    <!-- Agentic Builds -->
-    <section id="agentic" class="section section-alt">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label"><span class="prompt">~/</span> agentic-builds <span class="prompt">$</span></span>
-                <h2 class="section-title">Hospital Systems Built End to End with Claude Code</h2>
-                <p class="section-intro">
-                    Three internal systems for G. Kuppuswamy Naidu Memorial Hospital, written entirely with agentic coding and delivered through the same self-hosted Gitea, Jenkins, and Docker platform I run for the hospital.
-                </p>
+    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+        <nav aria-label="Mobile">
+            <ol class="mm-links">
+                <li style="--i:0"><a href="#agentic"><span>01</span>Agentic Builds</a></li>
+                <li style="--i:1"><a href="#security"><span>02</span>Security</a></li>
+                <li style="--i:2"><a href="#pipeline"><span>03</span>Pipeline</a></li>
+                <li style="--i:3"><a href="#experience"><span>04</span>Experience</a></li>
+                <li style="--i:4"><a href="#skills"><span>05</span>Skills</a></li>
+                <li style="--i:5"><a href="#projects"><span>06</span>Case Studies</a></li>
+                <li style="--i:6"><a href="#contact"><span>07</span>Contact</a></li>
+            </ol>
+        </nav>
+        <div class="mm-foot">
+            <a href="mailto:ganeshmuthvel303@gmail.com" class="mm-mail">ganeshmuthvel303@gmail.com</a>
+            <div class="mm-social">
+                <a href="https://linkedin.com/in/sundhar-ganesh-771578227" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+                <a href="https://github.com/Nishanth7885" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+                <a href="tel:+919940865231" aria-label="Phone"><i class="fas fa-phone" aria-hidden="true"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <main id="main">
+
+        <!-- Hero -->
+        <section id="home" class="hero">
+            <div class="hero-bg" aria-hidden="true">
+                <div class="aurora"><span class="a1"></span><span class="a2"></span><span class="a3"></span></div>
+                <div class="hero-grid"></div>
+                <div class="hero-spot"></div>
             </div>
 
-            <div class="builds-grid">
-                <article class="build-card">
-                    <div class="build-card-top">
-                        <div class="build-icon"><i class="fas fa-route"></i></div>
-                        <span class="build-status"><i class="fas fa-circle-check"></i> Completed</span>
+            <div class="container hero-inner">
+                <div class="hero-copy">
+                    <div class="hero-meta" data-hero style="--hd:0">
+                        <span class="status-chip"><span class="pulse-dot" aria-hidden="true"></span>Available for opportunities</span>
+                        <span class="hero-loc"><i class="fas fa-location-dot" aria-hidden="true"></i>Coimbatore, India · Open to relocation</span>
                     </div>
-                    <h3>Transport Management System</h3>
-                    <p>Web application for managing the hospital's transport operations.</p>
-                    <span class="build-agent"><i class="fas fa-robot"></i> Built with Claude Code</span>
-                </article>
-
-                <article class="build-card">
-                    <div class="build-card-top">
-                        <div class="build-icon"><i class="fas fa-diagram-project"></i></div>
-                        <span class="build-status"><i class="fas fa-circle-check"></i> Completed</span>
-                    </div>
-                    <h3>Project Management System</h3>
-                    <p>Web application for planning and tracking internal hospital projects.</p>
-                    <span class="build-agent"><i class="fas fa-robot"></i> Built with Claude Code</span>
-                </article>
-
-                <article class="build-card">
-                    <div class="build-card-top">
-                        <div class="build-icon"><i class="fas fa-certificate"></i></div>
-                        <span class="build-status"><i class="fas fa-circle-check"></i> Completed</span>
-                    </div>
-                    <h3>License Management System</h3>
-                    <p>Web application for managing the hospital's licenses in one place.</p>
-                    <span class="build-agent"><i class="fas fa-robot"></i> Built with Claude Code</span>
-                </article>
-            </div>
-
-            <div class="agentic-panel">
-                <div class="agentic-panel-block">
-                    <div class="agentic-panel-head">
-                        <span class="card-label">How each system ships</span>
-                        <a href="project-cicd.html" class="agentic-panel-link">How the pipeline works <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                    <div class="agentic-flow">
-                        <div class="flow-step">
-                            <i class="fas fa-robot"></i>
-                            <div class="flow-text">
-                                <span class="flow-title">Claude Code</span>
-                                <span class="flow-sub">Agentic build</span>
-                            </div>
-                        </div>
-                        <i class="fas fa-arrow-right flow-arrow" aria-hidden="true"></i>
-                        <div class="flow-step">
-                            <i class="fab fa-git-alt"></i>
-                            <div class="flow-text">
-                                <span class="flow-title">Gitea</span>
-                                <span class="flow-sub">Version control</span>
-                            </div>
-                        </div>
-                        <i class="fas fa-arrow-right flow-arrow" aria-hidden="true"></i>
-                        <div class="flow-step">
-                            <i class="fab fa-jenkins"></i>
-                            <div class="flow-text">
-                                <span class="flow-title">Jenkins</span>
-                                <span class="flow-sub">CI/CD pipeline</span>
-                            </div>
-                        </div>
-                        <i class="fas fa-arrow-right flow-arrow" aria-hidden="true"></i>
-                        <div class="flow-step">
-                            <i class="fab fa-docker"></i>
-                            <div class="flow-text">
-                                <span class="flow-title">Docker on Linux</span>
-                                <span class="flow-sub">Runtime</span>
-                            </div>
-                        </div>
+                    <p class="hero-hello" data-hero style="--hd:1">Hi, I'm <strong>Sundhar Ganesh</strong>, DevOps Engineer at GKNM Hospital.</p>
+                    <h1 class="hero-title">
+                        <span class="sr-only">Sundhar Ganesh, DevOps Engineer. </span>
+                        <span class="line"><span class="line-in" style="--hd:2">From <em>prompt</em></span></span>
+                        <span class="line"><span class="line-in" style="--hd:3">to <em>production.</em></span></span>
+                    </h1>
+                    <p class="hero-lead" data-hero style="--hd:4">
+                        I build secure hospital software with agentic coding tools like <strong>Claude Code</strong> and <strong>Codex</strong>, then ship it through the self-hosted CI/CD platform I run. Three systems delivered, and every one passed external VAPT with no major vulnerabilities.
+                    </p>
+                    <div class="hero-ctas" data-hero style="--hd:5">
+                        <a href="#agentic" class="btn btn-primary" data-magnetic><span>See the builds</span><i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                        <a href="#contact" class="btn btn-ghost" data-magnetic><span>Get in touch</span></a>
                     </div>
                 </div>
-                <div class="agentic-panel-block">
-                    <span class="card-label">Stack across the three systems</span>
-                    <dl class="stack-grid">
-                        <div class="stack-group">
-                            <dt>Agentic Tool</dt>
-                            <dd><span class="tech-chip">Claude Code</span></dd>
+
+                <div class="hero-visual" data-hero style="--hd:3">
+                    <div class="hv-stage">
+                        <figure class="hv-portrait hv-layer" style="--depth:0.45">
+                            <div class="hv-ring" aria-hidden="true"></div>
+                            <div class="hv-frame">
+                                <picture>
+                                    <source type="image/webp" srcset="assets/img/portrait-480.webp 480w, assets/img/portrait-800.webp 800w" sizes="(max-width: 960px) 72vw, 360px">
+                                    <img src="assets/img/portrait-800.jpg" alt="Portrait of Sundhar Ganesh" width="800" height="1000" fetchpriority="high" decoding="async">
+                                </picture>
+                            </div>
+                            <figcaption class="hv-badge">
+                                <span class="pulse-dot" aria-hidden="true"></span>
+                                <span><strong>Sundhar Ganesh</strong><small>DevOps · Agentic Coding</small></span>
+                            </figcaption>
+                        </figure>
+
+                        <div class="hv-term hv-layer terminal" style="--depth:1" data-terminal role="img" aria-label="Terminal summary of an agentic build: Claude Code builds a .NET 10 API, a ReactJS or Vue frontend and a MySQL or PostgreSQL data layer, pushes to Gitea, Jenkins deploys to Docker on Linux, and external VAPT finds no major vulnerabilities.">
+                            <div class="term-bar" aria-hidden="true"><span></span><span></span><span></span><em>agent session</em></div>
+                            <div class="term-body" aria-hidden="true">
+                                <p class="tl" data-t="cmd"><span class="t-dim">sundhar@gknm</span><span class="t-cyan">:~$</span> <span class="t-text">claude</span></p>
+                                <p class="tl" data-t="cmd"><span class="t-violet">›</span> <span class="t-text">build it, secure by default</span></p>
+                                <p class="tl" data-t="out"><span class="t-green">✓</span> API <span class="t-dim">.NET 10 · ASP.NET Core</span></p>
+                                <p class="tl" data-t="out"><span class="t-green">✓</span> UI <span class="t-dim">ReactJS or Vue</span></p>
+                                <p class="tl" data-t="out"><span class="t-green">✓</span> Data <span class="t-dim">MySQL or PostgreSQL</span></p>
+                                <p class="tl" data-t="out"><span class="t-green">✓</span> git push <span class="t-dim">→ Gitea</span></p>
+                                <p class="tl" data-t="out"><span class="t-green">✓</span> Jenkins <span class="t-dim">→ Docker on Linux</span></p>
+                                <p class="tl" data-t="out"><span class="t-sec">✓ External VAPT</span> <span class="t-secd">no major vulnerabilities</span></p>
+                                <p class="tl" data-t="cmd"><span class="t-violet">›</span> <span class="t-text">3 systems shipped</span></p>
+                            </div>
                         </div>
-                        <div class="stack-group">
-                            <dt>Backend</dt>
-                            <dd><span class="tech-chip">.NET 10</span><span class="tech-chip">ASP.NET Core</span></dd>
-                        </div>
-                        <div class="stack-group">
-                            <dt>Frontend</dt>
-                            <dd><span class="tech-chip">ReactJS</span><span class="tech-chip">Vue.js</span></dd>
-                        </div>
-                        <div class="stack-group">
-                            <dt>Database</dt>
-                            <dd><span class="tech-chip">MySQL</span><span class="tech-chip">PostgreSQL</span></dd>
-                        </div>
-                        <div class="stack-group">
-                            <dt>Environment</dt>
-                            <dd><span class="tech-chip">Linux</span><span class="tech-chip">Docker</span></dd>
-                        </div>
-                        <div class="stack-group">
-                            <dt>CI/CD and Version Control</dt>
-                            <dd><span class="tech-chip">Jenkins</span><span class="tech-chip">Gitea</span></dd>
-                        </div>
-                    </dl>
+
+                        <span class="hv-chip hv-layer" style="--depth:1.4; --x:84%; --y:4%"><span class="hv-chip-in"><i class="fab fa-react" aria-hidden="true"></i>ReactJS</span></span>
+                        <span class="hv-chip hv-layer" style="--depth:1.15; --x:96%; --y:30%"><span class="hv-chip-in" style="--fd:-2s"><i class="fab fa-vuejs" aria-hidden="true"></i>Vue</span></span>
+                        <span class="hv-chip hv-layer" style="--depth:1.6; --x:7%; --y:44%"><span class="hv-chip-in" style="--fd:-4s"><i class="fas fa-layer-group" aria-hidden="true"></i>.NET 10</span></span>
+                        <span class="hv-chip hv-chip-sec hv-layer" style="--depth:1.3; --x:94%; --y:64%"><span class="hv-chip-in" style="--fd:-1s"><i class="fas fa-shield-halved" aria-hidden="true"></i>VAPT passed</span></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <ul class="hero-stats" data-stagger="90">
+                    <li class="stat" data-reveal>
+                        <span class="stat-num"><span data-count="3">3</span></span>
+                        <span class="stat-label">Hospital systems built with Claude Code</span>
+                    </li>
+                    <li class="stat stat-sec" data-reveal>
+                        <span class="stat-num"><span data-count="3">3</span><span class="stat-suffix">/3</span></span>
+                        <span class="stat-label">Passed external VAPT, no major vulnerabilities</span>
+                    </li>
+                    <li class="stat" data-reveal>
+                        <span class="stat-num"><span data-count="6">6</span><span class="stat-suffix">+</span></span>
+                        <span class="stat-label">Years in 24/7 hospital production</span>
+                    </li>
+                    <li class="stat" data-reveal>
+                        <span class="stat-num"><span data-count="0">0</span></span>
+                        <span class="stat-label">Downtime, approval gated deploys</span>
+                    </li>
+                </ul>
+            </div>
+
+            <a href="#agentic" class="scroll-cue" aria-label="Scroll to the builds"><span class="scroll-cue-line" aria-hidden="true"></span><span class="scroll-cue-text" aria-hidden="true">Scroll</span></a>
+        </section>
+
+        <!-- Marquee -->
+        <div class="marquee" aria-hidden="true">
+            <div class="marquee-row">
+                <div class="marquee-track">
+                    <span>Claude Code</span><i>✦</i><span class="o">Codex</span><i>✦</i><span>.NET 10</span><i>✦</i><span class="o">ReactJS</span><i>✦</i><span>Vue.js</span><i>✦</i><span class="o">PostgreSQL</span><i>✦</i><span>MySQL</span><i>✦</i>
+                </div>
+            </div>
+            <div class="marquee-row marquee-row-rev">
+                <div class="marquee-track">
+                    <span class="o">Docker</span><i>✦</i><span>Jenkins</span><i>✦</i><span class="o">Gitea</span><i>✦</i><span>Linux</span><i>✦</i><span class="o">Prometheus</span><i>✦</i><span>Grafana</span><i>✦</i><span class="g">VAPT passed</span><i>✦</i>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- Skills -->
-    <section id="skills" class="section">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label"><span class="prompt">~/</span> tech-stack <span class="prompt">$</span></span>
-                <h2 class="section-title">Tools I Build, Ship, and Run With</h2>
-            </div>
-            <div class="skills-grid">
-                <div class="skill-category skill-category-featured">
-                    <div class="skill-header">
-                        <i class="fas fa-robot"></i>
-                        <h3>Agentic Coding</h3>
-                    </div>
-                    <p class="skill-summary">Building complete applications with AI coding agents. Three hospital systems delivered end to end with Claude Code.</p>
-                    <ul class="skill-list">
-                        <li><span class="dot"></span>Claude Code</li>
-                        <li><span class="dot"></span>OpenAI Codex</li>
-                        <li><span class="dot"></span>Agentic Software Development</li>
-                        <li><span class="dot"></span>Full Stack App Delivery</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <div class="skill-header">
-                        <i class="fas fa-laptop-code"></i>
-                        <h3>Application Development</h3>
-                    </div>
-                    <ul class="skill-list">
-                        <li><span class="dot"></span>.NET 10 (ASP.NET Core)</li>
-                        <li><span class="dot"></span>ReactJS</li>
-                        <li><span class="dot"></span>Vue.js</li>
-                        <li><span class="dot"></span>.NET Application Support</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <div class="skill-header">
-                        <i class="fas fa-code-branch"></i>
-                        <h3>CI/CD and Automation</h3>
-                    </div>
-                    <ul class="skill-list">
-                        <li><span class="dot"></span>Jenkins</li>
-                        <li><span class="dot"></span>Gitea</li>
-                        <li><span class="dot"></span>Git</li>
-                        <li><span class="dot"></span>Bash Scripting</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <div class="skill-header">
-                        <i class="fas fa-cubes"></i>
-                        <h3>Containers</h3>
-                    </div>
-                    <ul class="skill-list">
-                        <li><span class="dot"></span>Docker</li>
-                        <li><span class="dot"></span>Portainer</li>
-                        <li><span class="dot"></span>Container Lifecycle Mgmt</li>
-                        <li><span class="dot"></span>Multi Host Management</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <div class="skill-header">
-                        <i class="fas fa-database"></i>
-                        <h3>Databases and Web Servers</h3>
-                    </div>
-                    <ul class="skill-list">
-                        <li><span class="dot"></span>MySQL</li>
-                        <li><span class="dot"></span>PostgreSQL</li>
-                        <li><span class="dot"></span>phpMyAdmin</li>
-                        <li><span class="dot"></span>IIS</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <div class="skill-header">
-                        <i class="fas fa-chart-line"></i>
-                        <h3>Observability</h3>
-                    </div>
-                    <ul class="skill-list">
-                        <li><span class="dot"></span>Prometheus</li>
-                        <li><span class="dot"></span>Grafana</li>
-                        <li><span class="dot"></span>node_exporter</li>
-                        <li><span class="dot"></span>windows_exporter</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <div class="skill-header">
-                        <i class="fas fa-server"></i>
-                        <h3>Operating Systems</h3>
-                    </div>
-                    <ul class="skill-list">
-                        <li><span class="dot"></span>Linux (Ubuntu)</li>
-                        <li><span class="dot"></span>Windows Server</li>
-                        <li><span class="dot"></span>VMware</li>
-                        <li><span class="dot"></span>System Administration</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <div class="skill-header">
-                        <i class="fas fa-shield-halved"></i>
-                        <h3>Practices</h3>
-                    </div>
-                    <ul class="skill-list">
-                        <li><span class="dot"></span>Production Troubleshooting</li>
-                        <li><span class="dot"></span>Root Cause Analysis</li>
-                        <li><span class="dot"></span>Deployment Automation</li>
-                        <li><span class="dot"></span>Developer Enablement</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+        <!-- Agentic Builds -->
+        <section id="agentic" class="section builds">
+            <div class="container">
+                <header class="sec-head">
+                    <p class="kicker" data-reveal><span class="kicker-num">01</span><span class="kicker-path">~/agentic-builds</span></p>
+                    <h2 class="sec-title" data-split>Three hospital systems. Built entirely with <em>Claude Code.</em></h2>
+                    <p class="sec-lead" data-reveal>Real software for G. Kuppuswamy Naidu Memorial Hospital, written through agentic coding and delivered on the same self-hosted Gitea, Jenkins, and Docker platform I run.</p>
+                </header>
 
-    <!-- Experience -->
-    <section id="experience" class="section section-alt">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label"><span class="prompt">~/</span> experience <span class="prompt">$</span></span>
-                <h2 class="section-title">Professional Experience</h2>
-            </div>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-dot timeline-dot-active"></div>
-                    <div class="timeline-card timeline-card-featured">
-                        <div class="timeline-header">
-                            <div>
-                                <div class="timeline-role-row">
-                                    <h3>Agentic Coding and Software Development</h3>
-                                    <span class="timeline-pill">Primary Focus</span>
+                <div class="build-stack" id="build-stack">
+                    <article class="build" style="--i:0" data-reveal>
+                        <div class="build-card" data-spotlight data-inview>
+                            <div class="build-copy">
+                                <div class="build-top">
+                                    <span class="build-num">01 <small>/ 03</small></span>
+                                    <div class="build-badges">
+                                        <span class="badge badge-ok"><i class="fas fa-circle-check" aria-hidden="true"></i>Completed</span>
+                                        <span class="badge badge-sec"><i class="fas fa-shield-halved" aria-hidden="true"></i>VAPT passed</span>
+                                    </div>
                                 </div>
-                                <p class="timeline-company">
-                                    <i class="fas fa-hospital"></i>
-                                    G. Kuppuswamy Naidu Memorial Hospital
-                                </p>
+                                <h3 class="build-title">Transport Management System</h3>
+                                <p class="build-desc">Web application for managing the hospital's transport operations.</p>
+                                <dl class="spec">
+                                    <div><dt>Built with</dt><dd>Claude Code</dd></div>
+                                    <div><dt>Backend</dt><dd>.NET 10 (ASP.NET Core)</dd></div>
+                                    <div><dt>Ships via</dt><dd>Gitea → Jenkins → Docker on Linux</dd></div>
+                                    <div><dt>Security</dt><dd class="dd-sec">External VAPT, no major vulnerabilities</dd></div>
+                                </dl>
                             </div>
-                            <div class="timeline-period">
-                                <i class="far fa-calendar"></i>
-                                2026 to Present
+                            <div class="build-visual" aria-hidden="true">
+                                <svg class="viz viz-route" viewBox="0 0 420 300" preserveAspectRatio="xMidYMid meet" focusable="false">
+                                    <defs>
+                                        <linearGradient id="vzRouteG" x1="0" y1="1" x2="1" y2="0">
+                                            <stop offset="0" stop-color="#22d3ee"/>
+                                            <stop offset="1" stop-color="#a78bfa"/>
+                                        </linearGradient>
+                                        <pattern id="vzGrid" width="24" height="24" patternUnits="userSpaceOnUse">
+                                            <path d="M24 0H0V24" fill="none" stroke="rgba(255,255,255,0.045)" stroke-width="1"/>
+                                        </pattern>
+                                        <radialGradient id="vzGlowC" cx="0.5" cy="0.5" r="0.5">
+                                            <stop offset="0" stop-color="#22d3ee" stop-opacity="0.45"/>
+                                            <stop offset="1" stop-color="#22d3ee" stop-opacity="0"/>
+                                        </radialGradient>
+                                        <radialGradient id="vzGlowV" cx="0.5" cy="0.5" r="0.5">
+                                            <stop offset="0" stop-color="#a78bfa" stop-opacity="0.5"/>
+                                            <stop offset="1" stop-color="#a78bfa" stop-opacity="0"/>
+                                        </radialGradient>
+                                    </defs>
+                                    <rect width="420" height="300" fill="url(#vzGrid)"/>
+                                    <g fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.07)">
+                                        <rect x="24" y="24" width="100" height="64" rx="10"/>
+                                        <rect x="152" y="24" width="96" height="64" rx="10"/>
+                                        <rect x="276" y="24" width="120" height="64" rx="10"/>
+                                        <rect x="24" y="118" width="100" height="70" rx="10"/>
+                                        <rect x="152" y="118" width="96" height="70" rx="10"/>
+                                        <rect x="276" y="118" width="120" height="70" rx="10"/>
+                                        <rect x="24" y="218" width="100" height="58" rx="10"/>
+                                        <rect x="152" y="218" width="96" height="58" rx="10"/>
+                                        <rect x="276" y="218" width="120" height="58" rx="10"/>
+                                    </g>
+                                    <path d="M56 203 H138 V103 H262 V203 H364" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="3" stroke-dasharray="2 9" stroke-linecap="round"/>
+                                    <path id="vzRoutePath" class="viz-draw" pathLength="1" d="M56 203 H138 V103 H262 V203 H364" fill="none" stroke="url(#vzRouteG)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <circle cx="56" cy="203" r="20" fill="url(#vzGlowC)"/>
+                                    <circle cx="56" cy="203" r="6" fill="#22d3ee"/>
+                                    <g transform="translate(364 203)">
+                                        <circle r="24" fill="url(#vzGlowV)"/>
+                                        <path d="M0 -20 C 10 -20 15 -12 15 -6 C 15 5 0 16 0 16 C 0 16 -15 5 -15 -6 C -15 -12 -10 -20 0 -20 Z" fill="#a78bfa"/>
+                                        <circle cy="-6" r="5" fill="#0b0f19"/>
+                                    </g>
+                                    <circle class="viz-mover" r="6.5" fill="#ffffff">
+                                        <animateMotion dur="6s" repeatCount="indefinite" rotate="auto">
+                                            <mpath href="#vzRoutePath"/>
+                                        </animateMotion>
+                                    </circle>
+                                </svg>
                             </div>
+                            <div class="build-shade" aria-hidden="true"></div>
                         </div>
-                        <ul class="timeline-list">
-                            <li>Built three hospital systems entirely with Claude Code and delivered them end to end: Transport Management, Project Management, and License Management.</li>
-                            <li>Used agentic coding tools like Claude Code and Codex across the development lifecycle, from requirements through implementation, debugging, and iteration.</li>
-                            <li>Developed .NET 10 (ASP.NET Core) backends with ReactJS and Vue frontends on top of MySQL and PostgreSQL databases.</li>
-                            <li>Paired agentic development with DevOps guardrails: every codebase versioned in self-hosted Gitea, built and deployed through Jenkins CI/CD, and run as Docker containers on Linux.</li>
+                    </article>
+
+                    <article class="build" style="--i:1" data-reveal>
+                        <div class="build-card" data-spotlight data-inview>
+                            <div class="build-copy">
+                                <div class="build-top">
+                                    <span class="build-num">02 <small>/ 03</small></span>
+                                    <div class="build-badges">
+                                        <span class="badge badge-ok"><i class="fas fa-circle-check" aria-hidden="true"></i>Completed</span>
+                                        <span class="badge badge-sec"><i class="fas fa-shield-halved" aria-hidden="true"></i>VAPT passed</span>
+                                    </div>
+                                </div>
+                                <h3 class="build-title">Project Management System</h3>
+                                <p class="build-desc">Web application for planning and tracking internal hospital projects.</p>
+                                <dl class="spec">
+                                    <div><dt>Built with</dt><dd>Claude Code</dd></div>
+                                    <div><dt>Backend</dt><dd>.NET 10 (ASP.NET Core)</dd></div>
+                                    <div><dt>Ships via</dt><dd>Gitea → Jenkins → Docker on Linux</dd></div>
+                                    <div><dt>Security</dt><dd class="dd-sec">External VAPT, no major vulnerabilities</dd></div>
+                                </dl>
+                            </div>
+                            <div class="build-visual" aria-hidden="true">
+                                <svg class="viz viz-plan" viewBox="0 0 420 300" preserveAspectRatio="xMidYMid meet" focusable="false">
+                                    <defs>
+                                        <linearGradient id="vzPlanA" x1="0" y1="0" x2="1" y2="0">
+                                            <stop offset="0" stop-color="#22d3ee"/>
+                                            <stop offset="1" stop-color="#818cf8"/>
+                                        </linearGradient>
+                                        <linearGradient id="vzPlanB" x1="0" y1="0" x2="1" y2="0">
+                                            <stop offset="0" stop-color="#818cf8"/>
+                                            <stop offset="1" stop-color="#c084fc"/>
+                                        </linearGradient>
+                                    </defs>
+                                    <g stroke="rgba(255,255,255,0.06)">
+                                        <line x1="128" y1="30" x2="128" y2="272"/>
+                                        <line x1="188" y1="30" x2="188" y2="272"/>
+                                        <line x1="248" y1="30" x2="248" y2="272"/>
+                                        <line x1="308" y1="30" x2="308" y2="272"/>
+                                        <line x1="368" y1="30" x2="368" y2="272"/>
+                                    </g>
+                                    <g fill="rgba(255,255,255,0.09)">
+                                        <rect x="24" y="50" width="78" height="9" rx="4.5"/>
+                                        <rect x="24" y="94" width="64" height="9" rx="4.5"/>
+                                        <rect x="24" y="138" width="84" height="9" rx="4.5"/>
+                                        <rect x="24" y="182" width="58" height="9" rx="4.5"/>
+                                        <rect x="24" y="226" width="72" height="9" rx="4.5"/>
+                                    </g>
+                                    <rect class="viz-bar" style="--d:0" x="128" y="43" width="120" height="22" rx="11" fill="url(#vzPlanA)"/>
+                                    <rect class="viz-bar" style="--d:1" x="168" y="87" width="150" height="22" rx="11" fill="url(#vzPlanA)"/>
+                                    <rect class="viz-bar" style="--d:2" x="218" y="131" width="112" height="22" rx="11" fill="url(#vzPlanB)"/>
+                                    <rect class="viz-bar" style="--d:3" x="256" y="175" width="122" height="22" rx="11" fill="url(#vzPlanB)"/>
+                                    <rect class="viz-bar" style="--d:4" x="298" y="219" width="92" height="22" rx="11" fill="none" stroke="rgba(192,132,252,0.7)" stroke-width="1.5" stroke-dasharray="4 4"/>
+                                    <g class="viz-pop" style="--d:5">
+                                        <circle cx="248" cy="54" r="9" fill="#05060b" stroke="#34d399" stroke-width="2"/>
+                                        <path d="M244 54 l3 3 l5 -6" fill="none" stroke="#34d399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </g>
+                                    <g class="viz-pop" style="--d:6">
+                                        <circle cx="318" cy="98" r="9" fill="#05060b" stroke="#34d399" stroke-width="2"/>
+                                        <path d="M314 98 l3 3 l5 -6" fill="none" stroke="#34d399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </g>
+                                    <line class="viz-today" x1="282" y1="26" x2="282" y2="278" stroke="#22d3ee" stroke-width="1.5" stroke-dasharray="3 5"/>
+                                    <circle cx="282" cy="24" r="4.5" fill="#22d3ee"/>
+                                </svg>
+                            </div>
+                            <div class="build-shade" aria-hidden="true"></div>
+                        </div>
+                    </article>
+
+                    <article class="build" style="--i:2" data-reveal>
+                        <div class="build-card" data-spotlight data-inview>
+                            <div class="build-copy">
+                                <div class="build-top">
+                                    <span class="build-num">03 <small>/ 03</small></span>
+                                    <div class="build-badges">
+                                        <span class="badge badge-ok"><i class="fas fa-circle-check" aria-hidden="true"></i>Completed</span>
+                                        <span class="badge badge-sec"><i class="fas fa-shield-halved" aria-hidden="true"></i>VAPT passed</span>
+                                    </div>
+                                </div>
+                                <h3 class="build-title">License Management System</h3>
+                                <p class="build-desc">Web application for managing the hospital's licenses in one place.</p>
+                                <dl class="spec">
+                                    <div><dt>Built with</dt><dd>Claude Code</dd></div>
+                                    <div><dt>Backend</dt><dd>.NET 10 (ASP.NET Core)</dd></div>
+                                    <div><dt>Ships via</dt><dd>Gitea → Jenkins → Docker on Linux</dd></div>
+                                    <div><dt>Security</dt><dd class="dd-sec">External VAPT, no major vulnerabilities</dd></div>
+                                </dl>
+                            </div>
+                            <div class="build-visual" aria-hidden="true">
+                                <svg class="viz viz-license" viewBox="0 0 420 300" preserveAspectRatio="xMidYMid meet" focusable="false">
+                                    <defs>
+                                        <linearGradient id="vzLicG" x1="0" y1="0" x2="1" y2="0">
+                                            <stop offset="0" stop-color="#22d3ee"/>
+                                            <stop offset="1" stop-color="#a78bfa"/>
+                                        </linearGradient>
+                                        <linearGradient id="vzSealG" x1="0" y1="0" x2="1" y2="1">
+                                            <stop offset="0" stop-color="#34d399"/>
+                                            <stop offset="1" stop-color="#22d3ee"/>
+                                        </linearGradient>
+                                    </defs>
+                                    <g transform="translate(176 50) rotate(8)">
+                                        <rect width="150" height="196" rx="14" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+                                    </g>
+                                    <g transform="translate(112 44)">
+                                        <rect width="160" height="208" rx="16" fill="#0e1424" stroke="rgba(255,255,255,0.12)"/>
+                                        <rect x="20" y="24" width="64" height="10" rx="5" fill="url(#vzLicG)"/>
+                                        <rect x="20" y="52" width="120" height="7" rx="3.5" fill="rgba(255,255,255,0.13)"/>
+                                        <rect x="20" y="68" width="104" height="7" rx="3.5" fill="rgba(255,255,255,0.08)"/>
+                                        <rect x="20" y="84" width="112" height="7" rx="3.5" fill="rgba(255,255,255,0.08)"/>
+                                        <rect x="20" y="110" width="80" height="7" rx="3.5" fill="rgba(255,255,255,0.08)"/>
+                                        <rect x="20" y="126" width="96" height="7" rx="3.5" fill="rgba(255,255,255,0.06)"/>
+                                        <line x1="20" y1="180" x2="96" y2="180" stroke="rgba(255,255,255,0.16)"/>
+                                        <path class="viz-draw viz-sign" pathLength="1" d="M22 172 c 7 -12 13 6 20 -5 s 11 7 17 -1 s 9 3 14 -3" fill="none" stroke="#22d3ee" stroke-width="1.8" stroke-linecap="round"/>
+                                    </g>
+                                    <g transform="translate(268 198)">
+                                        <g class="viz-seal">
+                                            <circle r="42" fill="rgba(52,211,153,0.12)" stroke="url(#vzSealG)" stroke-width="3"/>
+                                            <circle r="32" fill="none" stroke="rgba(52,211,153,0.4)" stroke-dasharray="3 4"/>
+                                            <path class="viz-check" pathLength="1" d="M-14 1 L-4 11 L15 -10" fill="none" stroke="#34d399" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </div>
+                            <div class="build-shade" aria-hidden="true"></div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="stack-strip" data-reveal>
+                    <span class="stack-strip-label"><i class="fas fa-layer-group" aria-hidden="true"></i>Stack across the three systems</span>
+                    <ul class="chips">
+                        <li class="chip">Claude Code</li>
+                        <li class="chip">.NET 10</li>
+                        <li class="chip">ASP.NET Core</li>
+                        <li class="chip">ReactJS</li>
+                        <li class="chip">Vue.js</li>
+                        <li class="chip">MySQL</li>
+                        <li class="chip">PostgreSQL</li>
+                        <li class="chip">Docker</li>
+                        <li class="chip">Linux</li>
+                        <li class="chip">Jenkins</li>
+                        <li class="chip">Gitea</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Security -->
+        <section id="security" class="section security">
+            <div class="container security-grid">
+                <div class="security-visual" data-inview aria-hidden="true">
+                    <div class="shield-wrap">
+                        <span class="ring r1"></span>
+                        <span class="ring r2"></span>
+                        <span class="ring r3"></span>
+                        <div class="radar"></div>
+                        <span class="blip b1"></span>
+                        <span class="blip b2"></span>
+                        <span class="blip b3"></span>
+                        <svg class="shield" viewBox="0 0 200 236" focusable="false">
+                            <defs>
+                                <linearGradient id="shG" x1="0" y1="0" x2="1" y2="1">
+                                    <stop offset="0" stop-color="#34d399"/>
+                                    <stop offset="1" stop-color="#22d3ee"/>
+                                </linearGradient>
+                            </defs>
+                            <path class="shield-fill" d="M100 8 L184 40 V108 C184 162 148 204 100 226 C52 204 16 162 16 108 V40 Z"/>
+                            <path class="shield-line" pathLength="1" d="M100 8 L184 40 V108 C184 162 148 204 100 226 C52 204 16 162 16 108 V40 Z" fill="none" stroke="url(#shG)" stroke-width="4" stroke-linejoin="round"/>
+                            <path class="shield-check" pathLength="1" d="M62 116 L90 144 L142 90" fill="none" stroke="url(#shG)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span class="shield-tag">External VAPT</span>
+                    </div>
+                </div>
+                <div class="security-copy">
+                    <p class="kicker" data-reveal><span class="kicker-num">02</span><span class="kicker-path">~/security</span></p>
+                    <h2 class="sec-title" data-split>Secure by <em>prompt.</em></h2>
+                    <p class="sec-lead" data-reveal>Every app went through an external VAPT (Vulnerability Assessment and Penetration Testing) and passed with no major vulnerabilities. I got there through careful, security-focused prompting and my own security knowledge, because hospital software has to be trustworthy from day one.</p>
+                    <div class="sec-stats" data-stagger="120">
+                        <div class="sec-stat" data-reveal>
+                            <span class="sec-num"><span data-count="3">3</span><span class="stat-suffix">/3</span></span>
+                            <span class="sec-label">apps passed external VAPT</span>
+                        </div>
+                        <div class="sec-stat" data-reveal>
+                            <span class="sec-num"><span data-count="0">0</span></span>
+                            <span class="sec-label">major vulnerabilities found</span>
+                        </div>
+                    </div>
+                    <ul class="vapt-list" data-stagger="110">
+                        <li data-reveal><i class="fas fa-circle-check" aria-hidden="true"></i><span>Transport Management System</span><em>Passed</em></li>
+                        <li data-reveal><i class="fas fa-circle-check" aria-hidden="true"></i><span>Project Management System</span><em>Passed</em></li>
+                        <li data-reveal><i class="fas fa-circle-check" aria-hidden="true"></i><span>License Management System</span><em>Passed</em></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pipeline (pinned on desktop) -->
+        <section id="pipeline" class="pipeline">
+            <div class="pipe-pin">
+                <div class="pipe-sticky">
+                    <div class="container pipe-inner">
+                        <header class="sec-head sec-head-center">
+                            <p class="kicker" data-reveal><span class="kicker-num">03</span><span class="kicker-path">~/pipeline</span></p>
+                            <h2 class="sec-title" data-split>Prompt to production, <em>every time.</em></h2>
+                            <p class="sec-lead" data-reveal>How each of the three systems went from an idea to a running, tested release.</p>
+                        </header>
+                        <div class="pipe">
+                            <div class="pipe-line" aria-hidden="true"><span class="pipe-fill"></span><span class="pipe-packet"></span></div>
+                            <ol class="pipe-steps">
+                                <li class="pipe-step">
+                                    <span class="pipe-node" aria-hidden="true"><i class="fas fa-wand-magic-sparkles"></i></span>
+                                    <span class="pipe-k">01 · Prompt</span>
+                                    <h3 class="pipe-t">Careful prompting</h3>
+                                    <p class="pipe-d">Each build starts from a precise prompt, with security expectations stated up front.</p>
+                                </li>
+                                <li class="pipe-step">
+                                    <span class="pipe-node" aria-hidden="true"><i class="fas fa-robot"></i></span>
+                                    <span class="pipe-k">02 · Build</span>
+                                    <h3 class="pipe-t">Claude Code</h3>
+                                    <p class="pipe-d">.NET 10 backends, ReactJS and Vue frontends, MySQL and PostgreSQL databases.</p>
+                                </li>
+                                <li class="pipe-step">
+                                    <span class="pipe-node" aria-hidden="true"><i class="fab fa-git-alt"></i></span>
+                                    <span class="pipe-k">03 · Version</span>
+                                    <h3 class="pipe-t">Gitea</h3>
+                                    <p class="pipe-d">Every codebase is versioned in self-hosted Gitea.</p>
+                                </li>
+                                <li class="pipe-step">
+                                    <span class="pipe-node" aria-hidden="true"><i class="fab fa-jenkins"></i></span>
+                                    <span class="pipe-k">04 · Ship</span>
+                                    <h3 class="pipe-t">Jenkins</h3>
+                                    <p class="pipe-d">CI/CD pipelines build and deploy each release.</p>
+                                </li>
+                                <li class="pipe-step">
+                                    <span class="pipe-node" aria-hidden="true"><i class="fab fa-docker"></i></span>
+                                    <span class="pipe-k">05 · Run</span>
+                                    <h3 class="pipe-t">Docker on Linux</h3>
+                                    <p class="pipe-d">Applications run as Docker containers on Linux servers.</p>
+                                </li>
+                                <li class="pipe-step pipe-step-sec">
+                                    <span class="pipe-node" aria-hidden="true"><i class="fas fa-shield-halved"></i></span>
+                                    <span class="pipe-k">06 · Verify</span>
+                                    <h3 class="pipe-t">External VAPT</h3>
+                                    <p class="pipe-d">Independent testing found no major vulnerabilities.</p>
+                                </li>
+                            </ol>
+                        </div>
+                        <div class="pipe-foot">
+                            <span class="pipe-count" aria-hidden="true"><b>01</b> / 06</span>
+                            <a href="project-cicd.html" class="link-arrow">How my CI/CD pipeline works <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience -->
+        <section id="experience" class="section experience">
+            <div class="container">
+                <header class="sec-head">
+                    <p class="kicker" data-reveal><span class="kicker-num">04</span><span class="kicker-path">~/experience</span></p>
+                    <h2 class="sec-title" data-split>Built and run inside a <em>24/7</em> hospital.</h2>
+                </header>
+
+                <div class="timeline" id="timeline">
+                    <div class="tl-line" aria-hidden="true"><span></span></div>
+
+                    <article class="tl-item is-featured" data-reveal>
+                        <span class="tl-node" aria-hidden="true"></span>
+                        <div class="tl-card" data-spotlight>
+                            <header class="tl-head">
+                                <div>
+                                    <div class="tl-role-row">
+                                        <h3>Agentic Coding and Software Development</h3>
+                                        <span class="pill pill-focus">Primary focus</span>
+                                    </div>
+                                    <p class="tl-org"><i class="fas fa-hospital" aria-hidden="true"></i>G. Kuppuswamy Naidu Memorial Hospital</p>
+                                </div>
+                                <span class="tl-period"><i class="far fa-calendar" aria-hidden="true"></i>2026 to Present</span>
+                            </header>
+                            <ul class="tl-list">
+                                <li>Built three hospital systems entirely with Claude Code and delivered them end to end: Transport Management, Project Management, and License Management.</li>
+                                <li class="li-sec">All three passed external VAPT (Vulnerability Assessment and Penetration Testing) with no major vulnerabilities, achieved through careful, security-focused prompting and hands-on security knowledge.</li>
+                                <li>Used agentic coding tools like Claude Code and Codex across the development lifecycle, from requirements through implementation, debugging, and iteration.</li>
+                                <li>Developed .NET 10 (ASP.NET Core) backends with ReactJS and Vue frontends on top of MySQL and PostgreSQL databases.</li>
+                                <li>Paired agentic development with DevOps guardrails: every codebase versioned in self-hosted Gitea, built and deployed through Jenkins CI/CD, and run as Docker containers on Linux.</li>
+                            </ul>
+                            <ul class="chips">
+                                <li class="chip">Claude Code</li>
+                                <li class="chip">Codex</li>
+                                <li class="chip">.NET 10</li>
+                                <li class="chip">ReactJS</li>
+                                <li class="chip">Vue.js</li>
+                                <li class="chip">MySQL</li>
+                                <li class="chip">PostgreSQL</li>
+                                <li class="chip">Docker</li>
+                                <li class="chip">Linux</li>
+                                <li class="chip">Jenkins</li>
+                                <li class="chip">Gitea</li>
+                                <li class="chip chip-sec">VAPT passed</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <article class="tl-item" data-reveal>
+                        <span class="tl-node" aria-hidden="true"></span>
+                        <div class="tl-card" data-spotlight>
+                            <header class="tl-head">
+                                <div>
+                                    <div class="tl-role-row"><h3>DevOps Engineer</h3></div>
+                                    <p class="tl-org"><i class="fas fa-hospital" aria-hidden="true"></i>G. Kuppuswamy Naidu Memorial Hospital</p>
+                                </div>
+                                <span class="tl-period"><i class="far fa-calendar" aria-hidden="true"></i>May 2026 to Present</span>
+                            </header>
+                            <ul class="tl-list">
+                                <li>Implemented self-hosted CI/CD workflows using Gitea and Jenkins to modernize manual deployment processes.</li>
+                                <li>Automated application deployment workflows using Git based version control and approval based deployments.</li>
+                                <li>Configured Gitea repositories and Jenkins pipelines triggered through Git push events.</li>
+                                <li>Trained development teams on Git workflows and standardized deployment practices.</li>
+                                <li>Supported Docker based environments and containerized infrastructure management using Portainer.</li>
+                                <li>Operated observability tooling (Prometheus, Grafana, node_exporter, windows_exporter) to track infrastructure and application health.</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <article class="tl-item" data-reveal>
+                        <span class="tl-node" aria-hidden="true"></span>
+                        <div class="tl-card" data-spotlight>
+                            <header class="tl-head">
+                                <div>
+                                    <div class="tl-role-row"><h3>System Engineer</h3></div>
+                                    <p class="tl-org"><i class="fas fa-hospital" aria-hidden="true"></i>G. Kuppuswamy Naidu Memorial Hospital</p>
+                                </div>
+                                <span class="tl-period"><i class="far fa-calendar" aria-hidden="true"></i>Nov 2019 to Apr 2026</span>
+                            </header>
+                            <ul class="tl-list">
+                                <li>Managed and supported Linux and Windows server environments powering healthcare and administrative systems.</li>
+                                <li>Supported production IIS application environments and day to day infrastructure operations.</li>
+                                <li>Set up Prometheus and Grafana on Linux servers to gain operational visibility and accelerate troubleshooting.</li>
+                                <li>Investigated intermittent IIS application outages and identified a memory leak in a co-hosted application through metrics analysis.</li>
+                                <li>Worked with VMware environments, server troubleshooting, and infrastructure support operations.</li>
+                                <li>Collaborated with development teams for application deployment, troubleshooting, and operational support.</li>
+                            </ul>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills -->
+        <section id="skills" class="section skills">
+            <div class="container">
+                <header class="sec-head">
+                    <p class="kicker" data-reveal><span class="kicker-num">05</span><span class="kicker-path">~/toolkit</span></p>
+                    <h2 class="sec-title" data-split>Tools I build, ship, and <em>run</em> with.</h2>
+                </header>
+
+                <div class="bento" data-stagger="70">
+                    <article class="bento-card bento-hero" data-spotlight data-reveal>
+                        <div class="bento-head">
+                            <span class="bento-icon" aria-hidden="true"><i class="fas fa-robot"></i></span>
+                            <h3>Agentic Coding</h3>
+                            <span class="pill pill-focus">Primary focus</span>
+                        </div>
+                        <p class="bento-desc">Building complete, secure applications with AI coding agents. Three hospital systems delivered end to end with Claude Code, all passing external VAPT.</p>
+                        <div class="agent-loop" aria-hidden="true">
+                            <svg viewBox="0 0 520 172" focusable="false">
+                                <defs>
+                                    <linearGradient id="loopG" gradientUnits="userSpaceOnUse" x1="60" y1="0" x2="460" y2="0">
+                                        <stop offset="0" stop-color="#22d3ee"/>
+                                        <stop offset="0.62" stop-color="#818cf8"/>
+                                        <stop offset="1" stop-color="#34d399"/>
+                                    </linearGradient>
+                                </defs>
+                                <path id="loopPath" class="loop-track" d="M60 46 H460 A40 40 0 0 1 460 126 H60 A40 40 0 0 1 60 46 Z"/>
+                                <path class="loop-glow" d="M60 46 H460" stroke="url(#loopG)"/>
+                                <g class="loop-node" transform="translate(60 46)">
+                                    <circle r="17"><animate attributeName="fill" values="#0d1324;#22d3ee;#0d1324;#0d1324" keyTimes="0;0.04;0.16;1" dur="7s" begin="0s" repeatCount="indefinite"/></circle>
+                                    <text class="n" dy="4.5">1</text>
+                                    <text dy="40">plan</text>
+                                </g>
+                                <g class="loop-node" transform="translate(193 46)">
+                                    <circle r="17"><animate attributeName="fill" values="#0d1324;#22d3ee;#0d1324;#0d1324" keyTimes="0;0.04;0.16;1" dur="7s" begin="0.89s" repeatCount="indefinite"/></circle>
+                                    <text class="n" dy="4.5">2</text>
+                                    <text dy="40">build</text>
+                                </g>
+                                <g class="loop-node loop-node-sec" transform="translate(327 46)">
+                                    <circle r="17"><animate attributeName="fill" values="#0d1324;#34d399;#0d1324;#0d1324" keyTimes="0;0.04;0.16;1" dur="7s" begin="1.78s" repeatCount="indefinite"/></circle>
+                                    <text class="n" dy="4.5">3</text>
+                                    <text dy="40">secure</text>
+                                </g>
+                                <g class="loop-node" transform="translate(460 46)">
+                                    <circle r="17"><animate attributeName="fill" values="#0d1324;#818cf8;#0d1324;#0d1324" keyTimes="0;0.04;0.16;1" dur="7s" begin="2.66s" repeatCount="indefinite"/></circle>
+                                    <text class="n" dy="4.5">4</text>
+                                    <text dy="40">ship</text>
+                                </g>
+                                <text class="loop-label" x="260" y="156">iterate with the agent</text>
+                                <circle class="loop-dot" r="5">
+                                    <animateMotion dur="7s" repeatCount="indefinite">
+                                        <mpath href="#loopPath"/>
+                                    </animateMotion>
+                                </circle>
+                            </svg>
+                        </div>
+                        <ul class="chips">
+                            <li class="chip">Claude Code</li>
+                            <li class="chip">OpenAI Codex</li>
+                            <li class="chip">Agentic Software Development</li>
+                            <li class="chip">Full Stack App Delivery</li>
                         </ul>
-                        <div class="timeline-tech">
-                            <span class="tech-chip">Claude Code</span>
-                            <span class="tech-chip">Codex</span>
-                            <span class="tech-chip">.NET 10</span>
-                            <span class="tech-chip">ReactJS</span>
-                            <span class="tech-chip">Vue.js</span>
-                            <span class="tech-chip">MySQL</span>
-                            <span class="tech-chip">PostgreSQL</span>
-                            <span class="tech-chip">Docker</span>
-                            <span class="tech-chip">Linux</span>
-                            <span class="tech-chip">Jenkins</span>
-                            <span class="tech-chip">Gitea</span>
+                    </article>
+                    <article class="bento-card" data-spotlight data-reveal>
+                        <div class="bento-head">
+                            <span class="bento-icon" aria-hidden="true"><i class="fas fa-laptop-code"></i></span>
+                            <h3>Application Development</h3>
                         </div>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot timeline-dot-active"></div>
-                    <div class="timeline-card">
-                        <div class="timeline-header">
-                            <div>
-                                <h3>DevOps Engineer</h3>
-                                <p class="timeline-company">
-                                    <i class="fas fa-hospital"></i>
-                                    G. Kuppuswamy Naidu Memorial Hospital
-                                </p>
-                            </div>
-                            <div class="timeline-period">
-                                <i class="far fa-calendar"></i>
-                                May 2026 to Present
-                            </div>
-                        </div>
-                        <ul class="timeline-list">
-                            <li>Implemented self-hosted CI/CD workflows using Gitea and Jenkins to modernize manual deployment processes.</li>
-                            <li>Automated application deployment workflows using Git based version control and approval based deployments.</li>
-                            <li>Configured Gitea repositories and Jenkins pipelines triggered through Git push events.</li>
-                            <li>Trained development teams on Git workflows and standardized deployment practices.</li>
-                            <li>Supported Docker based environments and containerized infrastructure management using Portainer.</li>
-                            <li>Operated observability tooling (Prometheus, Grafana, node_exporter, windows_exporter) to track infrastructure and application health.</li>
+                        <ul class="tags">
+                            <li>.NET 10 (ASP.NET Core)</li>
+                            <li>ReactJS</li>
+                            <li>Vue.js</li>
+                            <li>.NET Application Support</li>
                         </ul>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-card">
-                        <div class="timeline-header">
-                            <div>
-                                <h3>System Engineer</h3>
-                                <p class="timeline-company">
-                                    <i class="fas fa-hospital"></i>
-                                    G. Kuppuswamy Naidu Memorial Hospital
-                                </p>
-                            </div>
-                            <div class="timeline-period">
-                                <i class="far fa-calendar"></i>
-                                Nov 2019 to Apr 2026
-                            </div>
+                    </article>
+                    <article class="bento-card bento-sec" data-spotlight data-reveal>
+                        <div class="bento-head">
+                            <span class="bento-icon" aria-hidden="true"><i class="fas fa-shield-halved"></i></span>
+                            <h3>Security</h3>
                         </div>
-                        <ul class="timeline-list">
-                            <li>Managed and supported Linux and Windows server environments powering healthcare and administrative systems.</li>
-                            <li>Supported production IIS application environments and day to day infrastructure operations.</li>
-                            <li>Set up Prometheus and Grafana on Linux servers to gain operational visibility and accelerate troubleshooting.</li>
-                            <li>Investigated intermittent IIS application outages and identified a memory leak in a co-hosted application through metrics analysis.</li>
-                            <li>Worked with VMware environments, server troubleshooting, and infrastructure support operations.</li>
-                            <li>Collaborated with development teams for application deployment, troubleshooting, and operational support.</li>
+                        <ul class="tags">
+                            <li>Security-Focused Prompting</li>
+                            <li>Application Security</li>
+                            <li>VAPT Readiness</li>
                         </ul>
-                    </div>
+                        <p class="bento-note"><i class="fas fa-circle-check" aria-hidden="true"></i>3/3 apps passed external VAPT</p>
+                    </article>
+                    <article class="bento-card" data-spotlight data-reveal>
+                        <div class="bento-head">
+                            <span class="bento-icon" aria-hidden="true"><i class="fas fa-code-branch"></i></span>
+                            <h3>CI/CD and Automation</h3>
+                        </div>
+                        <ul class="tags">
+                            <li>Jenkins</li>
+                            <li>Gitea</li>
+                            <li>Git</li>
+                            <li>Bash Scripting</li>
+                        </ul>
+                    </article>
+                    <article class="bento-card" data-spotlight data-reveal>
+                        <div class="bento-head">
+                            <span class="bento-icon" aria-hidden="true"><i class="fas fa-cubes"></i></span>
+                            <h3>Containers</h3>
+                        </div>
+                        <ul class="tags">
+                            <li>Docker</li>
+                            <li>Portainer</li>
+                            <li>Container Lifecycle Mgmt</li>
+                            <li>Multi Host Management</li>
+                        </ul>
+                    </article>
+                    <article class="bento-card" data-spotlight data-reveal>
+                        <div class="bento-head">
+                            <span class="bento-icon" aria-hidden="true"><i class="fas fa-database"></i></span>
+                            <h3>Databases and Web Servers</h3>
+                        </div>
+                        <ul class="tags">
+                            <li>MySQL</li>
+                            <li>PostgreSQL</li>
+                            <li>phpMyAdmin</li>
+                            <li>IIS</li>
+                        </ul>
+                    </article>
+                    <article class="bento-card" data-spotlight data-reveal>
+                        <div class="bento-head">
+                            <span class="bento-icon" aria-hidden="true"><i class="fas fa-chart-line"></i></span>
+                            <h3>Observability</h3>
+                        </div>
+                        <ul class="tags">
+                            <li>Prometheus</li>
+                            <li>Grafana</li>
+                            <li>node_exporter</li>
+                            <li>windows_exporter</li>
+                        </ul>
+                    </article>
+                    <article class="bento-card" data-spotlight data-reveal>
+                        <div class="bento-head">
+                            <span class="bento-icon" aria-hidden="true"><i class="fas fa-server"></i></span>
+                            <h3>Operating Systems</h3>
+                        </div>
+                        <ul class="tags">
+                            <li>Linux (Ubuntu)</li>
+                            <li>Windows Server</li>
+                            <li>VMware</li>
+                            <li>System Administration</li>
+                        </ul>
+                    </article>
+                    <article class="bento-card" data-spotlight data-reveal>
+                        <div class="bento-head">
+                            <span class="bento-icon" aria-hidden="true"><i class="fas fa-gears"></i></span>
+                            <h3>Practices</h3>
+                        </div>
+                        <ul class="tags">
+                            <li>Production Troubleshooting</li>
+                            <li>Root Cause Analysis</li>
+                            <li>Deployment Automation</li>
+                            <li>Developer Enablement</li>
+                        </ul>
+                    </article>
+                </div>
+
+                <div class="learning" data-reveal>
+                    <span class="learning-label"><span class="pulse-dot pulse-amber" aria-hidden="true"></span>Currently learning</span>
+                    <p>Growing beyond on premise into cloud and infrastructure as code.</p>
+                    <ul class="learn-list">
+                        <li><i class="fab fa-aws" aria-hidden="true"></i>AWS</li>
+                        <li><i class="fas fa-cube" aria-hidden="true"></i>Terraform</li>
+                        <li><i class="fas fa-dharmachakra" aria-hidden="true"></i>Kubernetes</li>
+                        <li><i class="fas fa-ship" aria-hidden="true"></i>Helm</li>
+                        <li><i class="fas fa-network-wired" aria-hidden="true"></i>Linux Networking</li>
+                    </ul>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- DevOps Case Studies -->
-    <section id="projects" class="section">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label"><span class="prompt">~/</span> case-studies <span class="prompt">$</span></span>
-                <h2 class="section-title">DevOps Case Studies</h2>
+        <!-- DevOps Case Studies -->
+        <section id="projects" class="section cases">
+            <div class="container">
+                <header class="sec-head">
+                    <p class="kicker" data-reveal><span class="kicker-num">06</span><span class="kicker-path">~/case-studies</span></p>
+                    <h2 class="sec-title" data-split>DevOps <em>case studies.</em></h2>
+                    <p class="sec-lead" data-reveal>The platform work that every agentic build now ships through.</p>
+                </header>
+
+                <ol class="case-list" data-stagger="90">
+                    <li data-reveal>
+                        <a class="case" href="project-cicd.html" data-spotlight>
+                            <span class="case-num">01</span>
+                            <span class="case-main">
+                                <span class="case-title">CI/CD Pipeline Automation using Gitea and Jenkins</span>
+                                <span class="case-problem">Manual copy and paste deployments created release risk, audit gaps, and slow recovery when something broke in production.</span>
+                                <span class="case-tags"><span class="chip">Gitea</span><span class="chip">Jenkins</span><span class="chip">Git</span><span class="chip">Docker</span><span class="chip">Linux</span></span>
+                            </span>
+                            <span class="case-go" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </a>
+                    </li>
+                    <li data-reveal>
+                        <a class="case" href="project-gitea.html" data-spotlight>
+                            <span class="case-num">02</span>
+                            <span class="case-main">
+                                <span class="case-title">Centralized Source Code Management using Gitea</span>
+                                <span class="case-problem">Source code lived in local project folders with no review trail and no single source of truth.</span>
+                                <span class="case-tags"><span class="chip">Gitea</span><span class="chip">Git</span><span class="chip">Linux</span></span>
+                            </span>
+                            <span class="case-go" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </a>
+                    </li>
+                    <li data-reveal>
+                        <a class="case" href="project-monitoring.html" data-spotlight>
+                            <span class="case-num">03</span>
+                            <span class="case-main">
+                                <span class="case-title">Infrastructure Monitoring with Prometheus and Grafana</span>
+                                <span class="case-problem">Production issues were discovered by users before the IT team had any signal something was wrong.</span>
+                                <span class="case-tags"><span class="chip">Prometheus</span><span class="chip">Grafana</span><span class="chip">node_exporter</span><span class="chip">windows_exporter</span></span>
+                            </span>
+                            <span class="case-go" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </a>
+                    </li>
+                    <li data-reveal>
+                        <a class="case" href="project-docker.html" data-spotlight>
+                            <span class="case-num">04</span>
+                            <span class="case-main">
+                                <span class="case-title">Containerized Infrastructure with Docker and Portainer</span>
+                                <span class="case-problem">Internal services ran on bare hosts with inconsistent configuration and no unified management plane.</span>
+                                <span class="case-tags"><span class="chip">Docker</span><span class="chip">Portainer</span><span class="chip">Jenkins</span><span class="chip">MySQL</span></span>
+                            </span>
+                            <span class="case-go" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </a>
+                    </li>
+                </ol>
             </div>
-            <div class="projects-grid">
-                <a href="project-cicd.html" class="project-card">
-                    <div class="project-card-edge" aria-hidden="true"></div>
-                    <div class="project-icon">
-                        <i class="fas fa-code-branch"></i>
-                    </div>
-                    <h3>CI/CD Pipeline Automation using Gitea and Jenkins</h3>
-                    <p class="project-problem">
-                        Manual copy and paste deployments created release risk, audit gaps, and slow recovery when something broke in production.
-                    </p>
-                    <ul class="project-actions">
-                        <li>Implemented self hosted CI/CD using Gitea and Jenkins to modernize legacy deployment workflows.</li>
-                        <li>Configured Git push triggered pipelines with approval based production gates for safety and speed.</li>
-                        <li>Trained development teams on Git workflows and standardized deployment practices.</li>
-                    </ul>
-                    <div class="project-tech">
-                        <span class="tech-chip">Gitea</span>
-                        <span class="tech-chip">Jenkins</span>
-                        <span class="tech-chip">Git</span>
-                        <span class="tech-chip">Docker</span>
-                        <span class="tech-chip">Linux</span>
-                    </div>
-                    <span class="project-link">Read Case Study <i class="fas fa-arrow-right"></i></span>
-                </a>
+        </section>
 
-                <a href="project-gitea.html" class="project-card">
-                    <div class="project-card-edge" aria-hidden="true"></div>
-                    <div class="project-icon">
-                        <i class="fas fa-code-merge"></i>
-                    </div>
-                    <h3>Centralized Source Code Management using Gitea</h3>
-                    <p class="project-problem">
-                        Source code lived in local project folders with no review trail and no single source of truth.
-                    </p>
-                    <ul class="project-actions">
-                        <li>Deployed and configured a self-hosted Gitea server for centralized source code management.</li>
-                        <li>Migrated development workflows from locally stored project folders to Git based version control practices.</li>
-                        <li>Improved collaboration, source code traceability, and workflow standardization across teams.</li>
-                    </ul>
-                    <div class="project-tech">
-                        <span class="tech-chip">Gitea</span>
-                        <span class="tech-chip">Git</span>
-                        <span class="tech-chip">Linux</span>
-                    </div>
-                    <span class="project-link">Read Case Study <i class="fas fa-arrow-right"></i></span>
-                </a>
-
-                <a href="project-monitoring.html" class="project-card">
-                    <div class="project-card-edge" aria-hidden="true"></div>
-                    <div class="project-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3>Infrastructure Monitoring with Prometheus and Grafana</h3>
-                    <p class="project-problem">
-                        Production issues were discovered by users before the IT team had any signal something was wrong.
-                    </p>
-                    <ul class="project-actions">
-                        <li>Built an observability stack using Prometheus, Grafana, and node_exporter on Ubuntu Linux.</li>
-                        <li>Created dashboards for infrastructure metrics visualization, troubleshooting, and operational monitoring.</li>
-                        <li>Implemented windows_exporter monitoring for IIS and Windows server observability.</li>
-                    </ul>
-                    <div class="project-tech">
-                        <span class="tech-chip">Prometheus</span>
-                        <span class="tech-chip">Grafana</span>
-                        <span class="tech-chip">node_exporter</span>
-                        <span class="tech-chip">windows_exporter</span>
-                    </div>
-                    <span class="project-link">Read Case Study <i class="fas fa-arrow-right"></i></span>
-                </a>
-
-                <a href="project-docker.html" class="project-card">
-                    <div class="project-card-edge" aria-hidden="true"></div>
-                    <div class="project-icon">
-                        <i class="fas fa-cubes"></i>
-                    </div>
-                    <h3>Containerized Infrastructure with Docker and Portainer</h3>
-                    <p class="project-problem">
-                        Internal services ran on bare hosts with inconsistent configuration and no unified management plane.
-                    </p>
-                    <ul class="project-actions">
-                        <li>Configured Docker and Portainer for multi host containerized service management.</li>
-                        <li>Managed Jenkins, MySQL, and phpMyAdmin containers with hands on lifecycle operations.</li>
-                        <li>Worked with container networking, isolated environments, and service management through Portainer.</li>
-                    </ul>
-                    <div class="project-tech">
-                        <span class="tech-chip">Docker</span>
-                        <span class="tech-chip">Portainer</span>
-                        <span class="tech-chip">Jenkins</span>
-                        <span class="tech-chip">MySQL</span>
-                    </div>
-                    <span class="project-link">Read Case Study <i class="fas fa-arrow-right"></i></span>
-                </a>
+        <!-- Contact -->
+        <section id="contact" class="section contact">
+            <div class="contact-bg" aria-hidden="true">
+                <div class="aurora aurora-soft"><span class="a1"></span><span class="a2"></span></div>
             </div>
-        </div>
-    </section>
-
-    <!-- Currently Learning -->
-    <section class="section section-learning">
-        <div class="container">
-            <div class="learning-card">
-                <div class="learning-header">
-                    <span class="section-label"><span class="prompt">~/</span> currently-learning <span class="prompt">$</span></span>
-                    <h2 class="learning-title">Growing Beyond On Premise into Cloud and IaC</h2>
-                    <p class="learning-text">
-                        Actively expanding the toolkit. Building hands on projects with cloud native and infrastructure as code to round out the on premise foundation.
-                    </p>
+            <div class="container contact-inner">
+                <p class="kicker kicker-center" data-reveal><span class="kicker-num">07</span><span class="kicker-path">~/contact</span></p>
+                <h2 class="contact-title" data-split>Let's build something <em>secure.</em></h2>
+                <p class="sec-lead" data-reveal>Open to agentic development and DevOps opportunities. Based in Coimbatore, India, and open to relocation.</p>
+                <div class="contact-cta" data-reveal>
+                    <a class="btn btn-primary btn-xl" href="mailto:ganeshmuthvel303@gmail.com?subject=Opportunity" data-magnetic><i class="fas fa-paper-plane" aria-hidden="true"></i><span>Start a conversation</span></a>
+                    <button class="btn btn-ghost btn-xl" type="button" data-copy="ganeshmuthvel303@gmail.com" data-magnetic><i class="far fa-copy" aria-hidden="true"></i><span>Copy email</span></button>
                 </div>
-                <div class="learning-chips">
-                    <span class="learn-chip"><i class="fab fa-aws"></i> AWS</span>
-                    <span class="learn-chip"><i class="fas fa-cube"></i> Terraform</span>
-                    <span class="learn-chip"><i class="fas fa-dharmachakra"></i> Kubernetes</span>
-                    <span class="learn-chip"><i class="fas fa-ship"></i> Helm</span>
-                    <span class="learn-chip"><i class="fas fa-network-wired"></i> Linux Networking</span>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Education + Contact -->
-    <section id="contact" class="section section-alt">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label"><span class="prompt">~/</span> contact <span class="prompt">$</span></span>
-                <h2 class="section-title">Let's Talk Infrastructure</h2>
-            </div>
-            <div class="contact-grid">
-                <div class="education-card">
-                    <div class="education-icon">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <span class="card-label">Education</span>
-                    <h3>B.Sc Computer Science</h3>
-                    <p class="education-school">Bharathidasan University, Trichy, Tamil Nadu</p>
-                    <span class="education-status">
-                        <span class="status-dot status-dot-amber"></span> Ongoing
+                <div class="contact-grid" data-stagger="80">
+                    <a class="contact-card" href="mailto:ganeshmuthvel303@gmail.com" data-reveal data-spotlight>
+                        <span class="contact-icon" aria-hidden="true"><i class="fas fa-envelope"></i></span>
+                        <span class="contact-body"><span class="contact-label">Email</span><span class="contact-value">ganeshmuthvel303@gmail.com</span></span>
+                    </a>
+                    <a class="contact-card" href="tel:+919940865231" data-reveal data-spotlight>
+                        <span class="contact-icon" aria-hidden="true"><i class="fas fa-phone"></i></span>
+                        <span class="contact-body"><span class="contact-label">Phone</span><span class="contact-value">+91 99408 65231</span></span>
+                    </a>
+                    <a class="contact-card" href="https://linkedin.com/in/sundhar-ganesh-771578227" target="_blank" rel="noopener" data-reveal data-spotlight>
+                        <span class="contact-icon" aria-hidden="true"><i class="fab fa-linkedin-in"></i></span>
+                        <span class="contact-body"><span class="contact-label">LinkedIn</span><span class="contact-value">sundhar-ganesh-771578227</span></span>
+                    </a>
+                    <a class="contact-card" href="https://github.com/Nishanth7885" target="_blank" rel="noopener" data-reveal data-spotlight>
+                        <span class="contact-icon" aria-hidden="true"><i class="fab fa-github"></i></span>
+                        <span class="contact-body"><span class="contact-label">GitHub</span><span class="contact-value">github.com/Nishanth7885</span></span>
+                    </a>
+                </div>
+
+                <div class="edu-card" data-reveal>
+                    <span class="contact-icon" aria-hidden="true"><i class="fas fa-graduation-cap"></i></span>
+                    <span class="edu-body">
+                        <span class="contact-label">Education</span>
+                        <span class="edu-title">B.Sc Computer Science</span>
+                        <span class="edu-school">Bharathidasan University, Trichy, Tamil Nadu</span>
                     </span>
-                </div>
-                <div class="contact-methods">
-                    <a href="mailto:ganeshmuthvel303@gmail.com" class="contact-card">
-                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-                        <div class="contact-body">
-                            <span class="contact-label">Email</span>
-                            <span class="contact-value">ganeshmuthvel303@gmail.com</span>
-                        </div>
-                        <i class="fas fa-arrow-up-right-from-square contact-arrow"></i>
-                    </a>
-                    <a href="tel:+919940865231" class="contact-card">
-                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
-                        <div class="contact-body">
-                            <span class="contact-label">Phone</span>
-                            <span class="contact-value">+91 99408 65231</span>
-                        </div>
-                        <i class="fas fa-arrow-up-right-from-square contact-arrow"></i>
-                    </a>
-                    <a href="https://linkedin.com/in/sundhar-ganesh-771578227" target="_blank" rel="noopener" class="contact-card">
-                        <div class="contact-icon"><i class="fab fa-linkedin-in"></i></div>
-                        <div class="contact-body">
-                            <span class="contact-label">LinkedIn</span>
-                            <span class="contact-value">sundhar-ganesh-771578227</span>
-                        </div>
-                        <i class="fas fa-arrow-up-right-from-square contact-arrow"></i>
-                    </a>
-                    <a href="https://github.com/Nishanth7885" target="_blank" rel="noopener" class="contact-card">
-                        <div class="contact-icon"><i class="fab fa-github"></i></div>
-                        <div class="contact-body">
-                            <span class="contact-label">GitHub</span>
-                            <span class="contact-value">github.com/Nishanth7885</span>
-                        </div>
-                        <i class="fas fa-arrow-up-right-from-square contact-arrow"></i>
-                    </a>
+                    <span class="pill pill-amber"><span class="pulse-dot pulse-amber" aria-hidden="true"></span>Ongoing</span>
                 </div>
             </div>
-            <div class="contact-cta">
-                <a href="mailto:ganeshmuthvel303@gmail.com?subject=DevOps%20Opportunity" class="btn btn-primary btn-large">
-                    <i class="fas fa-paper-plane"></i> Email Me Directly
-                </a>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer -->
+    </main>
+
     <footer class="footer">
-        <div class="container">
+        <div class="container footer-inner">
             <p>Sundhar Ganesh <span class="footer-sep">/</span> DevOps Engineer <span class="footer-sep">/</span> Coimbatore <span class="footer-sep">/</span> 2026</p>
+            <p class="footer-built"><i class="fas fa-robot" aria-hidden="true"></i>Built with Claude Code</p>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <button class="to-top" type="button" aria-label="Back to top">
+        <svg viewBox="0 0 52 52" aria-hidden="true"><circle cx="26" cy="26" r="24.5" pathLength="1"/></svg>
+        <i class="fas fa-arrow-up" aria-hidden="true"></i>
+    </button>
+
+    <div class="toast" role="status" aria-live="polite"></div>
+
+    <script src="script.js?v=5cf2fbb998" defer></script>
 </body>
 </html>
