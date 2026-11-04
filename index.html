@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="dark" data-intro>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <title>Sundhar Ganesh | DevOps Engineer | Agentic Software Development</title>
-    <meta name="description" content="Sundhar Ganesh, DevOps Engineer at GKNM Hospital with 6+ years in hospital IT. Built three hospital systems with Claude Code on .NET 10, ReactJS, Vue, MySQL, and PostgreSQL; all passed external VAPT with no major vulnerabilities.">
-    <meta name="keywords" content="Sundhar Ganesh, DevOps Engineer, Agentic Coding, Claude Code, Codex, .NET 10, ASP.NET Core, ReactJS, Vue.js, MySQL, PostgreSQL, VAPT, Application Security, CI/CD, Jenkins, Gitea, Docker, Portainer, Prometheus, Grafana, Linux, Healthcare IT, Coimbatore">
+    <meta name="description" content="Sundhar Ganesh, DevOps Engineer at GKNM Hospital with 6+ years in hospital IT. Delivered three hospital applications with Claude Code, runs self-hosted CI/CD with Gitea and Jenkins, and manages Docker, Linux, and Prometheus and Grafana observability.">
+    <meta name="keywords" content="Sundhar Ganesh, DevOps Engineer, Agentic Coding, Claude Code, Codex, .NET 10, ASP.NET Core, ReactJS, Vue.js, MySQL, PostgreSQL, Application Security, CI/CD, Jenkins, Gitea, Docker, Portainer, Prometheus, Grafana, Linux, Healthcare IT, Coimbatore">
     <meta name="author" content="Sundhar Ganesh">
     <meta name="theme-color" content="#05060b">
     <meta name="color-scheme" content="dark light">
@@ -13,7 +13,7 @@
     <meta property="og:type" content="profile">
     <meta property="og:url" content="https://sundharganesh.in/">
     <meta property="og:title" content="Sundhar Ganesh | DevOps Engineer">
-    <meta property="og:description" content="DevOps Engineer at GKNM Hospital with 6+ years in hospital IT. Agentic software development with Claude Code, self-hosted CI/CD, and observability.">
+    <meta property="og:description" content="DevOps Engineer at GKNM Hospital with 6+ years in hospital IT. Agentic software development with Claude Code, self-hosted CI/CD, containers, and observability.">
     <meta property="og:image" content="https://sundharganesh.in/assets/img/og-card.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -34,6 +34,12 @@
                 var m = document.querySelector('meta[name="theme-color"]');
                 if (m) m.setAttribute('content', '#f5f7fc');
             }
+            var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            if (d.hasAttribute('data-intro') && !reduce) {
+                var seen = false;
+                try { seen = sessionStorage.getItem('sg-intro') === '1'; sessionStorage.setItem('sg-intro', '1'); } catch (e) {}
+                if (!seen) d.classList.add('has-intro');
+            }
             setTimeout(function () { if (!window.__sgReady) d.classList.add('no-anim'); }, 4000);
         })();
     </script>
@@ -41,7 +47,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap">
     <link rel="preload" as="image" type="image/webp" href="assets/img/portrait-800.webp" imagesrcset="assets/img/portrait-480.webp 480w, assets/img/portrait-800.webp 800w" imagesizes="(max-width: 960px) 220px, 340px">
-    <link rel="stylesheet" href="style.css?v=fa7f01e093">
+    <link rel="stylesheet" href="style.css?v=2366b43c60">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
     <script type="application/ld+json">
@@ -56,14 +62,29 @@
         "worksFor": { "@type": "Organization", "name": "G. Kuppuswamy Naidu Memorial Hospital" },
         "address": { "@type": "PostalAddress", "addressLocality": "Coimbatore", "addressCountry": "IN" },
         "sameAs": ["https://linkedin.com/in/sundhar-ganesh-771578227", "https://github.com/Nishanth7885"],
-        "knowsAbout": ["Agentic coding", "Claude Code", "Codex", "Application security", "VAPT", ".NET 10", "ASP.NET Core", "ReactJS", "Vue.js", "MySQL", "PostgreSQL", "Docker", "Jenkins", "Gitea", "Linux", "Prometheus", "Grafana", "CI/CD"]
+        "knowsAbout": ["Agentic coding", "Claude Code", "Codex", "Application security", ".NET 10", "ASP.NET Core", "ReactJS", "Vue.js", "MySQL", "PostgreSQL", "Docker", "Jenkins", "Gitea", "Linux", "Prometheus", "Grafana", "CI/CD"]
     }
     </script>
 </head>
 <body>
 
     <a class="skip-link" href="#main">Skip to content</a>
+
+    <!-- Boot intro (first visit per session, timed in CSS) -->
+    <div class="intro" aria-hidden="true">
+        <div class="intro-panel intro-top"></div>
+        <div class="intro-panel intro-bottom"></div>
+        <div class="intro-term">
+            <p class="il" style="--l:0"><span class="t-cyan">$</span> whoami</p>
+            <p class="il il-out" style="--l:1">sundhar-ganesh</p>
+            <p class="il" style="--l:2"><span class="t-cyan">$</span> cat role.txt</p>
+            <p class="il il-accent" style="--l:3">DevOps Engineer | Agentic Software Development</p>
+            <div class="intro-bar"><span></span></div>
+        </div>
+    </div>
+
     <div class="scroll-progress" aria-hidden="true"><span></span></div>
+    <div class="cursor-ring" aria-hidden="true"></div>
 
     <!-- Navigation -->
     <header class="navbar" id="navbar">
@@ -75,7 +96,7 @@
             </a>
             <nav class="nav-links" aria-label="Primary">
                 <ul class="nav-menu" id="nav-menu">
-                    <li><a href="#summary">Summary</a></li>
+                    <li><a href="#summary">Profile</a></li>
                     <li><a href="#experience">Experience</a></li>
                     <li><a href="#projects">Projects</a></li>
                     <li><a href="#skills">Skills</a></li>
@@ -98,7 +119,7 @@
     <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
         <nav aria-label="Mobile">
             <ol class="mm-links">
-                <li style="--i:0"><a href="#summary"><span>01</span>Summary</a></li>
+                <li style="--i:0"><a href="#summary"><span>01</span>Profile</a></li>
                 <li style="--i:1"><a href="#experience"><span>02</span>Experience</a></li>
                 <li style="--i:2"><a href="#projects"><span>03</span>Projects</a></li>
                 <li style="--i:3"><a href="#skills"><span>04</span>Skills</a></li>
@@ -124,55 +145,95 @@
                 <div class="aurora"><span class="a1"></span><span class="a2"></span></div>
                 <div class="hero-grid"></div>
             </div>
+            <canvas class="hero-canvas" aria-hidden="true"></canvas>
             <div class="container hero-inner">
                 <div class="hero-copy">
                     <span class="status-chip" data-hero style="--hd:0"><span class="pulse-dot" aria-hidden="true"></span>Available for opportunities</span>
-                    <h1 class="hero-name" data-hero style="--hd:1">Sundhar Ganesh</h1>
-                    <p class="hero-role" data-hero style="--hd:2"><span>DevOps Engineer</span><span class="sep" aria-hidden="true">|</span><span>Agentic Software Development</span></p>
-                    <ul class="hero-facts" data-hero style="--hd:3">
+                    <h1 class="hero-name" data-chars>Sundhar Ganesh</h1>
+                    <p class="hero-role" data-hero style="--hd:3"><span>DevOps Engineer</span><span class="sep" aria-hidden="true">|</span><span>Agentic Software Development</span></p>
+                    <p class="hero-typed" data-hero style="--hd:4" aria-hidden="true">
+                        <span class="typed-prompt">›</span><span class="typed-text" data-typed='["building hospital apps with Claude Code", "self-hosted CI/CD on Gitea and Jenkins", "Docker containers on Linux with Portainer", "observability with Prometheus and Grafana", "24/7 hospital infrastructure since 2019"]'>building hospital apps with Claude Code</span><span class="typed-caret"></span>
+                    </p>
+                    <ul class="hero-facts" data-hero style="--hd:5">
                         <li><i class="fas fa-hospital" aria-hidden="true"></i>G. Kuppuswamy Naidu Memorial Hospital</li>
                         <li><i class="fas fa-briefcase" aria-hidden="true"></i>6+ years in hospital IT</li>
                         <li><i class="fas fa-location-dot" aria-hidden="true"></i>Coimbatore, India · Open to relocation</li>
                     </ul>
-                    <p class="hero-intro" data-hero style="--hd:4">I build secure hospital software with agentic coding tools like Claude Code and Codex, and run the <span class="nowrap">self-hosted</span> CI/CD platform it ships on.</p>
-                    <div class="hero-ctas" data-hero style="--hd:5">
+                    <p class="hero-intro" data-hero style="--hd:6">I build hospital software with agentic coding tools like Claude Code and Codex, and ship it through the <span class="nowrap">self-hosted</span> CI/CD, container, and monitoring platform I run.</p>
+                    <div class="hero-ctas" data-hero style="--hd:7">
                         <a class="btn btn-primary" href="mailto:ganeshmuthvel303@gmail.com?subject=Opportunity" data-magnetic><i class="fas fa-envelope" aria-hidden="true"></i><span>Email me</span></a>
                         <a class="btn btn-ghost" href="#experience" data-magnetic><span>View experience</span><i class="fas fa-arrow-down" aria-hidden="true"></i></a>
                         <div class="hero-social">
-                            <a class="icon-btn" href="https://linkedin.com/in/sundhar-ganesh-771578227" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
-                            <a class="icon-btn" href="https://github.com/Nishanth7885" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
-                            <a class="icon-btn" href="tel:+919940865231" aria-label="Phone"><i class="fas fa-phone" aria-hidden="true"></i></a>
+                            <a class="icon-btn" href="https://linkedin.com/in/sundhar-ganesh-771578227" target="_blank" rel="noopener" aria-label="LinkedIn" data-magnetic><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+                            <a class="icon-btn" href="https://github.com/Nishanth7885" target="_blank" rel="noopener" aria-label="GitHub" data-magnetic><i class="fab fa-github" aria-hidden="true"></i></a>
+                            <a class="icon-btn" href="tel:+919940865231" aria-label="Phone" data-magnetic><i class="fas fa-phone" aria-hidden="true"></i></a>
                         </div>
                     </div>
                 </div>
-                <figure class="hero-photo" data-hero style="--hd:2">
-                    <div class="hv-ring" aria-hidden="true"></div>
-                    <div class="hv-frame">
-                        <picture>
-                            <source type="image/webp" srcset="assets/img/portrait-480.webp 480w, assets/img/portrait-800.webp 800w" sizes="(max-width: 960px) 220px, 340px">
-                            <img src="assets/img/portrait-800.jpg" alt="Portrait of Sundhar Ganesh" width="800" height="1000" fetchpriority="high" decoding="async">
-                        </picture>
+                <figure class="hero-photo">
+                    <div class="photo-tilt" data-tilt="8">
+                        <div class="hv-ring" aria-hidden="true"></div>
+                        <div class="hv-frame">
+                            <picture>
+                                <source type="image/webp" srcset="assets/img/portrait-480.webp 480w, assets/img/portrait-800.webp 800w" sizes="(max-width: 960px) 220px, 340px">
+                                <img src="assets/img/portrait-800.jpg" alt="Portrait of Sundhar Ganesh" width="800" height="1000" fetchpriority="high" decoding="async">
+                            </picture>
+                            <span class="hv-scan" aria-hidden="true"></span>
+                        </div>
                     </div>
                 </figure>
             </div>
+            <a href="#summary" class="scroll-cue" aria-label="Scroll to profile"><span class="scroll-cue-line" aria-hidden="true"></span><span class="scroll-cue-text" aria-hidden="true">Scroll</span></a>
         </section>
 
-        <!-- Professional Summary -->
+        <!-- Tech ticker -->
+        <div class="marquee" aria-hidden="true">
+            <div class="marquee-row">
+                <div class="marquee-track">
+                    <span>Claude Code</span><i>✦</i><span class="o">Codex</span><i>✦</i><span>.NET 10</span><i>✦</i><span class="o">ASP.NET Core</span><i>✦</i><span>ReactJS</span><i>✦</i><span class="o">Vue.js</span><i>✦</i><span>PostgreSQL</span><i>✦</i><span class="o">MySQL</span><i>✦</i>
+                </div>
+            </div>
+            <div class="marquee-row marquee-row-rev">
+                <div class="marquee-track">
+                    <span class="o">Docker</span><i>✦</i><span>Portainer</span><i>✦</i><span class="o">Jenkins</span><i>✦</i><span>Gitea</span><i>✦</i><span class="o">Linux</span><i>✦</i><span>Prometheus</span><i>✦</i><span class="o">Grafana</span><i>✦</i><span>IIS</span><i>✦</i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Profile and key highlights -->
         <section id="summary" class="section summary">
             <div class="container">
                 <header class="sec-head">
-                    <p class="kicker" data-reveal><span class="kicker-num">01</span><span class="kicker-path">~/summary</span></p>
-                    <h2 class="sec-title" data-split>Professional Summary</h2>
+                    <p class="kicker" data-reveal><span class="kicker-num">01</span><span class="kicker-path">~/profile</span></p>
+                    <h2 class="sec-title" data-scramble>Profile</h2>
+                    <p class="sec-lead" data-reveal>DevOps Engineer with 6+ years in a 24/7 hospital environment. I deliver full stack applications through agentic coding and run the infrastructure they depend on: CI/CD, containers, and observability.</p>
                 </header>
-                <div class="summary-card" data-reveal>
-                    <ul class="points points-2col" data-stagger="70">
-                        <li data-reveal>DevOps Engineer at G. Kuppuswamy Naidu Memorial Hospital with 6+ years supporting healthcare IT infrastructure and production environments.</li>
-                        <li data-reveal>Built three hospital systems entirely with Claude Code: Transport Management, Project Management, and License Management.</li>
-                        <li data-reveal>All three applications passed external VAPT with no major vulnerabilities, achieved through <span class="nowrap">security-focused</span> prompting and <span class="nowrap">hands-on</span> security knowledge.</li>
-                        <li data-reveal>Delivered .NET 10 (ASP.NET Core) backends with ReactJS and Vue frontends on MySQL and PostgreSQL databases through agentic development.</li>
-                        <li data-reveal>Implemented <span class="nowrap">self-hosted</span> CI/CD with Gitea and Jenkins, replacing manual deployments with Git based, approval gated workflows.</li>
-                        <li data-reveal>Built observability with Prometheus and Grafana that traced intermittent IIS outages to a memory leak in a <span class="nowrap">co-hosted</span> application.</li>
-                    </ul>
+                <h3 class="sub-title" data-reveal>Key highlights</h3>
+                <div class="highlights" data-stagger="90">
+                    <article class="hl" data-reveal data-tilt="5" data-spotlight>
+                        <span class="hl-icon" aria-hidden="true"><i class="fas fa-robot"></i></span>
+                        <div><h4>Agentic delivery</h4><p>Built and delivered three hospital applications entirely with Claude Code: Transport, Project, and License Management.</p></div>
+                    </article>
+                    <article class="hl" data-reveal data-tilt="5" data-spotlight>
+                        <span class="hl-icon" aria-hidden="true"><i class="fas fa-shield-halved"></i></span>
+                        <div><h4>Security</h4><p>All three applications cleared an external VAPT with no major vulnerabilities, through <span class="nowrap">security-focused</span> prompting and <span class="nowrap">hands-on</span> security knowledge.</p></div>
+                    </article>
+                    <article class="hl" data-reveal data-tilt="5" data-spotlight>
+                        <span class="hl-icon" aria-hidden="true"><i class="fas fa-code-branch"></i></span>
+                        <div><h4>CI/CD</h4><p>Replaced manual copy and paste deployments with Git push triggered, approval gated Jenkins pipelines on <span class="nowrap">self-hosted</span> Gitea.</p></div>
+                    </article>
+                    <article class="hl" data-reveal data-tilt="5" data-spotlight>
+                        <span class="hl-icon" aria-hidden="true"><i class="fas fa-chart-line"></i></span>
+                        <div><h4>Observability</h4><p>Traced intermittent IIS outages to a memory leak in a <span class="nowrap">co-hosted</span> application with Prometheus and Grafana; the outages did not recur after the fix.</p></div>
+                    </article>
+                    <article class="hl" data-reveal data-tilt="5" data-spotlight>
+                        <span class="hl-icon" aria-hidden="true"><i class="fas fa-code-merge"></i></span>
+                        <div><h4>Source control</h4><p>Moved teams from local project folders to Gitea with full commit history and pull request reviews, and trained developers on Git workflows.</p></div>
+                    </article>
+                    <article class="hl" data-reveal data-tilt="5" data-spotlight>
+                        <span class="hl-icon" aria-hidden="true"><i class="fas fa-server"></i></span>
+                        <div><h4>Infrastructure</h4><p>6+ years running Linux, Windows Server, IIS, VMware, and Docker with Portainer for critical hospital systems.</p></div>
+                    </article>
                 </div>
             </div>
         </section>
@@ -182,7 +243,7 @@
             <div class="container">
                 <header class="sec-head">
                     <p class="kicker" data-reveal><span class="kicker-num">02</span><span class="kicker-path">~/experience</span></p>
-                    <h2 class="sec-title" data-split>Experience</h2>
+                    <h2 class="sec-title" data-scramble>Experience</h2>
                 </header>
 
                 <div class="timeline" id="timeline">
@@ -198,12 +259,12 @@
                                 </div>
                                 <span class="tl-period"><i class="far fa-calendar" aria-hidden="true"></i>2026 to Present</span>
                             </header>
-                            <ul class="points tl-list">
-                                <li>Built three hospital systems entirely with Claude Code and delivered them end to end: Transport Management, Project Management, and License Management.</li>
-                                <li>All three passed external VAPT (Vulnerability Assessment and Penetration Testing) with no major vulnerabilities, achieved through careful, <span class="nowrap">security-focused</span> prompting and <span class="nowrap">hands-on</span> security knowledge.</li>
-                                <li>Used agentic coding tools like Claude Code and Codex across the development lifecycle, from requirements through implementation, debugging, and iteration.</li>
-                                <li>Developed .NET 10 (ASP.NET Core) backends with ReactJS and Vue frontends on top of MySQL and PostgreSQL databases.</li>
-                                <li>Paired agentic development with DevOps guardrails: every codebase versioned in <span class="nowrap">self-hosted</span> Gitea, built and deployed through Jenkins CI/CD, and run as Docker containers on Linux.</li>
+                            <ul class="points tl-list" data-list>
+                                <li>Delivered three hospital applications end to end with Claude Code: Transport Management, Project Management, and License Management.</li>
+                                <li>Directed Claude Code and Codex across the development lifecycle, from requirements through implementation, debugging, and iteration.</li>
+                                <li>Built on .NET 10 (ASP.NET Core) with ReactJS and Vue frontends and MySQL and PostgreSQL databases.</li>
+                                <li>Cleared an external VAPT on all three applications with no major vulnerabilities, through careful, <span class="nowrap">security-focused</span> prompting and <span class="nowrap">hands-on</span> security knowledge.</li>
+                                <li>Shipped every release through <span class="nowrap">self-hosted</span> Gitea and Jenkins CI/CD into Docker containers on Linux.</li>
                             </ul>
                             <ul class="chips">
                                 <li class="chip">Claude Code</li>
@@ -231,7 +292,7 @@
                                 </div>
                                 <span class="tl-period"><i class="far fa-calendar" aria-hidden="true"></i>May 2026 to Present</span>
                             </header>
-                            <ul class="points tl-list">
+                            <ul class="points tl-list" data-list>
                                 <li>Implemented <span class="nowrap">self-hosted</span> CI/CD workflows using Gitea and Jenkins to modernize manual deployment processes.</li>
                                 <li>Automated application deployment workflows using Git based version control and approval based deployments.</li>
                                 <li>Configured Gitea repositories and Jenkins pipelines triggered through Git push events.</li>
@@ -252,7 +313,7 @@
                                 </div>
                                 <span class="tl-period"><i class="far fa-calendar" aria-hidden="true"></i>Nov 2019 to Apr 2026</span>
                             </header>
-                            <ul class="points tl-list">
+                            <ul class="points tl-list" data-list>
                                 <li>Managed and supported Linux and Windows server environments powering healthcare and administrative systems.</li>
                                 <li>Supported production IIS application environments and day to day infrastructure operations.</li>
                                 <li>Set up Prometheus and Grafana on Linux servers to gain operational visibility and accelerate troubleshooting.</li>
@@ -271,46 +332,42 @@
             <div class="container">
                 <header class="sec-head">
                     <p class="kicker" data-reveal><span class="kicker-num">03</span><span class="kicker-path">~/projects</span></p>
-                    <h2 class="sec-title" data-split>Projects</h2>
+                    <h2 class="sec-title" data-scramble>Projects</h2>
                 </header>
 
                 <div class="sub-head" id="agentic" data-reveal>
                     <h3>Agentic Software Development</h3>
                     <p>Built with Claude Code</p>
                 </div>
-                <article class="proj-group" data-reveal>
+                <article class="proj-group" data-reveal="wipe">
                     <header class="proj-group-head">
                         <div>
-                            <h3>Hospital Systems Built with Claude Code</h3>
+                            <h3>Hospital Applications Built with Claude Code</h3>
                             <p class="proj-meta"><i class="fas fa-hospital" aria-hidden="true"></i><span>G. Kuppuswamy Naidu Memorial Hospital <span class="dot-sep" aria-hidden="true">·</span> <span class="nowrap">2026</span></span></p>
                         </div>
-                        <div class="badges">
-                            <span class="badge badge-ok"><i class="fas fa-circle-check" aria-hidden="true"></i>Completed</span>
-                            <span class="badge badge-sec"><i class="fas fa-shield-halved" aria-hidden="true"></i>External VAPT passed</span>
-                        </div>
+                        <span class="badge badge-ok"><i class="fas fa-circle-check" aria-hidden="true"></i>Completed</span>
                     </header>
-                    <ul class="points">
-                        <li>Built three web applications for the hospital entirely with Claude Code, from requirements through implementation, debugging, and iteration.</li>
+                    <ul class="points" data-list>
+                        <li>Built end to end with Claude Code, from requirements through implementation, debugging, and iteration.</li>
                         <li><strong>Stack:</strong> .NET 10 (ASP.NET Core) backend, ReactJS and Vue frontends, MySQL and PostgreSQL databases.</li>
-                        <li><strong>Delivery:</strong> every codebase versioned in <span class="nowrap">self-hosted</span> Gitea, built and deployed by Jenkins, and run as Docker containers on Linux.</li>
-                        <li><strong>Security:</strong> all three passed external VAPT with no major vulnerabilities, achieved through <span class="nowrap">security-focused</span> prompting and <span class="nowrap">hands-on</span> security knowledge.</li>
+                        <li><strong>Delivery:</strong> versioned in <span class="nowrap">self-hosted</span> Gitea, built and deployed by Jenkins, and run as Docker containers on Linux.</li>
                     </ul>
-                    <div class="proj-systems" data-stagger="90">
-                        <div class="sys" data-reveal>
+                    <div class="proj-systems" data-stagger="110">
+                        <div class="sys" data-reveal="flip" data-tilt="6">
                             <span class="sys-icon" aria-hidden="true"><i class="fas fa-route"></i></span>
                             <div>
                                 <h4>Transport Management System</h4>
                                 <p>Web application for managing the hospital's transport operations.</p>
                             </div>
                         </div>
-                        <div class="sys" data-reveal>
+                        <div class="sys" data-reveal="flip" data-tilt="6">
                             <span class="sys-icon" aria-hidden="true"><i class="fas fa-diagram-project"></i></span>
                             <div>
                                 <h4>Project Management System</h4>
                                 <p>Web application for planning and tracking internal hospital projects.</p>
                             </div>
                         </div>
-                        <div class="sys" data-reveal>
+                        <div class="sys" data-reveal="flip" data-tilt="6">
                             <span class="sys-icon" aria-hidden="true"><i class="fas fa-certificate"></i></span>
                             <div>
                                 <h4>License Management System</h4>
@@ -335,64 +392,112 @@
 
                 <div class="sub-head" id="devops-projects" data-reveal>
                     <h3>DevOps Projects</h3>
-                    <p>Full case studies linked</p>
+                    <p>Problem, action, outcome</p>
                 </div>
-                <div class="proj-grid" data-stagger="90">
-                    <article class="proj-card" data-reveal data-spotlight>
-                        <div class="proj-card-head">
-                            <span class="proj-icon" aria-hidden="true"><i class="fas fa-code-branch"></i></span>
-                            <h4 style="view-transition-name: cs-cicd">CI/CD Pipeline Automation using Gitea and Jenkins</h4>
+                <div class="proj-stack" id="proj-stack">
+                    <article class="proj" style="--i:0" data-reveal>
+                        <div class="proj-card" data-spotlight>
+                            <div class="proj-main">
+                                <div class="proj-card-head">
+                                    <span class="proj-icon" aria-hidden="true"><i class="fas fa-code-branch"></i></span>
+                                    <div>
+                                        <span class="proj-num">01 / 04</span>
+                                        <h4 style="view-transition-name: cs-cicd">CI/CD Pipeline Automation using Gitea and Jenkins</h4>
+                                    </div>
+                                </div>
+                                <p class="proj-problem"><span>Problem</span>Manual copy and paste deployments created release risk, audit gaps, and slow recovery when something broke in production.</p>
+                                <p class="proj-outcome"><i class="fas fa-circle-check" aria-hidden="true"></i><span><b>Outcome</b>Manual deployments are gone on the new pipeline, and every release has an audit trail tying the commit, build, approver, and timestamp together.</span></p>
+                            </div>
+                            <div class="proj-side">
+                                <p class="proj-label">What I did</p>
+                                <ul class="points points-sm" data-list>
+                                    <li>Implemented self hosted CI/CD using Gitea and Jenkins to modernize legacy deployment workflows.</li>
+                                    <li>Configured Git push triggered pipelines with approval based production gates for safety and speed.</li>
+                                    <li>Trained development teams on Git workflows and standardized deployment practices.</li>
+                                </ul>
+                                <ul class="chips"><li class="chip">Gitea</li><li class="chip">Jenkins</li><li class="chip">Git</li><li class="chip">Docker</li><li class="chip">Linux</li></ul>
+                                <a class="link-arrow" href="project-cicd.html">Read case study <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                            </div>
+                            <div class="proj-shade" aria-hidden="true"></div>
                         </div>
-                        <p class="proj-problem"><span>Problem</span>Manual copy and paste deployments created release risk, audit gaps, and slow recovery when something broke in production.</p>
-                        <ul class="points points-sm">
-                            <li>Implemented self hosted CI/CD using Gitea and Jenkins to modernize legacy deployment workflows.</li>
-                            <li>Configured Git push triggered pipelines with approval based production gates for safety and speed.</li>
-                            <li>Trained development teams on Git workflows and standardized deployment practices.</li>
-                        </ul>
-                        <ul class="chips"><li class="chip">Gitea</li><li class="chip">Jenkins</li><li class="chip">Git</li><li class="chip">Docker</li><li class="chip">Linux</li></ul>
-                        <a class="link-arrow" href="project-cicd.html">Read case study <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
                     </article>
-                    <article class="proj-card" data-reveal data-spotlight>
-                        <div class="proj-card-head">
-                            <span class="proj-icon" aria-hidden="true"><i class="fas fa-code-merge"></i></span>
-                            <h4 style="view-transition-name: cs-gitea">Centralized Source Code Management using Gitea</h4>
+                    <article class="proj" style="--i:1" data-reveal>
+                        <div class="proj-card" data-spotlight>
+                            <div class="proj-main">
+                                <div class="proj-card-head">
+                                    <span class="proj-icon" aria-hidden="true"><i class="fas fa-code-merge"></i></span>
+                                    <div>
+                                        <span class="proj-num">02 / 04</span>
+                                        <h4 style="view-transition-name: cs-gitea">Centralized Source Code Management using Gitea</h4>
+                                    </div>
+                                </div>
+                                <p class="proj-problem"><span>Problem</span>Source code lived in local project folders with no review trail and no single source of truth.</p>
+                                <p class="proj-outcome"><i class="fas fa-circle-check" aria-hidden="true"></i><span><b>Outcome</b>Every internal project has full commit history, reviews happen through pull requests, and the platform became the base for CI/CD.</span></p>
+                            </div>
+                            <div class="proj-side">
+                                <p class="proj-label">What I did</p>
+                                <ul class="points points-sm" data-list>
+                                    <li>Deployed and configured a <span class="nowrap">self-hosted</span> Gitea server for centralized source code management.</li>
+                                    <li>Migrated development workflows from locally stored project folders to Git based version control practices.</li>
+                                    <li>Improved collaboration, source code traceability, and workflow standardization across teams.</li>
+                                </ul>
+                                <ul class="chips"><li class="chip">Gitea</li><li class="chip">Git</li><li class="chip">Linux</li></ul>
+                                <a class="link-arrow" href="project-gitea.html">Read case study <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                            </div>
+                            <div class="proj-shade" aria-hidden="true"></div>
                         </div>
-                        <p class="proj-problem"><span>Problem</span>Source code lived in local project folders with no review trail and no single source of truth.</p>
-                        <ul class="points points-sm">
-                            <li>Deployed and configured a <span class="nowrap">self-hosted</span> Gitea server for centralized source code management.</li>
-                            <li>Migrated development workflows from locally stored project folders to Git based version control practices.</li>
-                            <li>Improved collaboration, source code traceability, and workflow standardization across teams.</li>
-                        </ul>
-                        <ul class="chips"><li class="chip">Gitea</li><li class="chip">Git</li><li class="chip">Linux</li></ul>
-                        <a class="link-arrow" href="project-gitea.html">Read case study <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
                     </article>
-                    <article class="proj-card" data-reveal data-spotlight>
-                        <div class="proj-card-head">
-                            <span class="proj-icon" aria-hidden="true"><i class="fas fa-chart-line"></i></span>
-                            <h4 style="view-transition-name: cs-monitoring">Infrastructure Monitoring with Prometheus and Grafana</h4>
+                    <article class="proj" style="--i:2" data-reveal>
+                        <div class="proj-card" data-spotlight>
+                            <div class="proj-main">
+                                <div class="proj-card-head">
+                                    <span class="proj-icon" aria-hidden="true"><i class="fas fa-chart-line"></i></span>
+                                    <div>
+                                        <span class="proj-num">03 / 04</span>
+                                        <h4 style="view-transition-name: cs-monitoring">Infrastructure Monitoring with Prometheus and Grafana</h4>
+                                    </div>
+                                </div>
+                                <p class="proj-problem"><span>Problem</span>Production issues were discovered by users before the IT team had any signal something was wrong.</p>
+                                <p class="proj-outcome"><i class="fas fa-circle-check" aria-hidden="true"></i><span><b>Outcome</b>Root cause fixed at the source: memory stayed flat after the fix and the "Server Unavailable" errors did not recur.</span></p>
+                            </div>
+                            <div class="proj-side">
+                                <p class="proj-label">What I did</p>
+                                <ul class="points points-sm" data-list>
+                                    <li>Built an observability stack using Prometheus, Grafana, and node_exporter on Ubuntu Linux.</li>
+                                    <li>Created dashboards for infrastructure metrics visualization, troubleshooting, and operational monitoring.</li>
+                                    <li>Implemented windows_exporter monitoring for IIS and Windows server observability.</li>
+                                </ul>
+                                <ul class="chips"><li class="chip">Prometheus</li><li class="chip">Grafana</li><li class="chip">node_exporter</li><li class="chip">windows_exporter</li></ul>
+                                <a class="link-arrow" href="project-monitoring.html">Read case study <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                            </div>
+                            <div class="proj-shade" aria-hidden="true"></div>
                         </div>
-                        <p class="proj-problem"><span>Problem</span>Production issues were discovered by users before the IT team had any signal something was wrong.</p>
-                        <ul class="points points-sm">
-                            <li>Built an observability stack using Prometheus, Grafana, and node_exporter on Ubuntu Linux.</li>
-                            <li>Created dashboards for infrastructure metrics visualization, troubleshooting, and operational monitoring.</li>
-                            <li>Implemented windows_exporter monitoring for IIS and Windows server observability.</li>
-                        </ul>
-                        <ul class="chips"><li class="chip">Prometheus</li><li class="chip">Grafana</li><li class="chip">node_exporter</li><li class="chip">windows_exporter</li></ul>
-                        <a class="link-arrow" href="project-monitoring.html">Read case study <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
                     </article>
-                    <article class="proj-card" data-reveal data-spotlight>
-                        <div class="proj-card-head">
-                            <span class="proj-icon" aria-hidden="true"><i class="fas fa-cubes"></i></span>
-                            <h4 style="view-transition-name: cs-docker">Containerized Infrastructure with Docker and Portainer</h4>
+                    <article class="proj" style="--i:3" data-reveal>
+                        <div class="proj-card" data-spotlight>
+                            <div class="proj-main">
+                                <div class="proj-card-head">
+                                    <span class="proj-icon" aria-hidden="true"><i class="fas fa-cubes"></i></span>
+                                    <div>
+                                        <span class="proj-num">04 / 04</span>
+                                        <h4 style="view-transition-name: cs-docker">Containerized Infrastructure with Docker and Portainer</h4>
+                                    </div>
+                                </div>
+                                <p class="proj-problem"><span>Problem</span>Internal services ran on bare hosts with inconsistent configuration and no unified management plane.</p>
+                                <p class="proj-outcome"><i class="fas fa-circle-check" aria-hidden="true"></i><span><b>Outcome</b>The internal platform became reproducible: if a host dies, the containers are redeployed instead of rebuilding the OS configuration.</span></p>
+                            </div>
+                            <div class="proj-side">
+                                <p class="proj-label">What I did</p>
+                                <ul class="points points-sm" data-list>
+                                    <li>Configured Docker and Portainer for multi host containerized service management.</li>
+                                    <li>Managed Jenkins, MySQL, and phpMyAdmin containers with hands on lifecycle operations.</li>
+                                    <li>Worked with container networking, isolated environments, and service management through Portainer.</li>
+                                </ul>
+                                <ul class="chips"><li class="chip">Docker</li><li class="chip">Portainer</li><li class="chip">Jenkins</li><li class="chip">MySQL</li></ul>
+                                <a class="link-arrow" href="project-docker.html">Read case study <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                            </div>
+                            <div class="proj-shade" aria-hidden="true"></div>
                         </div>
-                        <p class="proj-problem"><span>Problem</span>Internal services ran on bare hosts with inconsistent configuration and no unified management plane.</p>
-                        <ul class="points points-sm">
-                            <li>Configured Docker and Portainer for multi host containerized service management.</li>
-                            <li>Managed Jenkins, MySQL, and phpMyAdmin containers with hands on lifecycle operations.</li>
-                            <li>Worked with container networking, isolated environments, and service management through Portainer.</li>
-                        </ul>
-                        <ul class="chips"><li class="chip">Docker</li><li class="chip">Portainer</li><li class="chip">Jenkins</li><li class="chip">MySQL</li></ul>
-                        <a class="link-arrow" href="project-docker.html">Read case study <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
                     </article>
                 </div>
             </div>
@@ -403,48 +508,48 @@
             <div class="container">
                 <header class="sec-head">
                     <p class="kicker" data-reveal><span class="kicker-num">04</span><span class="kicker-path">~/skills</span></p>
-                    <h2 class="sec-title" data-split>Skills</h2>
+                    <h2 class="sec-title" data-scramble>Skills</h2>
                 </header>
-                <dl class="skill-table" data-stagger="50">
+                <dl class="skill-table" data-scan>
                     <div class="skill-row" data-reveal>
                         <dt><span class="skill-icon" aria-hidden="true"><i class="fas fa-robot"></i></span>Agentic Coding</dt>
-                        <dd>Claude Code, OpenAI Codex, Agentic Software Development, Full Stack App Delivery</dd>
+                        <dd><span>Claude Code</span><span>OpenAI Codex</span><span>Agentic Software Development</span><span>Full Stack App Delivery</span></dd>
                     </div>
                     <div class="skill-row" data-reveal>
                         <dt><span class="skill-icon" aria-hidden="true"><i class="fas fa-laptop-code"></i></span>Application Development</dt>
-                        <dd>.NET 10 (ASP.NET Core), ReactJS, Vue.js, .NET Application Support</dd>
+                        <dd><span>.NET 10 (ASP.NET Core)</span><span>ReactJS</span><span>Vue.js</span><span>.NET Application Support</span></dd>
                     </div>
                     <div class="skill-row" data-reveal>
                         <dt><span class="skill-icon" aria-hidden="true"><i class="fas fa-shield-halved"></i></span>Security</dt>
-                        <dd>Security-Focused Prompting, Application Security, VAPT Readiness</dd>
+                        <dd><span>Security-Focused Prompting</span><span>Application Security</span></dd>
                     </div>
                     <div class="skill-row" data-reveal>
                         <dt><span class="skill-icon" aria-hidden="true"><i class="fas fa-code-branch"></i></span>CI/CD and Version Control</dt>
-                        <dd>Jenkins, Gitea, Git, Bash Scripting</dd>
+                        <dd><span>Jenkins</span><span>Gitea</span><span>Git</span><span>Bash Scripting</span></dd>
                     </div>
                     <div class="skill-row" data-reveal>
                         <dt><span class="skill-icon" aria-hidden="true"><i class="fas fa-cubes"></i></span>Containers</dt>
-                        <dd>Docker, Portainer, Container Lifecycle Management, Multi Host Management</dd>
+                        <dd><span>Docker</span><span>Portainer</span><span>Container Lifecycle Management</span><span>Multi Host Management</span></dd>
                     </div>
                     <div class="skill-row" data-reveal>
                         <dt><span class="skill-icon" aria-hidden="true"><i class="fas fa-database"></i></span>Databases and Web Servers</dt>
-                        <dd>MySQL, PostgreSQL, phpMyAdmin, IIS</dd>
+                        <dd><span>MySQL</span><span>PostgreSQL</span><span>phpMyAdmin</span><span>IIS</span></dd>
                     </div>
                     <div class="skill-row" data-reveal>
                         <dt><span class="skill-icon" aria-hidden="true"><i class="fas fa-chart-line"></i></span>Observability</dt>
-                        <dd>Prometheus, Grafana, node_exporter, windows_exporter</dd>
+                        <dd><span>Prometheus</span><span>Grafana</span><span>node_exporter</span><span>windows_exporter</span></dd>
                     </div>
                     <div class="skill-row" data-reveal>
                         <dt><span class="skill-icon" aria-hidden="true"><i class="fas fa-server"></i></span>Operating Systems</dt>
-                        <dd>Linux (Ubuntu), Windows Server, VMware, System Administration</dd>
+                        <dd><span>Linux (Ubuntu)</span><span>Windows Server</span><span>VMware</span><span>System Administration</span></dd>
                     </div>
                     <div class="skill-row" data-reveal>
                         <dt><span class="skill-icon" aria-hidden="true"><i class="fas fa-gears"></i></span>Practices</dt>
-                        <dd>Production Troubleshooting, Root Cause Analysis, Deployment Automation, Developer Enablement</dd>
+                        <dd><span>Production Troubleshooting</span><span>Root Cause Analysis</span><span>Deployment Automation</span><span>Developer Enablement</span></dd>
                     </div>
                     <div class="skill-row skill-row-learning" data-reveal>
                         <dt><span class="skill-icon" aria-hidden="true"><i class="fas fa-seedling"></i></span>Currently Learning</dt>
-                        <dd>AWS, Terraform, Kubernetes, Helm, Linux Networking</dd>
+                        <dd><span>AWS</span><span>Terraform</span><span>Kubernetes</span><span>Helm</span><span>Linux Networking</span></dd>
                     </div>
                 </dl>
             </div>
@@ -455,9 +560,9 @@
             <div class="container">
                 <header class="sec-head">
                     <p class="kicker" data-reveal><span class="kicker-num">05</span><span class="kicker-path">~/education</span></p>
-                    <h2 class="sec-title" data-split>Education</h2>
+                    <h2 class="sec-title" data-scramble>Education</h2>
                 </header>
-                <div class="edu-card" data-reveal>
+                <div class="edu-card" data-reveal data-spotlight>
                     <span class="edu-icon" aria-hidden="true"><i class="fas fa-graduation-cap"></i></span>
                     <div class="edu-body">
                         <h3>B.Sc Computer Science</h3>
@@ -473,7 +578,7 @@
             <div class="container">
                 <header class="sec-head">
                     <p class="kicker" data-reveal><span class="kicker-num">06</span><span class="kicker-path">~/contact</span></p>
-                    <h2 class="sec-title" data-split>Contact</h2>
+                    <h2 class="sec-title" data-scramble>Contact</h2>
                     <p class="sec-lead" data-reveal>Open to agentic development and DevOps opportunities. Based in Coimbatore, India, and open to relocation.</p>
                 </header>
                 <div class="contact-grid" data-stagger="80">
@@ -517,6 +622,6 @@
 
     <div class="toast" role="status" aria-live="polite"></div>
 
-    <script src="script.js?v=ebed866900" defer></script>
+    <script src="script.js?v=6c84fb0919" defer></script>
 </body>
 </html>
