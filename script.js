@@ -28,11 +28,9 @@
     const media = (q) => (window.matchMedia ? window.matchMedia(q) : { matches: false });
     const reduceMotion = media('(prefers-reduced-motion: reduce)').matches;
     const finePointer = media('(hover: hover) and (pointer: fine)').matches;
-    const hasIntro = root.classList.contains('has-intro');
     const $ = (s, c) => (c || doc).querySelector(s);
     const $$ = (s, c) => Array.prototype.slice.call((c || doc).querySelectorAll(s));
     const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
-    const lerp = (a, b, t) => a + (b - a) * t;
     const onChange = (mql, fn) => {
         if (mql.addEventListener) mql.addEventListener('change', fn);
         else if (mql.addListener) mql.addListener(fn);
@@ -254,7 +252,7 @@
         }
     }
 
-    /* ---------- Word splitting for headline reveals ---------- */
+    /* ---------- Word splitting for section title reveals ---------- */
     function splitWords(el) {
         let index = 0;
         const walk = (node) => {
@@ -294,292 +292,20 @@
             const step = parseInt(group.getAttribute('data-stagger'), 10) || 80;
             $$('[data-reveal]', group).forEach((el, i) => el.style.setProperty('--rd', (i * step) + 'ms'));
         });
-        const els = $$('[data-reveal], [data-split], [data-inview]');
+        const els = $$('[data-reveal], [data-split]');
         if (reduceMotion || !('IntersectionObserver' in window)) {
             els.forEach((el) => el.classList.add('is-in'));
             return;
         }
-        // Hero items revealed during the intro or headline entrance wait for it to
-        // finish; anything revealed later by scrolling animates straight away.
-        const heroReadyAt = performance.now() + (hasIntro ? 1900 : 650);
+        // Reveal once an element's top passes 90% of the viewport (tall cards never leave blank bands).
         const io = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (!entry.isIntersecting) return;
-                const el = entry.target;
-                const wait = heroReadyAt - performance.now();
-                if (wait > 0 && el.closest('.hero')) {
-                    const base = parseInt(el.style.getPropertyValue('--rd'), 10) || 0;
-                    el.style.setProperty('--rd', Math.round(base + wait) + 'ms');
-                }
-                el.classList.add('is-in');
-                io.unobserve(el);
+                entry.target.classList.add('is-in');
+                io.unobserve(entry.target);
             });
         }, { threshold: 0, rootMargin: '0px 0px -10% 0px' });
         els.forEach((el) => io.observe(el));
-    }
-
-    /* ---------- Number counters ---------- */
-    function initCounters() {
-        const els = $$('[data-count]');
-        if (!els.length || reduceMotion || !('IntersectionObserver' in window)) return;
-        const introEnd = performance.now() + (hasIntro ? 1900 : 500);
-        const run = (el) => {
-            const target = parseInt(el.getAttribute('data-count'), 10) || 0;
-            const start = performance.now();
-            if (target === 0) {
-                let last = 0;
-                const roll = (now) => {
-                    if (now - start < 950) {
-                        if (now - last > 65) {
-                            last = now;
-                            el.textContent = String(1 + Math.floor(Math.random() * 9));
-                        }
-                        requestAnimationFrame(roll);
-                    } else {
-                        el.textContent = '0';
-                    }
-                };
-                requestAnimationFrame(roll);
-                return;
-            }
-            const duration = 1300 + target * 60;
-            const tick = (now) => {
-                const k = clamp((now - start) / duration, 0, 1);
-                el.textContent = String(Math.round(target * (1 - Math.pow(1 - k, 4))));
-                if (k < 1) requestAnimationFrame(tick);
-            };
-            el.textContent = '0';
-            requestAnimationFrame(tick);
-        };
-        const io = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (!entry.isIntersecting) return;
-                io.unobserve(entry.target);
-                setTimeout(() => run(entry.target), Math.max(0, introEnd - performance.now()));
-            });
-        }, { threshold: 0.6 });
-        els.forEach((el) => io.observe(el));
-    }
-
-    /* ---------- Hero terminal: types the agent session ---------- */
-    function initTerminal() {
-        const term = $('[data-terminal]');
-        if (!term || reduceMotion) return;
-        const plan = $$('.tl', term).map((line) => {
-            const nodes = [];
-            const walker = doc.createTreeWalker(line, NodeFilter.SHOW_TEXT, null);
-            let n;
-            while ((n = walker.nextNode())) {
-                const typed = !!(n.parentNode && n.parentNode.classList && n.parentNode.classList.contains('t-text'));
-                nodes.push({ node: n, text: n.textContent, typed: typed });
-            }
-            return { line: line, nodes: nodes, kind: line.getAttribute('data-t') };
-        });
-        plan.forEach((p) => {
-            p.line.classList.add('is-pending');
-            if (p.kind === 'cmd') p.nodes.forEach((o) => { if (o.typed) o.node.textContent = ''; });
-        });
-        const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-        const typeLine = async (p) => {
-            p.line.classList.remove('is-pending');
-            p.line.classList.add('is-typing');
-            for (const o of p.nodes) {
-                if (!o.typed) continue;
-                for (let i = 1; i <= o.text.length; i++) {
-                    o.node.textContent = o.text.slice(0, i);
-                    await wait(o.text.charAt(i - 1) === ' ' ? 20 : 26 + Math.random() * 40);
-                }
-            }
-            await wait(220);
-            p.line.classList.remove('is-typing');
-        };
-        const run = async () => {
-            for (let i = 0; i < plan.length; i++) {
-                const p = plan[i];
-                if (p.kind === 'cmd') {
-                    await typeLine(p);
-                } else {
-                    await wait(plan[i - 1] && plan[i - 1].kind === 'cmd' ? 420 : 230);
-                    p.line.classList.remove('is-pending');
-                    p.line.classList.add('is-out');
-                }
-            }
-            plan[plan.length - 1].line.classList.add('is-last');
-        };
-        // Type when the terminal is actually visible (it sits below the fold on phones).
-        const readyAt = performance.now() + (hasIntro ? 2100 : 900);
-        const start = () => setTimeout(run, Math.max(0, readyAt - performance.now()));
-        if (!('IntersectionObserver' in window)) {
-            start();
-            return;
-        }
-        const io = new IntersectionObserver((entries) => {
-            if (!entries[0].isIntersecting) return;
-            io.disconnect();
-            start();
-        }, { threshold: 0.4 });
-        io.observe(term);
-    }
-
-    /* ---------- Marquee: speed and direction follow scroll velocity ---------- */
-    function initMarquee() {
-        const band = $('.marquee');
-        if (!band) return;
-        const tracks = $$('.marquee-track', band);
-        tracks.forEach((t) => { t.innerHTML = t.innerHTML + t.innerHTML; });
-        if (reduceMotion) return;
-        band.classList.add('is-ready');
-        let anims = null;
-        let visible = false;
-        let raf = 0;
-        let lastY = window.scrollY || 0;
-        let vel = 0;
-        let skew = 0;
-        let lastRate = 1;
-        const loop = () => {
-            raf = 0;
-            if (!anims) {
-                anims = tracks.map((t) => (t.getAnimations ? t.getAnimations()[0] : null));
-                // Start deep into the timeline so reverse playback never hits the start.
-                anims.forEach((a) => { if (a) a.currentTime = 4e7; });
-            }
-            const y = window.scrollY || 0;
-            vel = lerp(vel, y - lastY, 0.1);
-            lastY = y;
-            const speed = 1 + Math.min(Math.abs(vel) * 0.09, 4);
-            const rate = (vel < -0.6 ? -1 : 1) * speed;
-            if (Math.abs(rate - lastRate) > 0.02) {
-                anims.forEach((a) => { if (a) a.playbackRate = rate; });
-                lastRate = rate;
-            }
-            skew = lerp(skew, clamp(vel * 0.12, -7, 7), 0.12);
-            band.style.setProperty('--skew', skew.toFixed(2));
-            if (visible) raf = requestAnimationFrame(loop);
-        };
-        if (!('IntersectionObserver' in window)) return;
-        new IntersectionObserver((entries) => {
-            visible = entries[0].isIntersecting;
-            if (visible && !raf) {
-                lastY = window.scrollY || 0;
-                raf = requestAnimationFrame(loop);
-            }
-        }).observe(band);
-    }
-
-    /* ---------- Build cards: sticky stack that recedes as the next card lands ---------- */
-    function initStack() {
-        const stack = $('#build-stack');
-        if (!stack || reduceMotion) return;
-        const items = $$('.build', stack);
-        const cards = items.map((it) => $('.build-card', it));
-        if (items.length < 2) return;
-        let on = false;
-        let tops = [];
-        const measure = () => {
-            stack.classList.remove('stack-on');
-            cards.forEach((c) => c.style.removeProperty('--sp'));
-            const navH = parseFloat(getComputedStyle(root).getPropertyValue('--nav-h')) || 76;
-            on = cards.every((c, i) => c.offsetHeight + navH + 6 + i * 20 + 24 <= vh);
-            stack.classList.toggle('stack-on', on);
-            tops = items.map((it) => parseFloat(getComputedStyle(it).top) || 0);
-        };
-        measure();
-        resizers.push(measure);
-        readers.push(() => {
-            if (!on) return null;
-            const rects = items.map((it) => it.getBoundingClientRect());
-            const values = items.map((it, i) => {
-                if (i === items.length - 1) return 0;
-                const start = tops[i] + rects[i].height;
-                const end = tops[i + 1];
-                return clamp((start - rects[i + 1].top) / Math.max(1, start - end), 0, 1);
-            });
-            return () => cards.forEach((c, i) => c.style.setProperty('--sp', values[i].toFixed(3)));
-        });
-    }
-
-    /* ---------- Pipeline: pinned scroll-driven track on desktop ---------- */
-    function initPipeline() {
-        const sec = $('#pipeline');
-        if (!sec) return;
-        const pin = $('.pipe-pin', sec);
-        const inner = $('.pipe-inner', sec);
-        const line = $('.pipe-line', sec);
-        const steps = $$('.pipe-step', sec);
-        const nodes = steps.map((s) => $('.pipe-node', s));
-        const count = $('.pipe-count b', sec);
-        const total = steps.length;
-        const wide = media('(min-width: 961px)');
-        if (!pin || !inner || !line || !total) return;
-        if (reduceMotion) {
-            steps.forEach((s) => s.classList.add('is-done'));
-            sec.style.setProperty('--pp', '1');
-            if (count) count.textContent = String(total).padStart(2, '0');
-            return;
-        }
-        let mode = 'flow';
-        let active = -2;
-        const measure = () => {
-            sec.classList.remove('pin-on');
-            mode = wide.matches ? 'row' : 'column';
-            if (wide.matches) {
-                sec.classList.add('pin-on');
-                if (inner.offsetHeight + 24 > vh) sec.classList.remove('pin-on');
-                else mode = 'pin';
-            }
-            // Vertical layout: the track runs exactly from the first node centre to the last.
-            if (mode === 'column') {
-                line.style.bottom = 'auto';
-                line.style.height = (nodes[total - 1].offsetTop - nodes[0].offsetTop) + 'px';
-            } else {
-                line.style.bottom = '';
-                line.style.height = '';
-            }
-            sec.style.setProperty('--lw', String(line.offsetWidth));
-            sec.style.setProperty('--lh', String(line.offsetHeight));
-            active = -2;
-        };
-        measure();
-        resizers.push(measure);
-        const smooth = (t) => t * t * (3 - 2 * t);
-        const seg = total - 1;
-        readers.push(() => {
-            let pp;
-            let idx;
-            if (mode === 'pin') {
-                const r = pin.getBoundingClientRect();
-                const p = clamp(-r.top / Math.max(1, r.height - vh), 0, 1);
-                const raw = p * seg;
-                const k = Math.min(Math.floor(raw), seg - 1);
-                const f = raw - k;
-                const eased = f < 0.3 ? 0 : f > 0.8 ? 1 : smooth((f - 0.3) / 0.5);
-                pp = (k + eased) / seg;
-                idx = Math.floor(pp * seg + 0.001);
-            } else if (mode === 'row') {
-                const r = pin.getBoundingClientRect();
-                pp = clamp((vh * 0.8 - r.top) / Math.max(1, r.height * 0.75), 0, 1);
-                idx = Math.floor(pp * seg + 0.001);
-            } else {
-                const r = line.getBoundingClientRect();
-                const mark = vh * 0.62;
-                pp = clamp((mark - r.top) / Math.max(1, r.height), 0, 1);
-                idx = -1;
-                for (let i = 0; i < total; i++) {
-                    if (nodes[i].getBoundingClientRect().top + 24 < mark) idx = i;
-                }
-            }
-            const changed = idx !== active;
-            return () => {
-                sec.style.setProperty('--pp', pp.toFixed(4));
-                if (!changed) return;
-                active = idx;
-                steps.forEach((s, i) => {
-                    s.classList.toggle('is-done', i < idx);
-                    s.classList.toggle('is-active', i === idx);
-                });
-                if (count) count.textContent = String(Math.max(1, idx + 1)).padStart(2, '0');
-            };
-        });
     }
 
     /* ---------- Experience timeline: the spine draws itself ---------- */
@@ -606,47 +332,6 @@
         });
     }
 
-    /* ---------- Hero depth: scroll parallax plus pointer tilt ---------- */
-    function initHero() {
-        const hero = $('#home');
-        if (!hero || reduceMotion) return;
-        const stage = $('.hv-stage', hero);
-        const bg = $('.hero-bg', hero);
-        readers.push((y) => {
-            if (y > vh * 1.3) return null;
-            return () => {
-                if (bg) bg.style.transform = 'translate3d(0,' + (y * 0.28).toFixed(1) + 'px,0)';
-                if (stage) stage.style.setProperty('--sy', y.toFixed(1));
-            };
-        });
-        if (!finePointer || !stage) return;
-        let tx = 0;
-        let ty = 0;
-        let cx = 0;
-        let cy = 0;
-        let raf = 0;
-        const tick = () => {
-            cx = lerp(cx, tx, 0.075);
-            cy = lerp(cy, ty, 0.075);
-            stage.style.setProperty('--px', cx.toFixed(3));
-            stage.style.setProperty('--py', cy.toFixed(3));
-            raf = (Math.abs(cx - tx) > 0.002 || Math.abs(cy - ty) > 0.002) ? requestAnimationFrame(tick) : 0;
-        };
-        hero.addEventListener('pointermove', (e) => {
-            tx = (e.clientX / vw) * 2 - 1;
-            ty = (e.clientY / vh) * 2 - 1;
-            const r = hero.getBoundingClientRect();
-            hero.style.setProperty('--hx', (e.clientX - r.left) + 'px');
-            hero.style.setProperty('--hy', (e.clientY - r.top) + 'px');
-            if (!raf) raf = requestAnimationFrame(tick);
-        });
-        hero.addEventListener('pointerleave', () => {
-            tx = 0;
-            ty = 0;
-            if (!raf) raf = requestAnimationFrame(tick);
-        });
-    }
-
     /* ---------- Pointer niceties: magnetic buttons, card spotlight ---------- */
     function initPointer() {
         if (!finePointer || reduceMotion) return;
@@ -655,7 +340,7 @@
                 const r = el.getBoundingClientRect();
                 const x = e.clientX - (r.left + r.width / 2);
                 const y = e.clientY - (r.top + r.height / 2);
-                el.style.transform = 'translate3d(' + (x * 0.2).toFixed(1) + 'px,' + (y * 0.28).toFixed(1) + 'px,0)';
+                el.style.transform = 'translate3d(' + (x * 0.18).toFixed(1) + 'px,' + (y * 0.25).toFixed(1) + 'px,0)';
             });
             el.addEventListener('pointerleave', () => { el.style.transform = ''; });
         });
@@ -668,30 +353,13 @@
         });
     }
 
-    /* ---------- SMIL animations only run while visible ---------- */
-    function initSvgPlayback() {
-        const svgs = $$('svg').filter((s) => s.pauseAnimations && s.querySelector('animateMotion, animate'));
-        if (!svgs.length) return;
-        if (reduceMotion || !('IntersectionObserver' in window)) {
-            if (reduceMotion) svgs.forEach((s) => s.pauseAnimations());
-            return;
-        }
-        const io = new IntersectionObserver((entries) => {
-            entries.forEach((e) => {
-                if (e.isIntersecting) e.target.unpauseAnimations();
-                else e.target.pauseAnimations();
-            });
-        });
-        svgs.forEach((s) => io.observe(s));
-    }
-
-    /* ---------- Pause decorative loops in sections that are off screen ---------- */
+    /* ---------- Pause the header's decorative loops when it is off screen ---------- */
     function initOffscreenPause() {
         if (!('IntersectionObserver' in window)) return;
         const io = new IntersectionObserver((entries) => {
             entries.forEach((e) => e.target.classList.toggle('is-offscreen', !e.isIntersecting));
         }, { rootMargin: '10% 0px' });
-        $$('.hero, .security, .contact').forEach((el) => io.observe(el));
+        $$('.hero').forEach((el) => io.observe(el));
     }
 
     /* ---------- Copy email with a toast ---------- */
@@ -716,18 +384,9 @@
         }));
     }
 
-    /* ---------- Intro can be skipped; it is removed once finished ---------- */
-    function initIntro() {
-        const intro = $('.intro');
-        if (!intro || !hasIntro) return;
-        const done = () => root.classList.add('intro-done');
-        intro.addEventListener('click', done);
-        setTimeout(done, 2400);
-    }
-
     /* ---------- Case study pages reuse the reveal system ---------- */
     function initSubpages() {
-        // The hero stays visible so its title can morph in from the case study list.
+        // The subpage hero stays visible so its title can morph in from the project list.
         $$('.content-block, .next-projects').forEach((el) => {
             if (!el.hasAttribute('data-reveal')) el.setAttribute('data-reveal', '');
         });
@@ -741,18 +400,10 @@
         initNav();
         initProgress();
         initReveal();
-        initCounters();
-        initTerminal();
-        initMarquee();
-        initStack();
-        initPipeline();
         initTimeline();
-        initHero();
         initPointer();
-        initSvgPlayback();
         initOffscreenPause();
         initCopy();
-        initIntro();
         window.__sgReady = true;
         requestFrame();
         window.addEventListener('load', remeasure);
