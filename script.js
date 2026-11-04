@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     const revealTargets = document.querySelectorAll(
-        '.skill-category, .project-card, .featured-card, .timeline-item, .learning-card, .education-card, .contact-card, .stat-tile, .content-block'
+        '.skill-category, .project-card, .featured-card, .build-card, .agentic-panel, .timeline-item, .learning-card, .education-card, .contact-card, .stat-tile, .content-block'
     );
     revealTargets.forEach(el => el.classList.add('reveal'));
 
